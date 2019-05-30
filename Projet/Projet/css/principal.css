@@ -1,0 +1,247 @@
+
+/*Ce css est commun à l'ensemble des pages du site*/
+
+
+.navbar-toggle{
+	border: 2px solid black;
+}
+
+header{
+	background-color: #1C3353;
+}
+
+#entête{
+  margin-left: auto;
+  margin-right: auto;
+  width: 700px;
+  text-align: center;
+  padding-right: 110px;
+}
+
+h1,h3{
+	padding-top: 8px;
+	font-style: italic;
+	font-weight: bold;
+	color:#5EBCB5;
+}
+
+h1{
+	font-family: Baskerville;
+	letter-spacing: 2px;
+	font-size: 45px;
+}
+
+h3{
+	font-family: Avenir;
+	padding-bottom: 20px;
+}
+
+#entête .imageGauche{
+	padding-right: 10px;
+}
+
+.imageGauche{
+	float:left;
+	margin-top: 20px;
+}
+
+.menu{
+	background-color: #A6C1E8;	/*Pas besoin de mettre le margin-top*/
+}
+
+.navbar{
+	background-color: #A6C1E8;	
+	margin-bottom: -10px;
+}
+	
+.navbar-nav {		/*Pour centrer le menu*/
+	width: 100%;
+    text-align: center;
+}
+
+.navbar-nav li {	/*Pour centrer le menu*/
+    float: none;
+    display: inline-block;
+}
+
+.navbar-nav li{
+	color:#2B6CA3;
+	font-family: Spinnaker;	
+	font-size: 20px;
+	padding-left: 15px;
+}
+
+.navbar-nav li:active{
+	color:white;
+}
+ 
+.navbar-nav li:hover{
+	color:blue;
+}
+
+.contact{
+	background-color: #1C3353;	
+	min-height: 5em;
+}
+
+#réseauxSociaux{
+	margin-left: auto;
+	margin-right: auto;
+	width: 170px;
+}
+
+.facebook, .google, .twitter, .pinterest{
+	width : 40px;
+    height : 40px;	
+    padding-left: 15px;
+    display : block; /*Très important, sinon les dimensions ne sont pas prises en compte*/	
+}
+
+.facebook{
+    background : url(../images/footer/facebook.png) no-repeat;
+    background-size: auto 80%;
+}
+
+.twitter{
+    background : url(../images/footer/twitter.png) no-repeat;
+    background-size: auto 80%;
+}
+
+.google{
+    background : url(../images/footer/google.png) no-repeat;
+    background-size: auto 80%;
+}
+
+.pinterest{
+    background : url(../images/footer/pinterest.png) no-repeat;
+    background-size: auto 80%;
+}
+
+.facebook:hover, .twitter:hover, .google:hover, .pinterest:hover{
+	cursor: pointer;
+}
+
+.facebook a{
+	margin-left: -20px;
+	display: block;
+  	height: 80%;
+}
+
+.twitter a{
+	margin-left: -20px;
+	display: block;
+  	height: 80%;
+}
+
+.google a{
+	margin-left: -20px;
+	display: block;
+  	height: 80%;
+}
+
+.pinterest a{
+	margin-left: -20px;
+	display: block;
+  	height: 80%;
+}
+
+.facebook:hover{
+	background : url(../images/footer/hoverfacebook.png) no-repeat;
+	background-size: auto 90%;
+}
+
+.twitter:hover{
+	background : url(../images/footer/hovertwitter.png) no-repeat;
+	background-size: auto 90%;
+}
+
+.google:hover{
+	background : url(../images/footer/hovergoogle.png) no-repeat;
+	background-size: auto 90%;
+}
+
+.pinterest:hover{
+	background : url(../images/footer/hoverpinterest.png) no-repeat;
+	background-size: auto 90%;
+}
+
+
+
+    @media screen and (max-width: 767px) {
+      .nav {
+		top: 15px;  /*72*/
+		right: 90px;	/*30*/
+    	position: fixed;
+    	width: 250px;
+    	z-index: 1000;	/*pour que le menu soit visible au premier plan*/
+	}
+
+	.menu button {	
+		cursor: pointer;
+		background-color: rgba(15, 15, 15, 0.7);
+		color: #FCDD44;
+		font-size: 30px;
+		position: fixed;
+		top: 15px;
+		right: 1px;
+		padding: 6px 15px;
+		z-index: 1000;
+		float: right;
+		border:none;
+	}
+
+	.navbar-nav li{
+		display: block;
+	}
+
+	.navbar-nav li a {
+		color: white;
+		background-color: rgba(15, 15, 15, 0.7);
+	    display: block;
+	   
+	}
+
+	.navbar-nav li a:hover {
+		color: yellow;
+		background-color: rgba(15, 15, 15, 0.7);
+	}
+
+      .navbar-nav ul{
+      	position: fixed;
+      	float: none;
+      	top: 69px;
+	    right: 55px;
+		z-index: 1000;
+      }
+
+    .navbar{
+    	margin-bottom: 0;
+    }
+
+    }
+
+	@media (max-width: 480px){
+
+	  #entête{
+	  	padding-left: 20%;
+	  	font-size: 20px;
+      	width: 380px;
+      }
+      #entête .imageGauche img{
+      	display: none;
+      }
+
+      html{
+      	overflow-x: hidden;
+      }
+
+	}
+
+	@media (max-width: 700px) and (min-width: 481px){
+
+	  #entête{
+      	width: 600px;
+      	margin-left: 0;
+      }
+
+	}
