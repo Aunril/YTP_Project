@@ -86,28 +86,41 @@ hr{
 	width: 350px;
 }
 
+.carousel .btn{
+    border-radius: 0px;
+    border: 3px solid white;
+    background-color: #A22B0D;
+    color: white;    
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: "Work Sans","Open Sans","Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+}
+
+.carousel .btn:hover{
+	border: 3px solid #A22B0D;
+    transition: 0.3s;
+}
+
 .itemsAccueil .btn{
-    background-color: white;
-    border-color: #A22B0D;
     border-radius: 0px;
     border: 3px solid #A22B0D;
-    color: black;
+    background-color: #A22B0D;
+    color: white;    
     font-weight: bold;
     text-transform: uppercase;
     font-family: "Work Sans","Open Sans","Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
 }
 
 .itemsAccueil .btn:hover{
-    background-color: #A22B0D;
-    color: white;
+    background-color: white;
+    border-color: #A22B0D;
+    color: #A22B0D;
     transition: 0.3s;
 }
 
 
 .social-networks{
-	margin-top: 40px;
-	padding-top: 30px;
-	height: 200px;
+	height: 150px;
 	background-image: url("../images/logobackground2.png");
 }
 
@@ -115,9 +128,24 @@ hr{
 	width: 70%;
 }
 
-#terminator img{
-	height: 300px;
-	float: right;
+#imgSuperman {
+	height: 400px;
+    position: relative;
+    left: 73%;
+    top:150px;
+}
+
+.footer{
+	margin-top: -300px;
+}
+
+.footer h3{
+	color: #E4E4E4;
+	text-transform: uppercase;
+	font-family: "Work Sans","Open Sans","Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+	font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 2px;	
 }
 
 footer{
