@@ -134,13 +134,13 @@ hr{
 }
 
 
-.social-networks{
+.bandeau{
 	height: 150px;
 	background-image: url("../images/logobackground2.png");
 }
 
 .social-networks img{
-	width: 70%;
+	width: 30px;
 }
 
 #imgSuperman {
