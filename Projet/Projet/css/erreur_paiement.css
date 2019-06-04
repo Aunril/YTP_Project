@@ -1,0 +1,28 @@
+#erreur_paiement p {
+font-size: 30px;
+margin-top: 150px;
+	
+}
+
+#erreur_paiement h1 {
+	text-align: center;
+	font-family: Chalkduster, fantasy;
+}
+
+#erreur_paiement .row {
+	margin-left: 50px;
+	}
+
+#erreur_paiement #imgTristesse {
+	height: 500px;
+	margin-left: -20px;	
+}
+
+#erreur_paiement {
+	border: 4px dashed ;
+	margin-left: 400px;
+	margin-right: 400px;
+	margin-top: 0px;
+	margin-bottom: 50px;
+
+}
