@@ -1,21 +1,38 @@
-.signUp{
+body{
+	background-color: #F6F6F6;
+}
 
+#bandeau{
+	background-color: white;
+	padding-bottom: 30px;
+	border-bottom: 1px solid grey;
+}
+
+hr{
+	margin-bottom: 0;
+}
+
+#infosConnexion{
+	padding-top: 70px;
+	margin-top: 0;
+}
+
+.signUp{
 	margin-top: 50px;
 	height: 800px;
-	border: 2px solid black;
-
+	border: 1px solid grey;
+	background-color: white;
 }
 
 .signIn{
-
 	margin-top: 50px;
 	height: 400px;
-	border: 2px solid black;
-
+	border: 1px solid grey;
+	background-color: white;
 }
 
 #separateur{
 	margin-top: 50px;
 	height: 800px;
-	border-right: 2px solid grey;
+	border-right: 1px solid grey;
 }
