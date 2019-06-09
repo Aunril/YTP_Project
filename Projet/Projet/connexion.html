@@ -33,46 +33,60 @@
 
       <form action="/action_page.php">
         <div class="form-group">
-          <label for="email">E-mail</label>
-          <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+          <label for="emailco">E-mail</label>
+          <input type="email" class="form-control" id="emailco" placeholder="Entrez l'e-mail" name="emailco">
         </div>
         <div class="form-group">
-          <label for="pwd">Mot de passe </label>
-          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+          <label for="pwdco">Mot de passe </label>
+          <input type="password" class="form-control" id="pwdco" placeholder="Entrez le mot de passe" name="pwdco">
         </div>
-        <button type="submit" class="btn btn-default">Se Connecter</button>
+        <div class="col-md-12 text-center"> 
+         <button type="submit" class="btn btn-default btnArticle">Se Connecter</button>
+        </div>
       </form>
 
-      <a>Mot de passe oublié ?</a>
+      <div id="mdpOubli">
+        <a>Mot de passe oublié ?</a>
+      </div>
     </div>   
 
-    <div class="col-md-1" id="separateur"></div>
+    <div class="col-md-1 hidden-sm" id="separateur"></div>
 
     <div class="col-md-5 col-md-offset-1 signUp">
       <h2>S'inscrire</h2>
         <p>Inscription rapide et gratuite.</p>
           <form action="/action_page.php">
           <div class="form-group">
-            <label for="email">E-mail</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+            <label for="emailins">E-mail</label>
+            <input type="email" class="form-control" id="emailins" placeholder="Entrez l'e-mail" name="emailins">
           </div>
           <div class="form-group">
-            <label for="pwd">Mot de passe </label>
-            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+            <label for="pwdins">Mot de passe</label>
+            <input type="password" class="form-control" id="pwdins" placeholder="Entrez le mot de passe" name="pwdins">
           </div>
           <div class="form-group">
-            <label for="pwd">Adresse</label>
-            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+            <label for="prenom">Prénom</label>
+            <input type="text" class="form-control" id="prenom" placeholder="Entrez votre prénom" name="prenom">
           </div>
           <div class="form-group">
-            <label for="pwd">Code Postal</label>
-            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+            <label for="nom">Nom</label>
+            <input type="text" class="form-control" id="nom" placeholder="Entrez votre nom" name="nom">
           </div>
           <div class="form-group">
-            <label for="pwd">Ville</label>
-            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+            <label for="adresse">Adresse</label>
+            <input type="text" class="form-control" id="adresse" placeholder="Entrez votre adresse" name="adresse">
           </div>
-          <button type="submit" class="btn btn-default">Créer un compte</button>
+          <div class="form-group">
+            <label for="cp">Code Postal</label>
+            <input type="number" class="form-control" id="cp" placeholder="Entrez votre code postal" name="cp">
+          </div>
+          <div class="form-group">
+            <label for="ville">Ville</label>
+            <input type="text" class="form-control" id="ville" placeholder="Entrez votre ville" name="ville">
+          </div>
+          <div class="col-md-12 text-center">
+            <button type="submit" class="btn btn-default btnArticle">Créer un compte</button>
+          </div>
         </form>  
     </div>
  
@@ -113,8 +127,8 @@
           <p>BLA</p>
         </div>
         <div class="col-md-2 social-networks">
-      <div class="col-md-1"><a href="http://facebook.fr"><img class="img" src="images/png/facebook-white.png" alt="facebook"></a></div>
-      <div class="col-md-1"><a href="http://twitter.fr"><img class="img" src="images/png/twitter-white.png" alt="twitter"></a></div>
+      <div class="col-md-4 col-xs-1"><a href="http://facebook.fr"><img class="img-responsive" src="images/png/facebook-white.png" alt="facebook"></a></div>
+      <div class="col-md-4 col-xs-1"><a href="http://twitter.fr"><img class="img-responsive" src="images/png/twitter-white.png" alt="twitter"></a></div>
         </div>
       </div>
     </footer>
