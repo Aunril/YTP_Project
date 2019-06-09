@@ -20,19 +20,47 @@ hr{
 .signUp{
 	margin-top: 50px;
 	height: 800px;
-	border: 1px solid grey;
 	background-color: white;
+	box-shadow: 3px 3px 10px 0px #9b9b9b;
 }
 
 .signIn{
 	margin-top: 50px;
 	height: 400px;
-	border: 1px solid grey;
 	background-color: white;
+	box-shadow: 3px 3px 10px 0px #9b9b9b;
+}
+
+.signIn p{
+	margin-bottom: 40px;
+}
+
+#mdpOubli {
+	text-align: center;
+
+}
+
+#mdpOubli a:hover{
+	text-decoration: none;
+	color: #A22B0D;
+}
+
+.signUp p{
+	margin-bottom: 40px;
+}
+
+form{
+	text-transform: uppercase;
+}
+
+form .btn{
+	margin-top: 30px;
+	margin-bottom: 30px;
+	text-align: center;
 }
 
 #separateur{
 	margin-top: 50px;
 	height: 800px;
-	border-right: 1px solid grey;
+	border-right: 1px solid black;
 }

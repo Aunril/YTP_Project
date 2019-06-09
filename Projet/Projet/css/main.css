@@ -1,3 +1,7 @@
+a {
+	cursor: pointer;
+}
+
 #nomSite{
 	margin-top: 15%;
 }
@@ -116,7 +120,7 @@ hr{
     transition: 0.3s;
 }
 
-.itemsAccueil .btn{
+.btnArticle{
     border-radius: 0px;
     border: 3px solid #A22B0D;
     background-color: #A22B0D;
@@ -126,7 +130,7 @@ hr{
     font-family: "Work Sans","Open Sans","Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
 }
 
-.itemsAccueil .btn:hover{
+.btnArticle:hover{
     background-color: white;
     border-color: #A22B0D;
     color: #A22B0D;
@@ -137,10 +141,6 @@ hr{
 .bandeau{
 	height: 150px;
 	background-image: url("../images/logobackground2.png");
-}
-
-.social-networks img{
-	width: 30px;
 }
 
 #imgSuperman {
