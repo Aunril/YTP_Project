@@ -1,6 +1,6 @@
 Structure du site en MVC (modèle - vue - contrôleur)
 
-Le site se lance à l'aide du index.php
+Le site se lance à l'aide de index.php
 
 Des templates pour le header & footer des pages ont été créés pour ne pas dupliquer le code
 
