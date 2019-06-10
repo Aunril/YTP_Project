@@ -87,7 +87,7 @@ hr{
 }
 
 .itemsAccueil img{
-	width: 350px;
+	display: unset;
 }
 
 .carousel-inner > .item > img,
@@ -113,6 +113,7 @@ hr{
     font-weight: bold;
     text-transform: uppercase;
     font-family: "Work Sans","Open Sans","Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+    transition: 0.3s;
 }
 
 .carousel .btn:hover{
@@ -128,6 +129,7 @@ hr{
     font-weight: bold;
     text-transform: uppercase;
     font-family: "Work Sans","Open Sans","Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+    transition: 0.3s;
 }
 
 .btnArticle:hover{

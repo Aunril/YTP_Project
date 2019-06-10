@@ -15,13 +15,104 @@
 }
 
 #enteteDC {
-	background-image: url("../images/dc.jpg");
+	background-image: url("../images/DCcomics/dc.jpg");
+}
+
+#enteteMarvel {
+	background-image: url("../images/marvel/marvel.jpg");
 }
 
 .items h4{
 	font-weight: bold;
 }
 
+.items img{
+	display: unset;
+}
+
 .items{
 	margin-bottom: 50px;
+}
+
+
+
+/*Page produit unique*/
+
+#nomProduit{
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	color: #A22B0D;
+}
+
+#nomProduit h2{
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+#Details{
+	margin-top: -30px;
+}
+
+.titreDetails h4{
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #A22B0D;
+    text-align: center;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.btnAjoutPanier{
+	margin-top: 50%;
+    border-radius: 0px;
+    border: 3px solid #56C129;
+    background-color: #56C129;
+    color: white;    
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: "Work Sans","Open Sans","Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+    transition: 0.3s;
+}
+
+.btnAjoutPanier:hover{
+    background-color: white;
+    border-color: #56C129;
+    color: #56C129;
+    transition: 0.3s;
+}
+
+.infosDetails{
+	margin-top: 5px;
+	margin-left: -15px;
+	font-size: 15px;
+}
+
+.infosDescription{
+	margin-top: 5px;
+	font-size: 15px;
+}
+
+.categorie{
+	font-weight: bold;
+	color: #A22B0D;
+}
+
+
+/*Diapo*/
+
+.diapo{
+	width : 65%;
+	height : 400px;
+}
+
+.miniatures{
+	margin-top: 30px;
+}
+
+.miniature{
+	width : 100px;
+	height : 70px;
 }
