@@ -4,7 +4,6 @@
   premier affichage du site boutique
 */
 
-
 //premier affichage de la page
 function accueil(){
 	require("vue/accueil.tpl");
@@ -36,6 +35,10 @@ function films(){
 
 function panier(){
 
+}
+
+function produit(){
+	require("vue/produit.tpl");
 }
 
 

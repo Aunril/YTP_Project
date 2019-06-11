@@ -35,9 +35,8 @@ hr{
 	margin-bottom: 40px;
 }
 
-#mdpOubli {
+.msgErreur{
 	text-align: center;
-
 }
 
 #mdpOubli a:hover{

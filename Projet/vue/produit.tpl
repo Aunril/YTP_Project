@@ -13,7 +13,7 @@
     <link href="vue/css/main.css" rel="stylesheet">
     <link href="vue/css/produits.css" rel="stylesheet">
 
-    <title>Produit - Striker Eureka</title>
+    <title><?php echo $informations['nom'];?> - Striker Eureka</title>
 </head>
   
 
@@ -24,48 +24,61 @@
 
   <hr>
 
-
   <div class="container">
 
         <div class="row" id="nomProduit">
-          <h2>Emma Frost</h2>
+          <h2><?php echo $informations['nom'];?></h2>
         </div>
 
         <!-- main slider carousel -->
         <div class="row col-md-10 col-md-offset-1">
           <!--<div class="col-md-8" id="slider">-->
-              <div class="col-md-10 col-md-offset-1">
-                <div id="myCarousel" class="carousel slide">
-                  <!-- main slider carousel items -->
-                  <div class="carousel-inner">
-                    <div class="active item" data-slide-number="0" style="width:800px; height:500px; background:url('vue/images/produits/1/emma1.jpg');">     
-                    </div>
-                    <div class="item" data-slide-number="1" style="width:800px; height:500px; background:url('vue/images/produits/1/emma2.jpg') no-repeat center center; background-size: cover;">
-                    </div>
-                    <div class="item" data-slide-number="2" style="width:800px; height:500px; background:url('vue/images/produits/1/emma3.jpg') no-repeat center center; background-size: cover;">
-                    </div>
-                    <div class="item" data-slide-number="3" style="width:800px; height:500px; background:url('vue/images/produits/1/emma4.jpg') no-repeat center center; background-size: cover;">
-                    </div>
-                  </div>
-                </div>
+          <div class="col-md-10 col-md-offset-1">
+            <div id="myCarousel" class="carousel slide">
+              <!-- main slider carousel items -->
+              <div class="carousel-inner">
+                <?php 
+                  $cpt=0;
+                  foreach($images as $value){
+                    if(isset($value)){
+                      if($cpt==0){ ?>
+                        <div class="active item" data-slide-number="<?php echo $cpt?>" style="width:800px; height:500px; background:url('<?php echo $value?>');">     
+                        </div> 
+                      <?php }else{ ?>
+                        <div class="item" data-slide-number="<?php echo $cpt?>" style="width:800px; height:500px; background:url('<?php echo $value?>') no-repeat center center; background-size: cover;">
+                        </div>
+                      <?php
+                      }
+                      $cpt++;
+                    }
+                  }      
+                ?>
               </div>
+            </div>
+          </div>
 
         <!-- thumb navigation carousel -->
         <div class="miniatures col-md-10 col-md-offset-1">
             <!-- thumb navigation carousel items -->
             <ul class="list-inline liste">
-            <li> <a id="carousel-selector-0" class="selected">
-            <img class="miniature img-responsive" src="vue/images/produits/1/emma1.jpg" alt="">
-            </a></li>
-            <li> <a id="carousel-selector-1">
-            <img class="miniature img-responsive" src="vue/images/produits/1/emma2.jpg" alt="">
-            </a></li>
-            <li> <a id="carousel-selector-2">
-            <img class="miniature img-responsive" src="vue/images/produits/1/emma3.jpg" alt="">
-            </a></li>
-            <li> <a id="carousel-selector-3">
-            <img class="miniature img-responsive" src="vue/images/produits/1/emma4.jpg" alt="">
-            </a></li>
+              <?php 
+                $cpt=0;
+                foreach($images as $value){
+                  if(isset($value)){
+                    if($cpt==0){ ?>
+                      <li> <a id="carousel-selector-<?php echo $cpt?>" class="selected">
+                      <img class="miniature img-responsive" src="<?php echo $value?>" alt="">
+                      </a></li>
+                    <?php }else{ ?>
+                      <li> <a id="carousel-selector-<?php echo $cpt?>">
+                      <img class="miniature img-responsive" src="<?php echo $value?>" alt="">
+                      </a></li>
+                    <?php
+                    }
+                    $cpt++;
+                  }
+                }      
+              ?>
             </ul>
         </div>
 
@@ -86,19 +99,19 @@
                   <div class="col-md-12 infosDetails">
                       <div class="col-md-6">
                           <span class="categorie"><p>Nom du produit</p></span>
-                          <p>Emma Frost</p>
+                          <p><?php echo $informations['nom']?></p>
                           <span class="categorie"><p>Série</p></span>
-                          <p>DC comics</p>
+                          <p><?php echo $informations['nomType']?></p>
                           <span class="categorie"><p>Catégorie</p></span>
-                          <p>1/4 Scale - Format Premium</p>
+                          <p><?php echo $informations['categorie']?></p>
                       </div>
                       <div class="col-md-6">
                           <span class="categorie"><p>Prix</p></span>
-                          <p>575€</p>
+                          <p><?php echo $informations['prix']?> €</p>
                           <span class="categorie"><p>Dimensions</p></span>
-                          <p>85cm</p>
-                          <span class="categorie"><p>Manufacturier</p></span>
-                          <p>SideShow</p>
+                          <p><?php echo $informations['dimensions']?> cm</p>
+                          <span class="categorie"><p>Fabricant</p></span>
+                          <p><?php echo $informations['fabricant']?></p>
                       </div>
                   </div>
             </div>
@@ -110,11 +123,7 @@
                     <h4>Description</h4>
                 </div>
                 <div class="col-md-12 infosDescription">
-                    <p>Bow before the White Queen! Sideshow is proud to present the Emma Frost Premium Format™ Figure, the next addition to the X-Men Collection. 
-
-The Emma Frost Premium Format™ Figure measures 19.5” tall as the talented telepath takes a stand on a destroyed Cerebro room base. Cyclops’s visor, Juggernaut’s footprint, and Wolverine’s distinctive claw marks can be seen among the debris of the mutant mindwave device. 
-
-Captured in a moment of intense telepathic focus, the Emma Frost Premium Format™ Figure looks elegant in her flowing white fabric cape, custom tailored with internal wiring to allow for posing. Emma Frost wears a sculpted white costume along with gloves and boots, all detailed with lifelike textures of stitching and lacing, subtly patterned with her diamond motif. Her blonde hair flows around her beautiful portrait as she focuses her immense mental powers on stopping the threat at hand. </p>
+                    <p><?php echo $informations['description']?></p>
                 </div>
             </div>
         </div>

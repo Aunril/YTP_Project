@@ -84,7 +84,7 @@
     <div class="col-lg-4 col-xs-4 text-center">
       <img class="img-responsive" src="vue/images/DCcomics/emmafrost.jpg" alt="">
       <h3>Emma Frost</h3>
-      <p><a class="btn btn-default btnArticle" href="#" role="button">Détails > </a></p>
+      <p><a class="btn btn-default btnArticle" href="index.php?controle=produits&action=afficherProduit" role="button">Détails > </a></p>
     </div><!-- /.col-lg-4 -->
     <div class="col-lg-4 col-xs-4 text-center">
       <img class="img-responsive" src="vue/images/DCcomics/huntress.jpg" alt="">

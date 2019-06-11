@@ -47,6 +47,71 @@ function connexion($id){
 }
 
 
+function inscription_client($prenom,$nom,$email,$mdp,$adresse,$cp,$ville,&$err) {
+
+	require ("modele/connectBD.php");
+
+	try{
+		$req = $bdd->prepare('SELECT * FROM client WHERE prenom = :prenom AND nom = :nom');
+		$req->execute(array(
+				'prenom' => $prenom,
+				'nom' => $nom
+			));
+	}
+	catch(Exception $e)
+	{
+        die('Erreur : '.$e->getMessage());
+	}	 
+
+	$donnees=$req->fetchAll();
+	if(count($donnees) > 0){
+		$req->closeCursor();
+		$err="Utilisateur déjà existant";
+		return false;
+	} 
+
+	try{
+		$req = $bdd->prepare('SELECT * FROM client WHERE email = :email');
+		$req->execute(array(
+				'email' => $email
+			));
+	}
+	catch(Exception $e)
+	{
+        die('Erreur : '.$e->getMessage());
+	}	 
+
+	$donnees=$req->fetchAll();
+	if(count($donnees) > 0){
+		$req->closeCursor();
+		$err="Adresse mail déjà utilisée";
+		return false;
+	} 
+
+	//Ajout de l'utilisateur s'il n'existe pas déjà dans la base
+
+	try{
+		$req = $bdd->prepare('INSERT INTO `client`(`email`, `password`, `nom`, `prenom`, `adresse`, `codepostal`, `ville`) VALUES (:email,:mdp,:nom,:prenom,:adresse,:cp,:ville)');
+		$req->execute(array(
+				'nom' => $nom,
+				'prenom' => $prenom,
+				'mdp' => $mdp,
+				'email' => $email,
+				'adresse' => $adresse,
+				'cp' => $cp,
+				'ville' => $ville
+			));
+	}
+	catch(Exception $e)
+	{
+        die('Erreur : '.$e->getMessage());
+	}	
+
+	return true;
+
+}
+
+
 function deconnexion_client($id){
 
 	require ("modele/connectBD.php") ; 

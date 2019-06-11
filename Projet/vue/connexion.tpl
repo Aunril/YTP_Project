@@ -45,7 +45,7 @@
         </div>
       </form>
 
-      <div id="mdpOubli">
+      <div class="msgErreur" id="mdpOubli">
         <a>Mot de passe oublié ?</a>
         <p><?php 
 
@@ -60,7 +60,7 @@
     <div class="col-md-5 col-md-offset-1 signUp">
       <h2>S'inscrire</h2>
         <p>Inscription rapide et gratuite.</p>
-          <form action="/action_page.php">
+          <form action="index.php?controle=connexion&action=inscription" method="post">
           <div class="form-group">
             <label for="emailins">E-mail</label>
             <input type="email" class="form-control" id="emailins" placeholder="Entrez l'e-mail" name="emailins">
@@ -93,6 +93,15 @@
             <button type="submit" class="btn btn-default btnArticle">Créer un compte</button>
           </div>
         </form>  
+
+      <div class="msgErreur">
+        <p><?php 
+
+        $msgIns= isset($msgIns)?($msgIns):'';
+
+        echo $msgIns; ?></p>
+      </div>
+
     </div>
  
   </div>
