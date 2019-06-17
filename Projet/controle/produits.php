@@ -6,9 +6,13 @@
 
 function afficherProduit(){
 	require ("modele/produitsBD.php");
-	$informations=infos_Produit(1);
-	$images=images_Produit(1);
-	require("vue/produit.tpl");
+
+	if(isset($_GET['id'])){
+		$id=$_GET['id'];
+		$informations=infos_Produit($id);
+		$images=images_Produit($id);
+		require("vue/produit.tpl");
+	}
 }
 
 ?>
