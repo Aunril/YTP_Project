@@ -52,7 +52,7 @@
         <div class="container">
           <div class="carousel-caption">
             <h1>Huntress</h1>
-            <p><a class="btn btn-lg" href="#" role="button">Voir le produit</a></p>
+            <p><a class="btn btn-lg" href="index.php?controle=produits&action=afficherProduit&id=3" role="button">Voir le produit</a></p>
           </div>
         </div>
       </div>
@@ -77,17 +77,17 @@
 
   <div class="row itemsAccueil">
     <div class="col-lg-4 col-xs-4 text-center">
-      <img class="img-responsive" src="vue/images/kizuna.jpg" alt="">
+      <img class="img-responsive" src="vue/images/produits/2/kizuna.jpg" alt="">
       <h3>Kizuna Al</h3>
       <p><a class="btn btn-default btnArticle" href="index.php?controle=produits&action=afficherProduit&id=2" role="button">Détails > </a></p>
     </div><!-- /.col-lg-4 -->
     <div class="col-lg-4 col-xs-4 text-center">
-      <img class="img-responsive" src="vue/images/DCcomics/emmafrost.jpg" alt="">
+      <img class="img-responsive" src="vue/images/produits/1/emmafrost.jpg" alt="">
       <h3>Emma Frost</h3>
       <p><a class="btn btn-default btnArticle" href="index.php?controle=produits&action=afficherProduit&id=1" role="button">Détails > </a></p>
     </div><!-- /.col-lg-4 -->
     <div class="col-lg-4 col-xs-4 text-center">
-      <img class="img-responsive" src="vue/images/DCcomics/huntress.jpg" alt="">
+      <img class="img-responsive" src="vue/images/produits/3/huntress.jpg" alt="">
       <h3>Huntress</h3>
       <p><a class="btn btn-default btnArticle" href="index.php?controle=produits&action=afficherProduit&id=3" role="button">Détails > </a></p>
     </div><!-- /.col-lg-4 -->
@@ -101,17 +101,17 @@
 
   <div class="row itemsAccueil">
     <div class="col-lg-4 col-xs-4 text-center">
-      <img class="img-responsive" src="vue/images/wonderwoman.jpg" alt="">
+      <img class="img-responsive" src="vue/images/produits/4/wonderwoman.jpg" alt="">
       <h3>Wonder Woman</h3>
       <p><a class="btn btn-default btnArticle" href="index.php?controle=produits&action=afficherProduit&id=4" role="button">Détails > </a></p>
     </div><!-- /.col-lg-4 -->
     <div class="col-lg-4 col-xs-4 text-center">
-      <img class="img-responsive" src="vue/images/DCcomics/flash.jpg" alt="">
+      <img class="img-responsive" src="vue/images/produits/5/flash.jpg" alt="">
       <h3>The Flash</h3> 
       <p><a class="btn btn-default btnArticle" href="index.php?controle=produits&action=afficherProduit&id=5" role="button">Détails > </a></p>
     </div><!-- /.col-lg-4 -->
     <div class="col-lg-4 col-xs-4 text-center">
-      <img class="img-responsive" src="vue/images/DCcomics/nightwing.jpg" alt="">
+      <img class="img-responsive" src="vue/images/produits/6/nightwing.jpg" alt="">
       <h3>Nightwing</h3>
       <p><a class="btn btn-default btnArticle" href="index.php?controle=produits&action=afficherProduit&id=6" role="button">Détails > </a></p>
     </div><!-- /.col-lg-4 -->

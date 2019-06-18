@@ -15,7 +15,6 @@
 
     <title>DC Comics - Striker Eureka</title>
 </head>
-  
 
 <body>
   <?php include('vue/templates/html-header.tpl'); ?>
@@ -29,69 +28,34 @@
       <h3 class="text-divider"></h3>
     </div>
 
-    <div class="row items">
-      <div class="col-lg-3 col-xs-6 text-center">
-        <img class="img-responsive" src="vue/images/DCcomics/emmafrost.jpg" alt="">
-        <h4>Emma Frost</h4>
-        <p>Format Premium - 1/4 Scale</p>
-        <h4>575€</h4>
-        <p><a class="btn btn-default btnArticle" href="#" role="button">Détails > </a></p>
-      </div><!-- /.col-lg-3 -->
-      <div class="col-lg-3 col-xs-6 text-center">
-        <img class="img-responsive" src="vue/images/DCcomics/joker.jpg" alt="">
-        <h4>The Joker</h4>
-        <p>Statue 40cm</p>
-        <h4>235€</h4>
-        <p><a class="btn btn-default btnArticle" href="#" role="button">Détails > </a></p>
-      </div><!-- /.col-lg-3 -->
-      <div class="col-lg-3 col-xs-6 text-center">
-        <img class="img-responsive" src="vue/images/DCcomics/flash.jpg" alt="">
-        <h4>The Flash</h4>
-        <p>Statue 80cm</p>
-        <h4>980€</h4>
-        <p><a class="btn btn-default btnArticle" href="#" role="button">Détails > </a></p>
-      </div><!-- /.col-lg-3 -->
-      <div class="col-lg-3 col-xs-6 text-center">
-        <img class="img-responsive" src="vue/images/DCcomics/huntress.jpg" alt="">
-        <h4>Huntress</h4>
-        <p>Format Premium - 1/4 Scale</p>
-        <h4>999€</h4>
-        <p><a class="btn btn-default btnArticle" href="#" role="button">Détails > </a></p>
-      </div><!-- /.col-lg-3 -->
-    </div><!-- /.row -->
+    <?php 
 
-    <div class="row items">
-      <div class="col-lg-3 col-xs-6 text-center">
-        <img class="img-responsive" src="vue/images/DCcomics/zatanna.jpg" alt="">
-        <h4>Zatanna</h4>
-        <p>Statuette 24cm</p>
-        <h4>75€</h4>
-        <p><a class="btn btn-default btnArticle" href="#" role="button">Détails > </a></p>
-      </div><!-- /.col-lg-3 -->
-      <div class="col-lg-3 col-xs-6 text-center">
-        <img class="img-responsive" src="vue/images/DCcomics/nightwing.jpg" alt="">
-        <h4>Nightwing</h4>
-        <p>Statue 50cm</p>
-        <h4>450€</h4>
-        <p><a class="btn btn-default btnArticle" href="#" role="button">Détails > </a></p>
-      </div><!-- /.col-lg-3 -->
-      <div class="col-lg-3 col-xs-6 text-center">
-        <img class="img-responsive" src="vue/images/DCcomics/batman.jpg" alt="">
-        <h4>Batman</h4>
-        <p>Format Premium - 1/4 Scale</p>
-        <h4>999€</h4>
-        <p><a class="btn btn-default btnArticle" href="#" role="button">Détails > </a></p>
-      </div><!-- /.col-lg-3 -->
-      <div class="col-lg-3 col-xs-6 text-center">
-        <img class="img-responsive" src="vue/images/DCcomics/mera.jpg" alt="">
-        <h4>Mera</h4>
-        <p>Statue 35cm</p>
-        <h4>225€</h4>
-        <p><a class="btn btn-default btnArticle" href="#" role="button">Détails > </a></p>
-      </div><!-- /.col-lg-3 -->
-    </div><!-- /.row -->
-  </div>
+        $cpt=0;
 
+        foreach($listeProduits as $value){
+          if($cpt%4==0){ ?>
+            <div class="row items">
+          <?php } 
+
+          $cpt=++$cpt; ?>
+
+          <div class="col-lg-3 col-xs-6 text-center">
+            <img class="img-responsive" src="<?php echo $value['imagePrincipale'] ?>" alt="">
+            <h4><?php echo $value['nom'] ?></h4>
+            <p><?php echo $value['categorie'] ?></p>
+            <h4><?php echo $value['prix'] ?>€</h4>
+            <p><a class="btn btn-default btnArticle" href="index.php?controle=produits&action=afficherProduit&id=<?php echo $value['id_produit'] ?>" role="button">Détails > </a></p>
+          </div><!-- /.col-lg-3 -->
+
+          <?php 
+
+          if($cpt%4==0){ ?>
+            </div><!-- /.row -->
+          <?php }
+
+        }
+
+    ?>
 
   </div><!-- container-fluid -->
 

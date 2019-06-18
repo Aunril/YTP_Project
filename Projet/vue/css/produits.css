@@ -15,11 +15,11 @@
 }
 
 #enteteDC {
-	background-image: url("../images/DCcomics/dc.jpg");
+	background-image: url("../images/entetes/dc.jpg");
 }
 
 #enteteMarvel {
-	background-image: url("../images/marvel/marvel.jpg");
+	background-image: url("../images/entetes/marvel.jpg");
 }
 
 .items h4{
