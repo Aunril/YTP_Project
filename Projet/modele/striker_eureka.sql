@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 18 juin 2019 à 08:54
+-- Généré le :  mar. 18 juin 2019 à 09:32
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `images` (
 --
 
 INSERT INTO `images` (`id_images`, `id_produit`, `imagePrincipale`, `image1`, `image2`, `image3`, `image4`, `image5`) VALUES
-(1, 1, 'vue/images/DCcomics/emmafrost.jpg', 'vue/images/produits/1/emma1.jpg', 'vue/images/produits/1/emma2.jpg', 'vue/images/produits/1/emma3.jpg', 'vue/images/produits/1/emma4.jpg', NULL),
+(1, 1, 'vue/images/produits/1/emmafrost.jpg', 'vue/images/produits/1/emma1.jpg', 'vue/images/produits/1/emma2.jpg', 'vue/images/produits/1/emma3.jpg', 'vue/images/produits/1/emma4.jpg', NULL),
 (2, 2, 'vue/images/produits/2/kizuna.jpg', 'vue/images/produits/2/kizuna1.jpg', 'vue/images/produits/2/kizuna2.jpg', 'vue/images/produits/2/kizuna3.jpg', NULL, NULL),
 (3, 3, 'vue/images/produits/3/huntress.jpg', 'vue/images/produits/3/huntress1.jpg', 'vue/images/produits/3/huntress2.jpg', 'vue/images/produits/3/huntress3.jpg', NULL, NULL),
 (4, 4, 'vue/images/produits/4/wonderwoman.jpg', 'vue/images/produits/4/wonderwoman1.jpg', 'vue/images/produits/4/wonderwoman2.jpg', 'vue/images/produits/4/wonderwoman3.jpg', 'vue/images/produits/4/wonderwoman4.jpg', NULL),
