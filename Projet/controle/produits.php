@@ -15,4 +15,18 @@ function afficherProduit(){
 	}
 }
 
+function afficherDC(){
+	require ("modele/produitsBD.php");
+
+	$listeProduits=liste_Produits("DC comics");
+	require("vue/DCcomics.tpl");
+}
+
+function afficherMarvel(){
+	require ("modele/produitsBD.php");
+
+	$listeProduits=liste_Produits("marvel");
+	require("vue/marvel.tpl");
+}
+
 ?>

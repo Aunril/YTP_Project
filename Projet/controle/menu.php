@@ -18,11 +18,11 @@ function compte(){
 }
 
 function DCcomics(){
-	require("vue/DCcomics.tpl");
+	header("Location:index.php?controle=produits&action=afficherDC");
 }
 
 function marvel(){
-	require("vue/marvel.tpl");
+	header("Location:index.php?controle=produits&action=afficherMarvel");
 }
 
 function musique(){
