@@ -116,7 +116,7 @@
                   </div>
             </div>
             <div class="col-md-4">
-                <a class="btn btn-default btnAjoutPanier" href="#" role="button">Ajouter au Panier</a>
+                <a class="btn btn-default btnAjoutPanier" href="index.php?controle=panier&action=ajouter_panier&id=<?php echo $informations['id_produit'] ?>" role="button">Ajouter au Panier</a>
             </div>
             <div class="col-md-12 titreDetails">
                 <div class="col-md-3">

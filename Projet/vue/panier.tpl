@@ -65,7 +65,10 @@
           				</div>
 
 									<div class="col-md-3">
-										<h4><?php echo $value['quantité'] ?></h4>
+										<h4><?php echo $value['quantité'] ?> 
+										<a class="btn btn-default btnArticle" id="bouton_plus" href="index.php?controle=panier&action=plus&id=<?php echo $value['id_produit'] ?>" role="button">+</a>
+										<a class="btn btn-default btnArticle" id="bouton_moins" href="index.php?controle=panier&action=moins&id=<?php echo $value['id_produit'] ?>" role="button">-</a>
+										</h4>
 									</div>
 									<div class="col-md-2">
 										<h4><?php echo $value['prix'] * $value['quantité'] ?>€<h4>
