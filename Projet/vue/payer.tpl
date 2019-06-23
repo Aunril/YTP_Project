@@ -21,16 +21,12 @@
 <body>
   <?php include('vue/templates/html-header.tpl'); ?>
 
-	 <div class="container-fluid" id="paiement_reussi">
-      <div class="col-md-5 col-md-offset-2">
-              <p> PASSER LA COMMANDE </p>
-      </div>
-      <div class="col-md-3">
-          <img class="img img-responsive" id="imgJoie" src="vue/images/transaction.png" alt="joie">
-      </div>
-  </div>	
-
-
+  <p> RECAPITULATIF </p>
+  <p> Le colis sera envoyé a l'adresse: </p>
+  <p> <?php echo $_SESSION['profil']['prenom'] . " " . $_SESSION['profil']['nom']?></p>
+  <p> <?php echo $_SESSION['profil']['adresse'] ?></p>
+  <p> <?php echo $_SESSION['profil']['codepostal'] . " " . $_SESSION['profil']['ville']?></p>	
+	<p> Prix à payer:  <?php echo $prix_total['SUM(produit.prix*panier.quantité)'] + 4 ?>€ </p>
   <!-- Set up a container element for the button -->
   <div id="paypal-button-container"></div>
 
@@ -45,7 +41,7 @@
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
-                            value: '0.01'
+                            value: <?php echo $prix_total['SUM(produit.prix*panier.quantité)'] + 4 ?>
                         }
                     }]
                 });

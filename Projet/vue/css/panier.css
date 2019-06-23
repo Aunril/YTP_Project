@@ -1,0 +1,15 @@
+#tableau_produit .row {
+	background-color: #FFD3B6;
+}
+
+#bouton_payer {
+	background:    #ff9900;
+	border:        1px solid #000000;
+	border-radius: 5px;
+	padding:       8px 20px;
+	color:         #ffffff;
+	display:       inline-block;
+	font:          normal bold 25px/1 "Ubuntu", sans-serif;
+	text-align:    center;
+	text-shadow:   1px 1px #000000;
+}

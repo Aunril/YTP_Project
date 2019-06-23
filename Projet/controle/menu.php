@@ -34,7 +34,12 @@ function films(){
 }
 
 function panier(){
+	if(!isset($_SESSION['profil'])){
+		require("vue/connexion.tpl");
 
+	}else{
+		header("Location:index.php?controle=panier&action=afficherPanier");
+	} 
 }
 
 function produit(){
