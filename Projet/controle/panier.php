@@ -71,8 +71,7 @@ function ajouter_panier()
 	if(isset($_SESSION['profil']) AND isset($_GET['id'])){
 			$id= $_SESSION['profil']['id_client'];
 			$id_produit= $_GET['id'];
-			$qantité=search($id,$id_produit);
-			if($quantité == true)
+			if(search($id,$id_produit))
 			{
 				plusBD($id,$id_produit);
 

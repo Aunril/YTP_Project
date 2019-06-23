@@ -154,11 +154,11 @@ function search($id,$id_produit) {
 
 	if ($req->fetch() == false)
 	{
-		return false;
+		return FALSE;
 	}
 	else
 	{
-		return true;
+		return TRUE;
 	}
 }
 
