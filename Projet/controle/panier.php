@@ -83,6 +83,10 @@ function ajouter_panier()
 			header("Location: index.php?controle=produits&action=afficherProduit&id=$id_produit");
 
 	}
+	else
+	{
+		require("vue/connexion.tpl");
+	}
 }
 
 ?>
