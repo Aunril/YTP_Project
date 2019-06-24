@@ -26,14 +26,14 @@
 
     <h3>Mon Compte</h3>
     <br>
-    <h4> <?php echo $_SESSION['profil']['prenom'] . " " . $_SESSION['profil']['nom']?> </h4>
+    <p> <?php echo $_SESSION['profil']['prenom'] . " " . $_SESSION['profil']['nom']?> </p>
     <br>
     <h4> Adresse :</h4>
-    <h4><?php echo $_SESSION['profil']['adresse'] ?></h4>
-    <h4><?php echo $_SESSION['profil']['codepostal'] . " " . $_SESSION['profil']['ville']?></h4>
+    <p><?php echo $_SESSION['profil']['adresse'] ?></p>
+    <p><?php echo $_SESSION['profil']['codepostal'] . " " . $_SESSION['profil']['ville']?></p>
     <br>
     <h4>Adresse e-mail :</h4>
-    <h4><?php echo $_SESSION['profil']['email'] ?></h4>
+    <p><?php echo $_SESSION['profil']['email'] ?></p>
 
     <br><br>
 
