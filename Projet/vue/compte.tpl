@@ -17,8 +17,6 @@
 </head>
   
 
-
-
 <body>
   <?php include('vue/templates/html-header.tpl'); ?>
 
@@ -26,9 +24,18 @@
 
   <div class="container">
 
-    <h3>MON COMPTE !!!!!!!!!!!!!!!!! </h3>
+    <h3>Mon Compte</h3>
+    <br>
+    <h4> <?php echo $_SESSION['profil']['prenom'] . " " . $_SESSION['profil']['nom']?> </h4>
+    <br>
+    <h4> Adresse :</h4>
+    <h4><?php echo $_SESSION['profil']['adresse'] ?></h4>
+    <h4><?php echo $_SESSION['profil']['codepostal'] . " " . $_SESSION['profil']['ville']?></h4>
+    <br>
+    <h4>Adresse e-mail :</h4>
+    <h4><?php echo $_SESSION['profil']['email'] ?></h4>
 
-    <p> Je suis <?php echo $_SESSION['profil']['prenom'] . " " . $_SESSION['profil']['nom']?></p>
+    <br><br>
 
     <a class="btn btn-default btnArticle" href="index.php?controle=connexion&action=deconnexion" role="button">DECONNEXION </a>
 
