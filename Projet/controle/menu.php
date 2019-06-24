@@ -17,6 +17,16 @@ function compte(){
 	}
 }
 
+function panier()
+{
+	if(!isset($_SESSION['profil'])){
+		require("vue/connexion.tpl");
+	}else{
+		header("Location:index.php?controle=panier&action=afficherPanier");
+
+	}
+}
+
 function DCcomics(){
 	header("Location:index.php?controle=produits&action=afficherDC");
 }
