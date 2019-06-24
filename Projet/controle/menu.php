@@ -25,21 +25,20 @@ function marvel(){
 	header("Location:index.php?controle=produits&action=afficherMarvel");
 }
 
-function musique(){
+function manga(){
+	header("Location:index.php?controle=produits&action=afficherManga");
+}
 
+function musique(){
+	header("Location:index.php?controle=produits&action=afficherMusique");
 }
 
 function films(){
-
+	header("Location:index.php?controle=produits&action=afficherFilms");
 }
 
-function panier(){
-	if(!isset($_SESSION['profil'])){
-		require("vue/connexion.tpl");
-
-	}else{
-		header("Location:index.php?controle=panier&action=afficherPanier");
-	} 
+function jv(){
+	header("Location:index.php?controle=produits&action=afficherJeuxvideo");
 }
 
 function produit(){

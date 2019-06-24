@@ -29,4 +29,32 @@ function afficherMarvel(){
 	require("vue/marvel.tpl");
 }
 
+function afficherManga(){
+	require ("modele/produitsBD.php");
+
+	$listeProduits=liste_Produits("manga");
+	require("vue/manga.tpl");
+}
+
+function afficherJeuxvideo(){
+	require ("modele/produitsBD.php");
+
+	$listeProduits=liste_Produits("Jeux vidéo");
+	require("vue/jeuxvideo.tpl");
+}
+
+function afficherFilms(){
+	require ("modele/produitsBD.php");
+
+	$listeProduits=liste_Produits("Films-TV");
+	require("vue/films.tpl");
+}
+
+function afficherMusique(){
+	require ("modele/produitsBD.php");
+
+	$listeProduits=liste_Produits("musique");
+	require("vue/musique.tpl");
+}
+
 ?>

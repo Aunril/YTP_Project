@@ -22,6 +22,22 @@
 	background-image: url("../images/entetes/marvel.jpg");
 }
 
+#enteteManga {
+	background-image: url("../images/entetes/manga.jpg");
+}
+
+#enteteJV {
+	background-image: url("../images/entetes/jeuxvideo.jpg");
+}
+
+#enteteFilms {
+	background-image: url("../images/entetes/films.jpg");
+}
+
+#enteteMusique {
+	background-image: url("../images/entetes/musique.jpg");
+}
+
 .items h4{
 	font-weight: bold;
 }
