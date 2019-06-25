@@ -88,7 +88,7 @@
               <label for="ville">Ville</label>
               <input type="text" class="form-control" id="ville" placeholder="Entrez votre ville" name="ville" value="<?php echo $_SESSION['profil']['ville']?>">
             </div>
-                          <button type="submit" class="btn btn-default btnArticle">Modifier mes informations</button>
+              <button type="submit" class="btn btn-default btnArticle">Modifier mes informations</button>
               <a class="btn btn-default btnArticle" href="index.php?controle=menu&action=compte&form=cache" role="button"> Fermer </a>
           </form> 
         </div>

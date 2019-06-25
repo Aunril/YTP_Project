@@ -111,6 +111,47 @@ function inscription_client($prenom,$nom,$email,$mdp,$adresse,$cp,$ville,&$err) 
 
 }
 
+function modification_client($id,$email,$adresse,$cp,$ville,&$profil) {
+
+	require ("modele/connectBD.php") ;
+
+	try{
+		$req = $bdd->prepare('UPDATE client SET email = :email, adresse = :adresse, codepostal = :cp, ville = :ville WHERE id_client = :id');
+		$req->execute(array(
+				'email' => $email,
+				'adresse' => $adresse,
+				'cp' => $cp,
+				'ville' => $ville,
+				'id' => $id
+			));
+	}
+	catch(Exception $e)
+	{
+        die('Erreur : '.$e->getMessage());
+	}	
+
+	try{
+		$req = $bdd->prepare('SELECT * FROM client WHERE id_client = :id');
+		$req->execute(array(
+				'id' => $id
+			));
+	}
+	catch(Exception $e)
+	{
+        die('Erreur : '.$e->getMessage());
+	}
+
+	$donnees=$req->fetchAll();
+	if(count($donnees) > 0){
+		$profil = $donnees[0];  //prendre le premier enregistrement seulement
+		$req->closeCursor();
+		return true;
+	} 
+
+	$profil = null;
+	return false;	
+
+}
 
 function deconnexion_client($id){
 

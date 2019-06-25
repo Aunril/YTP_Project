@@ -64,6 +64,26 @@ function inscription(){
 }
 
 
+function modification(){
+
+	$id= $_SESSION['profil']['id_client'];
+	$email=  isset($_POST['emailins'])?($_POST['emailins']):'';
+	$adresse= isset($_POST['adresse'])?($_POST['adresse']):'';
+	$cp= isset($_POST['cp'])?($_POST['cp']):'';
+	$ville= isset($_POST['ville'])?($_POST['ville']):'';
+
+	require ("modele/utilisateurBD.php");
+
+	modification_client($id,$email,$adresse,$cp,$ville,$profil);
+	$_SESSION['profil'] = $profil;
+	print_r($profil);
+	//require("vue/compte.tpl");
+	header("Location:index.php?controle=menu&action=compte");
+		
+}
+
+
+
 // verifS : vérification syntaxique des saisies 
 function verifS($email, $mdp, &$err) {
 	if (strlen($mdp)<6) {			
