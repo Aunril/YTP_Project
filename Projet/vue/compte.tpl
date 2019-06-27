@@ -71,7 +71,7 @@
         </div>
 
         <div id="formModif">
-            <form id="form_Modification" action="index.php?controle=connexion&action=modification" method="post">
+            <form id="form_Modification" action="index.php?controle=utilisateur&action=modification" method="post">
             <div class="form-group">
               <label for="emailins">E-mail</label>
               <input type="email" class="form-control" id="emailins" placeholder="Entrez l'e-mail" name="emailins" value="<?php echo $_SESSION['profil']['email'] ?>">
@@ -97,7 +97,12 @@
       <br><br>
 
       <a class="btn btn-default btnArticle" href="index.php?controle=menu&action=compte&form=visible" role="button">MODIFIER</a>
-      <a class="btn btn-default btnArticle" href="index.php?controle=connexion&action=deconnexion" role="button">DECONNEXION </a>
+      <a class="btn btn-default btnArticle" href="index.php?controle=utilisateur&action=deconnexion" role="button">DECONNEXION </a>
+    </div>
+
+
+    <div id="commandes" class="col-md-5">
+
     </div>
 
     <div class="informations col-md-6">

@@ -31,7 +31,7 @@
       <h2>Connexion</h2>
       <p>Vous avez déjà un compte ? Connectez-vous ci-dessous.</p>
 
-      <form action="index.php?controle=connexion&action=identification" method="post">
+      <form action="index.php?controle=utilisateur&action=identification" method="post">
         <div class="form-group">
           <label for="emailco">E-mail</label>
           <input type="email" class="form-control" id="emailco" placeholder="Entrez l'e-mail" name="emailco">
@@ -60,7 +60,7 @@
     <div class="col-md-5 col-md-offset-1 signUp">
       <h2>S'inscrire</h2>
         <p>Inscription rapide et gratuite.</p>
-          <form action="index.php?controle=connexion&action=inscription" method="post">
+          <form action="index.php?controle=utilisateur&action=inscription" method="post">
           <div class="form-group">
             <label for="emailins">E-mail</label>
             <input type="email" class="form-control" id="emailins" placeholder="Entrez l'e-mail" name="emailins">

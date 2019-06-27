@@ -1,6 +1,6 @@
 <?php 
 
-/*contrôleur connexion.php :
+/*contrôleur utilisateur.php :
   gérer les connexions clientes du site
 */
 
