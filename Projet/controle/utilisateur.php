@@ -82,8 +82,6 @@ function modification(){
 		
 }
 
-
-
 // verifS : vérification syntaxique des saisies 
 function verifS($email, $mdp, &$err) {
 	if (strlen($mdp)<6) {			

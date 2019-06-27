@@ -102,11 +102,9 @@
 
 
     <div id="commandes" class="col-md-5">
+      <?php print_r($produits);
 
-    </div>
-
-    <div class="informations col-md-6">
-
+      print_r($prix_total);?>
     </div>
     
 
