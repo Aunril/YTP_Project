@@ -1,6 +1,6 @@
 /!\ AJOUT TABLES /!\
 
-La table panier est vidée une fois que l'on clique sur le bouton payer de la deuxième page paypal.
+La table panier est vidée une fois que l'on clique sur le bouton payer de la deuxième page paypal. (fonctionnalité à réaliser)
 La table panier est une table temporaire. Elle sert à remplir la table commande (contient l'id du client et le total à payer) ainsi que la table produits_commande (contient l'id de la commande pour indiquer les produits et leur quantité)
 
 
