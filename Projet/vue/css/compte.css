@@ -43,3 +43,7 @@ p{
 	border:2px solid grey;
 	padding: 20px;
 }
+
+#commandes h3{
+	text-align: center;
+}
