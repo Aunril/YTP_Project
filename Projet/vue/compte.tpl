@@ -105,38 +105,56 @@
 
       <h3>Mes Commandes</h3>
       <br>
-      <?php print_r($produits);
-
-      print_r($prix_total);?>
-
+      
       <table class="table table-striped table-hover">
           <thead>
             <tr>
-              <th scope="col">Commande</th>
+              <th scope="col">N°Commande</th>
               <th scope="col">Produit</th>
               <th scope="col">Quantité</th>
               <th scope="col">Prix</th>
             </tr>
           </thead>
           <tbody>
+          <?php
+            foreach($produits as $value){          
+            ?>
             <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
+              <th><?php echo $value['id_commande']?></th>
+              <td><?php echo $value['nom']?></td>
+              <td><?php echo $value['quantite']?></td>
+              <td><?php echo $value['prix']?></td>
             </tr>
+            <?php } ?>
+          </tbody>
+      </table>
+    </div>
+
+    <div id="historique" class="informations col-md-11">
+
+      <h3>Mon historique de commandes</h3>
+      <br>
+      
+      <table class="table table-striped table-hover">
+          <thead>
             <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
+              <th scope="col">N°Commande</th>
+              <th scope="col">Produit</th>
+              <th scope="col">Quantité</th>
+              <th scope="col">Prix</th>
             </tr>
+          </thead>
+          <tbody>
+          <?php
+            foreach($historique as $value){          
+            ?>
             <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
+              <th><?php echo $value['id_commande']?></th>
+              <td><?php echo $value['nom']?></td>
+              <td><?php echo $value['quantite']?></td>
+              <td><?php echo $value['prix']?></td>
             </tr>
+            <?php } ?>
           </tbody>
       </table>
     </div>
