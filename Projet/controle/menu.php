@@ -6,7 +6,9 @@
 
 //premier affichage de la page
 function accueil(){
-	require("vue/accueil.tpl");
+	//require("vue/accueil.tpl");
+	header("Location:index.php?controle=administrateur&action=informationsBDD");
+	
 }
 
 function compte(){
