@@ -89,4 +89,5 @@ function ajouter_panier()
 	}
 }
 
+
 ?>

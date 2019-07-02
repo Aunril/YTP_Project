@@ -1,4 +1,6 @@
 #tableau_produit .row {
+	  border: 2px solid black;
+
 }
 
 #bouton_payer {

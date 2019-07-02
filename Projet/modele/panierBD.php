@@ -162,4 +162,29 @@ function search($id,$id_produit) {
 	}
 }
 
+function check($id)
+{
+	require ("modele/connectBD.php") ; 
+	try{
+		$req = $bdd->prepare('SELECT * FROM `panier` WHERE id_client= :id ');
+		$req->execute(array(
+			'id' => $id
+			));
+	}
+	catch(Exception $e)
+	{
+        die('Erreur : '.$e->getMessage());
+	}
+
+	if ($req->fetch() == false)
+	{
+		return FALSE;
+	}
+	else
+	{
+		return TRUE;
+	}
+
+}
+
 ?>
