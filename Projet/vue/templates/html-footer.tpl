@@ -18,6 +18,7 @@
         <div class="col-md-3 col-md-offset-1">
           <p>BLA</p>
           <p>BLA</p>
+          <a href="index.php?controle=menu&action=administration">Page Administrateur</a>
         </div>
         <div class="col-md-3">
           <p>BLA</p>

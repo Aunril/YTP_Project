@@ -170,5 +170,13 @@ footer{
 	height: 300px;
 }
 
+.footer p{
+	color: #808080;
+}
+
+.footer a{
+	text-decoration: none;
+	color: #808080;
+}
 
 
