@@ -13,6 +13,11 @@ function compte(){
 	if(!isset($_SESSION['profil'])){
 		require("vue/connexion.tpl");
 	}else{
+		require ("modele/utilisateurBD.php");
+		$id= $_SESSION['profil']['id_client'];
+		//Affichage des commandes en cours
+		$produits=commandes($id);
+		$historique=historique($id);
 		require("vue/compte.tpl");
 	}
 }

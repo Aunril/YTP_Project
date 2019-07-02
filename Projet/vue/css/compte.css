@@ -1,0 +1,59 @@
+#entete {
+	background-image: url("../images/entetes/compte.jpg");
+	height: 400px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#entete h1{
+	margin-top: 180px;
+	text-align: center;
+	text-transform: uppercase;
+	color: white;
+	letter-spacing: 3px;
+    text-shadow: 3px 2px #333;
+    font-size: 55px;
+}
+
+h3{
+	font-weight: bold;
+}
+
+h4{
+	font-weight: bold;
+}
+
+p{
+	font-size: 18px;
+}
+
+#infosCompte{
+	margin-left: 60px;
+}
+
+#infosCompte h3{
+	text-align: center;
+}
+
+.informations{
+	margin-top: 50px;
+}
+
+#donnees{
+	border:2px solid grey;
+	padding: 20px;
+}
+
+#commandes h3{
+	text-align: center;
+}
+
+#historique{
+	margin-left: 60px;
+}
+
+#historique h3{
+	text-align: center;
+}
+
+

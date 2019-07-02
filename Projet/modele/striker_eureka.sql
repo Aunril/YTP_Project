@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 18 juin 2019 à 09:32
+-- Généré le :  lun. 01 juil. 2019 à 09:31
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -47,9 +47,33 @@ CREATE TABLE IF NOT EXISTS `client` (
 --
 
 INSERT INTO `client` (`id_client`, `email`, `password`, `nom`, `prenom`, `adresse`, `codepostal`, `ville`, `connecte`) VALUES
-(1, 'test@gmail.com', 'test123', 'doe', 'john', '8 rue de la révolte', 75500, 'Paris', 0),
+(1, 'test@gmail.com', 'test123', 'doe', 'john', '12 blabla', 84500, 'Hanon', 1),
 (11, 'pauline.djamaa@gmail.com', 'po123456', 'Djamaa', 'Pauline', '8 rue du chemin des dames', 95400, 'Arnouville', 0),
 (12, 'thierry@gmail.com', 'bla123', 'Lei', 'Thierry', '21 avenue maximilien', 94400, 'Vitry', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `commande`
+--
+
+DROP TABLE IF EXISTS `commande`;
+CREATE TABLE IF NOT EXISTS `commande` (
+  `id_commande` int(11) NOT NULL AUTO_INCREMENT,
+  `id_client` int(11) NOT NULL,
+  `total` int(11) NOT NULL,
+  `payee` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id_commande`),
+  KEY `id_client_commande` (`id_client`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `commande`
+--
+
+INSERT INTO `commande` (`id_commande`, `id_client`, `total`, `payee`) VALUES
+(1, 1, 1493, 0),
+(2, 1, 554, 1);
 
 -- --------------------------------------------------------
 
@@ -93,6 +117,30 @@ INSERT INTO `images` (`id_images`, `id_produit`, `imagePrincipale`, `image1`, `i
 (15, 16, 'vue/images/produits/15/spidergwen.jpg', 'vue/images/produits/15/spidergwen1.jpg', 'vue/images/produits/15/spidergwen2.jpg', 'vue/images/produits/15/spidergwen3.jpg', 'vue/images/produits/15/spidergwen4.jpg', NULL),
 (16, 17, 'vue/images/produits/16/wasp.jpg', 'vue/images/produits/16/wasp1.jpg', 'vue/images/produits/16/wasp2.jpg', 'vue/images/produits/16/wasp3.jpg', NULL, NULL),
 (17, 11, 'vue/images/produits/17/captain.jpg', 'vue/images/produits/17/captain1.jpg', 'vue/images/produits/17/captain2.jpg', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `panier`
+--
+
+DROP TABLE IF EXISTS `panier`;
+CREATE TABLE IF NOT EXISTS `panier` (
+  `id_panier` int(11) NOT NULL AUTO_INCREMENT,
+  `id_client` int(11) NOT NULL,
+  `id_produit` int(11) NOT NULL,
+  `quantité` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id_panier`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `panier`
+--
+
+INSERT INTO `panier` (`id_panier`, `id_client`, `id_produit`, `quantité`) VALUES
+(1, 11, 2, 15),
+(7, 1, 2, 1),
+(6, 1, 12, 1);
 
 -- --------------------------------------------------------
 
@@ -141,6 +189,33 @@ INSERT INTO `produit` (`id_produit`, `id_type`, `nom`, `categorie`, `prix`, `dim
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `produits_commande`
+--
+
+DROP TABLE IF EXISTS `produits_commande`;
+CREATE TABLE IF NOT EXISTS `produits_commande` (
+  `id_produit_commande` int(11) NOT NULL AUTO_INCREMENT,
+  `id_commande` int(11) NOT NULL,
+  `id_produit` int(11) NOT NULL,
+  `quantite` int(11) NOT NULL,
+  PRIMARY KEY (`id_produit_commande`),
+  KEY `id_commande_listeprod` (`id_commande`),
+  KEY `id_produit_listeprod` (`id_produit`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `produits_commande`
+--
+
+INSERT INTO `produits_commande` (`id_produit_commande`, `id_commande`, `id_produit`, `quantite`) VALUES
+(1, 1, 4, 1),
+(2, 1, 8, 1),
+(3, 2, 2, 1),
+(4, 2, 12, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `type`
 --
 
@@ -168,6 +243,12 @@ INSERT INTO `type` (`id_type`, `nomType`) VALUES
 --
 
 --
+-- Contraintes pour la table `commande`
+--
+ALTER TABLE `commande`
+  ADD CONSTRAINT `FK_idclient_commande` FOREIGN KEY (`id_client`) REFERENCES `client` (`id_client`);
+
+--
 -- Contraintes pour la table `images`
 --
 ALTER TABLE `images`
@@ -178,6 +259,13 @@ ALTER TABLE `images`
 --
 ALTER TABLE `produit`
   ADD CONSTRAINT `fk_idType` FOREIGN KEY (`id_type`) REFERENCES `type` (`id_type`);
+
+--
+-- Contraintes pour la table `produits_commande`
+--
+ALTER TABLE `produits_commande`
+  ADD CONSTRAINT `FK_idCommande_listeprod` FOREIGN KEY (`id_commande`) REFERENCES `commande` (`id_commande`),
+  ADD CONSTRAINT `FK_idProduit_listeprod` FOREIGN KEY (`id_produit`) REFERENCES `produit` (`id_produit`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

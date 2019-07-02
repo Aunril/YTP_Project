@@ -30,7 +30,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="index.php?controle=menu&action=compte">Mon compte <span class="glyphicon glyphicon-user"></span></a></li>
-            <li><a href="index.php?controle=menu&action=panier">Pannier <span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+            <li><a href="index.php?controle=menu&action=panier">Panier <span class="glyphicon glyphicon-shopping-cart"></span></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
