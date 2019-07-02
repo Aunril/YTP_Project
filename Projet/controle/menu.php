@@ -24,10 +24,19 @@ function compte(){
 
 function panier()
 {
+	require("modele/panierBD.php");
 	if(!isset($_SESSION['profil'])){
 		require("vue/connexion.tpl");
 	}else{
-		header("Location:index.php?controle=panier&action=afficherPanier");
+		 $id = $_SESSION['profil']['id_client'];
+                if (check($id))
+                {
+                        header("Location:index.php?controle=panier&action=afficherPanier");
+                }
+                else
+                {
+                        require("vue/panier2.tpl");
+                }
 
 	}
 }
