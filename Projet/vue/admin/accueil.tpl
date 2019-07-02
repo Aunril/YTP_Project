@@ -32,13 +32,23 @@
     
     <table class="table table-bordered">
       <tr>
-          <td>la</td>
-          <td>la</td>
+          <td>ID CLIENT</td>
+          <td>NOM</td>
+          <td>PRENOM</td>
+          <td>E-MAIL</td>
+          <td>ADRESSE</td>
       </tr>
-      <tr>
-          <td>la</td>
-          <td>la</td>
-      </tr>
+      <?php
+        foreach($clients as $value){          
+        ?>
+        <tr>
+          <th><?php echo $value['id_client']?></th>
+          <td><?php echo $value['nom']?></td>
+          <td><?php echo $value['prenom']?></td>
+          <td><?php echo $value['email']?></td>
+          <td><?php echo $value['adresse'] ?>  <?php echo $value['codepostal'] ?>  <?php echo $value['ville']?></td>
+        </tr>
+        <?php } ?>
     </table>
 
   </div>
