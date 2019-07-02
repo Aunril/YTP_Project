@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 01 juil. 2019 à 09:31
+-- Généré le :  mar. 02 juil. 2019 à 07:31
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `commande` (
   `id_commande` int(11) NOT NULL AUTO_INCREMENT,
   `id_client` int(11) NOT NULL,
   `total` int(11) NOT NULL,
-  `payee` int(11) NOT NULL DEFAULT '0',
+  `reçu` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_commande`),
   KEY `id_client_commande` (`id_client`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `commande` (
 -- Déchargement des données de la table `commande`
 --
 
-INSERT INTO `commande` (`id_commande`, `id_client`, `total`, `payee`) VALUES
+INSERT INTO `commande` (`id_commande`, `id_client`, `total`, `reçu`) VALUES
 (1, 1, 1493, 0),
 (2, 1, 554, 1);
 
