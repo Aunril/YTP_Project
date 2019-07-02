@@ -34,7 +34,7 @@
         <div class="container">
           <div class="carousel-caption">
             <h1>Nouvel Arrivage Marvel</h1>
-            <p><a class="btn btn-lg" href="#" role="button">Voir les produits</a></p>
+            <p><a class="btn btn-lg" href="index.php?controle=menu&action=marvel" role="button">Voir les produits</a></p>
           </div>
         </div>
       </div>
@@ -43,7 +43,7 @@
         <div class="container">
           <div class="carousel-caption">
             <h1>Spider-Man</h1>
-            <p><a class="btn btn-lg" href="#" role="button">Voir le produit</a></p>
+            <p><a class="btn btn-lg" href="index.php?controle=produits&action=afficherProduit&id=12" role="button">Voir le produit</a></p>
           </div>
         </div>
       </div>
@@ -62,7 +62,7 @@
           <div class="carousel-caption">
             <h1>Saber Fate Apocrypha</h1>
             <p>Retrouvez toute la série Fate dans notre catégorie Manga</p>
-            <p><a class="btn btn-lg btn-primary" href="#" role="button">Voir le produit</a></p>
+            <p><a class="btn btn-lg btn-primary" href="index.php?controle=menu&action=manga" role="button">Voir le produit</a></p>
           </div>
         </div>
       </div>
