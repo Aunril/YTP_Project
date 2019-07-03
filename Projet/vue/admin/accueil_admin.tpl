@@ -67,7 +67,29 @@
 
     </div>
     <div id="menu3" class="tab-pane fade">
-
+      <br>
+      <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+            <td>ID PRODUIT</td>
+            <td>TYPE</td>
+            <td>NOM</td>
+            <td>PRIX</td>
+            <td>INFORMATIONS</td>
+        </thead>
+        <?php
+          foreach($produits as $value){          
+          ?>
+          <tr>
+            <th><?php echo $value['id_produit']?></th>
+            <td><?php echo $value['nomType']?></td>
+            <td><?php echo $value['nom']?></td>
+            <td><?php echo $value['prix']?></td>
+            <td>bla</td>
+          </tr>
+          <?php } ?>
+      </table>
+      </div>
     </div>
   </div>
 </div>
