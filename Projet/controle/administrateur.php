@@ -9,4 +9,14 @@ function informationsBDD(){
 	//}
 }
 
+function afficherProduit(){
+	require ("modele/produitsBD.php");
+	if(isset($_GET['id'])){
+		$id=$_GET['id'];
+		$informations=infos_Produit($id);
+		$images=images_Produit($id);
+		require("vue/admin/produit_admin.tpl");
+	}
+}
+
 ?>

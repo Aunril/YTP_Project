@@ -85,7 +85,7 @@
             <td><?php echo $value['nomType']?></td>
             <td><?php echo $value['nom']?></td>
             <td><?php echo $value['prix']?></td>
-            <td>bla</td>
+            <td><p><a class="btn btn-default btnArticle" href="index.php?controle=administrateur&action=afficherProduit&id=<?php echo $value['id_produit'] ?>" role="button">Détails > </a></p></td>
           </tr>
           <?php } ?>
       </table>
