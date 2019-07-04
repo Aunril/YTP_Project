@@ -155,3 +155,21 @@
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
+.titreDetailsAdmin h4{
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #1DD8E5;
+    text-align: center;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.adminDetails{
+	margin-bottom: 20px;
+}
+
+.adminDetails input{
+	margin-bottom: 15px;
+}

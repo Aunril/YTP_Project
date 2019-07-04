@@ -23,7 +23,7 @@
     <form id="form_Modification" action="index.php?controle=administrateur&action=modification" method="post">
 
         <div class="row" id="nomProduit">
-          <h2>Nom : <input type="text" class="form-control" id="nom" name="nom" value="<?php echo $informations['nom'];?>"></h2>
+          <h2><?php echo $informations['nom'];?></h2>
         </div>
 
         <div class="row col-md-10 col-md-offset-1">
@@ -33,38 +33,38 @@
         </div>
 
         <div class="row col-md-10 col-md-offset-1" id="Details">
-            <div class="col-md-8 titreDetails">
+            <div class="col-md-8 titreDetailsAdmin">
                 <div class="col-md-5">
                     <h4>Détails du produit</h4>
                 </div>
-                  <div class="col-md-12 infosDetails">
+                  <div class="col-md-12 adminDetails">
                       <div class="col-md-6">
                           <span class="categorie"><p>Nom du produit</p></span>
-                          <p><?php echo $informations['nom']?></p>
+                          <input type="text" class="form-control" id="nom" name="nom" value="<?php echo $informations['nom']?>">
                           <span class="categorie"><p>Série</p></span>
-                          <p><?php echo $informations['nomType']?></p>
+                          <input type="text" class="form-control" id="type" name="type" value="<?php echo $informations['nomType']?>">
                           <span class="categorie"><p>Catégorie</p></span>
-                          <p><?php echo $informations['categorie']?></p>
+                          <input type="text" class="form-control" id="categorie" name="categorie" value="<?php echo $informations['categorie']?>">
                       </div>
-                      <div class="col-md-6">
+                      <div class="col-md-6 adminDetails">
                           <span class="categorie"><p>Prix</p></span>
-                          <p><?php echo $informations['prix']?> €</p>
+                          <input type="text" class="form-control" id="prix" name="prix" value="<?php echo $informations['prix']?>">
                           <span class="categorie"><p>Dimensions</p></span>
-                          <p><?php echo $informations['dimensions']?> cm</p>
+                          <input type="text" class="form-control" id="dimensions" name="dimensions" value="<?php echo $informations['dimensions']?>">
                           <span class="categorie"><p>Fabricant</p></span>
-                          <p><?php echo $informations['fabricant']?></p>
+                          <input type="text" class="form-control" id="fabricant" name="fabricant" value="<?php echo $informations['fabricant']?>">
                       </div>
                   </div>
             </div>
             <div class="col-md-4">
-                <a class="btn btn-default btnAjoutPanier" href="index.php?controle=panier&action=ajouter_panier&id=<?php echo $informations['id_produit'] ?>" role="button">Ajouter au Panier</a>
+                <a class="btn btn-default btnAjoutPanier" href="index.php?controle=administrateur&action=modifier_produit&id=<?php echo $informations['id_produit'] ?>" role="button">Modifier</a><!-- valider avec le formulaire -->
             </div>
-            <div class="col-md-12 titreDetails">
+            <div class="col-md-12 titreDetailsAdmin">
                 <div class="col-md-3">
                     <h4>Description</h4>
                 </div>
                 <div class="col-md-12 infosDescription">
-                    <p><?php echo $informations['description']?></p>
+                    <textarea name="description" cols="100" rows="8"><?php echo $informations['description']?></textarea>
                 </div>
             </div>
         </div>
@@ -79,16 +79,9 @@
           <?php 
             $cpt=0;
             foreach($images as $value){
-              if(isset($value)){
-                if($cpt==0){ ?>
-                  <img class="imageAdmin img-responsive" src="<?php echo $value?>" alt="">
-                  </a></li>
-                <?php }else{ ?>
-                  <img class="imageAdmin img-responsive" src="<?php echo $value?>" alt="">
-                  </a></li>
-                <?php
-                }
-                $cpt++;
+              if(isset($value)){?>
+                  <img class="imageAdmin img-responsive" src="<?php echo $value?>" alt=""><input type="text" class="form-control" id="image<?php echo $cpt;?>" name="image<?php echo $cpt;?>" value="<?php echo $value;?>">
+          <?php    $cpt++;                
               }
             }      
           ?>
