@@ -140,6 +140,7 @@
 .imageAdmin{
 	width: 200px;
 	margin-bottom: 20px;
+	float: left;
 }
 
 .form-control{

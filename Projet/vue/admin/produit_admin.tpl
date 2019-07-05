@@ -77,13 +77,27 @@
 
         <div class="row col-md-10 col-md-offset-1">
           <?php 
-            $cpt=0;
+            $cpt=1;
             foreach($images as $value){
               if(isset($value)){?>
-                  <img class="imageAdmin img-responsive" src="<?php echo $value?>" alt=""><input type="text" class="form-control" id="image<?php echo $cpt;?>" name="image<?php echo $cpt;?>" value="<?php echo $value;?>">
+                  <img class="imageAdmin img-responsive" src="<?php echo $value?>" alt="">
           <?php    $cpt++;                
               }
-            }      
+            }     
+
+            $cpt=1;
+            foreach($images as $value){
+              if(isset($value)){?>
+                 <input type="text" class="form-control" id="image<?php echo $cpt;?>" name="image<?php echo $cpt;?>" value="<?php echo $value;?>">
+          <?php    $cpt++;                
+              }
+            }  
+
+            if($cpt<6){
+              for ($cpt; $cpt <= 5; $cpt++) { ?>
+                  <img class="imageAdmin img-responsive" src="vue/images/noimage.png" alt=""><input type="text" class="form-control" id="image<?php echo $cpt;?>" name="image<?php echo $cpt;?>" placeholder="Entrez le chemin de l'image">
+          <?php }
+            }
           ?>
         </div>
 
