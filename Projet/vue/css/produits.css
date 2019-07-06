@@ -174,3 +174,15 @@
 .adminDetails input{
 	margin-bottom: 15px;
 }
+
+#gestionImages{
+	margin-bottom: 50px;
+}
+
+#gestionImages input{
+	margin-bottom: 30px;
+}
+
+#btnRetour{
+	float: left;
+}

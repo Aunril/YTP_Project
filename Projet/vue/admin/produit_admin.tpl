@@ -15,14 +15,15 @@
 
     <title><?php echo $informations['nom'];?> - Striker Eureka</title>
 </head>
-  
+
 <body>
 
   <div class="container">
 
-    <form id="form_Modification" action="index.php?controle=administrateur&action=modification" method="post">
+    <form id="form_Modification" action="index.php?controle=administrateur&action=modifier_produit&id=<?php echo $informations['id_produit']?>" method="post">
 
         <div class="row" id="nomProduit">
+          <a class="btn btn-default btn-info" id="btnRetour" href="index.php?controle=menu&action=administration" role="button">< Retour</a>
           <h2><?php echo $informations['nom'];?></h2>
         </div>
 
@@ -42,7 +43,12 @@
                           <span class="categorie"><p>Nom du produit</p></span>
                           <input type="text" class="form-control" id="nom" name="nom" value="<?php echo $informations['nom']?>">
                           <span class="categorie"><p>Série</p></span>
-                          <input type="text" class="form-control" id="type" name="type" value="<?php echo $informations['nomType']?>">
+                          <select class="form-control" id="type" name="type">
+                            <?php foreach ($types as $value){ ?>
+                              <option><?php echo $value['nomType']; ?></option>
+                            <?php } ?>
+                          </select>
+                          <input type="text" class="form-control" id="disabled" name="disabled" value="<?php echo $informations['nomType']?>" disabled>
                           <span class="categorie"><p>Catégorie</p></span>
                           <input type="text" class="form-control" id="categorie" name="categorie" value="<?php echo $informations['categorie']?>">
                       </div>
@@ -57,7 +63,7 @@
                   </div>
             </div>
             <div class="col-md-4">
-                <a class="btn btn-default btnAjoutPanier" href="index.php?controle=administrateur&action=modifier_produit&id=<?php echo $informations['id_produit'] ?>" role="button">Modifier</a><!-- valider avec le formulaire -->
+                <button class="btn btn-default btnAjoutPanier" type="submit">Modifier</button>
             </div>
             <div class="col-md-12 titreDetailsAdmin">
                 <div class="col-md-3">
@@ -75,30 +81,47 @@
             </div>
         </div>
 
-        <div class="row col-md-10 col-md-offset-1">
+        <div class="col-md-11 col-md-offset-1" id="gestionImages">
+          <div class="row">
           <?php 
             $cpt=1;
             foreach($images as $value){
               if(isset($value)){?>
-                  <img class="imageAdmin img-responsive" src="<?php echo $value?>" alt="">
+                  <div class="row">
+                    <img class="imageAdmin img-responsive" src="<?php echo $value?>" alt="">
+                  </div>
+                  <div class="row">
+                     <input type="text" class="form-control" id="image<?php echo $cpt;?>" name="image<?php echo $cpt;?>" value="<?php echo $value;?>">
+                      <a class="btn btn-default btn-danger" href="index.php?controle=administrateur&action=supprimer_image&image=image<?php echo $cpt;?>&id=<?php echo $informations['id_produit']?>" role="button">X</a>
+                  </div>
           <?php    $cpt++;                
               }
-            }     
+            }    ?>
 
-            $cpt=1;
-            foreach($images as $value){
-              if(isset($value)){?>
-                 <input type="text" class="form-control" id="image<?php echo $cpt;?>" name="image<?php echo $cpt;?>" value="<?php echo $value;?>">
-          <?php    $cpt++;                
-              }
-            }  
+            </div>
+            <div class="row">
+
+          <?php
 
             if($cpt<6){
-              for ($cpt; $cpt <= 5; $cpt++) { ?>
-                  <img class="imageAdmin img-responsive" src="vue/images/noimage.png" alt=""><input type="text" class="form-control" id="image<?php echo $cpt;?>" name="image<?php echo $cpt;?>" placeholder="Entrez le chemin de l'image">
-          <?php }
+              $restantes=(6-$cpt);
+              for ($i=1; $i <= $restantes; $i++) { ?>
+                  <img class="imageAdmin img-responsive" src="vue/images/noimage.png" alt="">
+          <?php } ?>
+            </div>
+            <div class="row">
+
+          <?php
+
+              for ($i=1; $i <= $restantes; $i++) { ?>
+                  <input type="text" class="form-control" id="image<?php echo $cpt;?>" name="image<?php echo $cpt;?>" placeholder="Entrez le chemin de l'image">
+          <?php 
+                $cpt++;
+              } 
+
             }
           ?>
+          </div>
         </div>
 
     </form>

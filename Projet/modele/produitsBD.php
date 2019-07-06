@@ -68,4 +68,23 @@ function liste_Produits($type){
 	return $donnees;
 }
 
+function liste_types() {
+
+	require ("modele/connectBD.php") ; 
+
+	try{
+		$req = $bdd->prepare('SELECT * FROM type');
+		$req->execute();
+	}
+	catch(Exception $e)
+	{
+        die('Erreur : '.$e->getMessage());
+	}
+
+	$donnees=$req->fetchAll(PDO::FETCH_ASSOC);
+	$req->closeCursor();
+	return $donnees;
+
+}
+
 ?>

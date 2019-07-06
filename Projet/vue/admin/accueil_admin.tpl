@@ -68,8 +68,13 @@
     </div>
     <div id="menu3" class="tab-pane fade">
       <br>
+      <br>
+      <a class="btn btn-default btn-danger" href="" role="button">+ Ajouter un produit </a>
+      <br>
+      <br>
+      <br>
       <div class="table-responsive">
-      <table class="table table-bordered">
+      <table class="table table-bordered table-striped">
         <thead>
             <td>ID PRODUIT</td>
             <td>TYPE</td>
@@ -85,7 +90,7 @@
             <td><?php echo $value['nomType']?></td>
             <td><?php echo $value['nom']?></td>
             <td><?php echo $value['prix']?></td>
-            <td><p><a class="btn btn-default btnArticle" href="index.php?controle=administrateur&action=afficherProduit&id=<?php echo $value['id_produit'] ?>" role="button">Détails > </a></p></td>
+            <td><p><a class="btn btn-default btn-info" href="index.php?controle=administrateur&action=afficherProduit&id=<?php echo $value['id_produit'] ?>" role="button">Détails > </a></p></td>
           </tr>
           <?php } ?>
       </table>
