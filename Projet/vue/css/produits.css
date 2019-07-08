@@ -132,3 +132,57 @@
 	width : 100px;
 	height : 70px;
 }
+
+
+
+/**page administrateur**/
+
+.imageAdmin{
+	width: 200px;
+	margin-bottom: 20px;
+	float: left;
+}
+
+.form-control{
+	display: inline;
+	width: auto;
+	height: 34px;
+    padding: 6px 12px;
+    font-size: inherit;
+    line-height: 1.42857143;
+    color: inherit;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.titreDetailsAdmin h4{
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #1DD8E5;
+    text-align: center;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.adminDetails{
+	margin-bottom: 20px;
+}
+
+.adminDetails input{
+	margin-bottom: 15px;
+}
+
+#gestionImages{
+	margin-bottom: 50px;
+}
+
+#gestionImages input{
+	margin-bottom: 30px;
+}
+
+#btnRetour{
+	float: left;
+}

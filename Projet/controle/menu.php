@@ -69,5 +69,9 @@ function produit(){
 	require("vue/produit.tpl");
 }
 
+function administration(){
+	header("Location:index.php?controle=administrateur&action=informationsBDD");
+}
+
 
 ?>
