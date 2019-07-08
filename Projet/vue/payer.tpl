@@ -51,7 +51,7 @@
             onApprove: function(data, actions) {
                 return actions.order.capture().then(function(details) {
                     // Show a success message to the buyer
-                    alert('Transaction completed by ' + details.payer.name.given_name + '!');
+			document.location.href="index.php?controle=payer&action=apres_achat&total=<?php echo $prix_total['SUM(produit.prix*panier.quantité)'] + 4 ?>";
                 });
             }
 

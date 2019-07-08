@@ -36,7 +36,9 @@
         </div>
     </div>
   </div>
-	
+  
+  <?php print_r($commande) ?>
+
   <?php include('vue/templates/html-footer.tpl'); ?>
   
 <!-- jQuery library -->
