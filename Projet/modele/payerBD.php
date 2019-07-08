@@ -61,7 +61,7 @@ function num_commande($id)
 {
  require ("modele/connectBD.php") ;
         try{
-                $req = $bdd->prepare('SELECT MAX(id_commande) FROM `commande` WHERE id_client= :id');
+                $req = $bdd->prepare('SELECT MAX(id_commande) as max FROM `commande` WHERE id_client= :id');
                 $req->execute(array(
                                 'id' => $id
                         ));
@@ -81,7 +81,7 @@ function afficher_commande($id)
 {
  require ("modele/connectBD.php") ;
         try{
-                $req = $bdd->prepare('SELECT  FROM `commande` WHERE id_client= :id');
+                $req = $bdd->prepare('SELECT * FROM `panier` WHERE id_client= :id');
                 $req->execute(array(
                                 'id' => $id
                         ));

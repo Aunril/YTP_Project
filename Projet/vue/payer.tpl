@@ -58,7 +58,6 @@
 
         }).render('#paypal-button-container');
 	</script>
-
   <?php include('vue/templates/html-footer.tpl'); ?>
   
 <!-- jQuery library -->

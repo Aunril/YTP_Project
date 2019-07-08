@@ -16,7 +16,7 @@ function apres_achat(){
 		foreach($commande as $value)
 		{
 			
-			ajouter_produit_2($numero_commande['max'],$value['produit'],$value['quantite']);
+			ajouter_produit_2($numero_commande['max'],$value['id_produit'],$value['quantité']);
 		}
 		vider_le_panier($id);
 
