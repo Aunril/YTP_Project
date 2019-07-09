@@ -82,6 +82,31 @@
         </div>
 
         <div class="col-md-11 col-md-offset-1" id="gestionImages">
+
+          <h4>Image Principale</h4>
+
+          <div class="row">
+            <?php 
+            if(isset($imagePrincipale)){ ?>
+                <div class="row">
+                  <img class="imageAdmin img-responsive" src="<?php echo $imagePrincipale?>" alt="">
+                </div>
+                <div class="row">
+                   <input type="text" class="form-control" id="imagePrincipale" name="imagePrincipale" value="<?php echo $imagePrincipale;?>">
+                    <a class="btn btn-default btn-danger" href="index.php?controle=administrateur&action=supprimer_image&image=imagePrincipale&id=<?php echo $informations['id_produit']?>" role="button">X</a>
+                </div>              
+            <?php }else{ ?>
+                 <div class="row">
+                    <img class="imageAdmin img-responsive" src="vue/images/noimage.png" alt="">
+                 </div>
+                 <div class="row">
+                    <input type="text" class="form-control" id="imagePrincipale" name="imagePrincipale" placeholder="Chemin de l'image Principale">                     
+                 </div> 
+            <?php } ?>
+          </div>
+
+          <h4>Images annexes</h4>
+
           <div class="row">
           <?php 
             $cpt=1;

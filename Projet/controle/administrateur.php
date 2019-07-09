@@ -17,6 +17,7 @@ function afficherProduit(){
 		$informations=infos_Produit($id);
 		$images=images_Produit($id);
 		$types=liste_types();
+		$imagePrincipale=info_imagePrincipale($id);
 		require("vue/admin/produit_admin.tpl");
 	}
 }
@@ -43,13 +44,14 @@ function modifier_produit(){
 		$fabricant= isset($_POST['fabricant'])?($_POST['fabricant']):'';
 		$description= isset($_POST['description'])?($_POST['description']):'';
 
+		$imagePrincipale= !empty($_POST['imagePrincipale'])?($_POST['imagePrincipale']):NULL;
 		$image1= !empty($_POST['image1'])?($_POST['image1']):NULL;
 		$image2= !empty($_POST['image2'])?($_POST['image2']):NULL;
 		$image3= !empty($_POST['image3'])?($_POST['image3']):NULL;
 		$image4= !empty($_POST['image4'])?($_POST['image4']):NULL;
 		$image5= !empty($_POST['image5'])?($_POST['image5']):NULL;
 
-		modification_produit($id,$nom,$type,$categorie,$prix,$dimensions,$fabricant,$description,$image1,$image2,$image3,$image4,$image5);
+		modification_produit($id,$nom,$type,$categorie,$prix,$dimensions,$fabricant,$description,$imagePrincipale,$image1,$image2,$image3,$image4,$image5);
 
 		header("Location:index.php?controle=administrateur&action=afficherProduit&id=$id");
 	}	

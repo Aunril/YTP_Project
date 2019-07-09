@@ -47,6 +47,27 @@ function images_Produit($id) {
 
 }
 
+function info_imagePrincipale($id){
+
+	require ("modele/connectBD.php") ; 
+
+	try{
+		$req = $bdd->prepare('SELECT imagePrincipale FROM images WHERE id_produit = :id');
+		$req->execute(array(
+				'id' => $id
+			));
+	}
+	catch(Exception $e)
+	{
+        die('Erreur : '.$e->getMessage());
+	}
+
+	$donnees=$req->fetchAll(PDO::FETCH_ASSOC);
+	$req->closeCursor();
+	return $donnees[0]['imagePrincipale'];
+
+}
+
 
 function liste_Produits($type){
 

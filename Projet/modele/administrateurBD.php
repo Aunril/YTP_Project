@@ -60,7 +60,7 @@ function suppression_image($id,$image){
 }
 
 
-function modification_produit($id,$nom,$type,$categorie,$prix,$dimensions,$fabricant,$description,$image1,$image2,$image3,$image4,$image5){
+function modification_produit($id,$nom,$type,$categorie,$prix,$dimensions,$fabricant,$description,$imagePrincipale,$image1,$image2,$image3,$image4,$image5){
 
 	require ("modele/connectBD.php");
 
@@ -78,8 +78,9 @@ function modification_produit($id,$nom,$type,$categorie,$prix,$dimensions,$fabri
 				'id' => $id
 			));
 
-		$req = $bdd->prepare('UPDATE images SET image1=:image1, image2=:image2, image3=:image3, image4=:image4, image5=:image5 WHERE id_produit=:id');
+		$req = $bdd->prepare('UPDATE images SET imagePrincipale=:imagePrincipale, image1=:image1, image2=:image2, image3=:image3, image4=:image4, image5=:image5 WHERE id_produit=:id');
 		$req->execute(array(
+				'imagePrincipale' => $imagePrincipale,
 				'image1' => $image1,
 				'image2' => $image2,
 				'image3' => $image3,
