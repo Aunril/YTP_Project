@@ -29,6 +29,7 @@
     <li><a data-toggle="pill" href="#menu1">Liste des clients</a></li>
     <li><a data-toggle="pill" href="#menu2">Commandes à envoyer</a></li>
     <li><a data-toggle="pill" href="#menu3">Liste des produits</a></li>
+		<li><a data-toggle="pill" href="#menu4">Historique commande</a></li>
   </ul>
   
   <div class="tab-content">
@@ -68,8 +69,10 @@
       <div class="table-responsive">
       <table class="table table-bordered">
         <thead>
-            <td>ID PRODUIT</td>
-						<td>QUANTITE</td>	
+        <td>ID COMMANDE</td>
+
+	<td>ID PRODUIT</td>
+		<td>QUANTITE</td>	
             <td>NOM CLIENT</td>
             <td>PRENOM CLIENT</td>
             <td>ADRESSE CLIENT</td>
@@ -79,8 +82,10 @@
           foreach($commande as $value){          
           ?>
           <tr>
-            <th><?php echo $value['id_produit']?></th>
-            <td><?php echo $value['quantite']?></td>
+	<th><?php echo $value['id_commande']?></th>
+
+            <td><?php echo $value['id_produit']?></td>
+            		<td><?php echo $value['quantite']?></td>
             <td><?php echo $value['nom']?></td>
             <td><?php echo $value['prenom']?></td>
             <td><?php echo $value['adresse'] ?>  <?php echo $value['codepostal'] ?>  <?php echo $value['ville']?></td>
@@ -131,6 +136,34 @@
       </table>
       </div>
     </div>
+    
+
+	 <div id="menu4" class="tab-pane fade">
+	 		<br>
+			<br>
+			<br>
+			<br>
+      <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+            <td>ID COMMANDE</td>
+            <td>PRIX</td>
+        </thead>
+        <?php
+          foreach($histo as $value){
+          ?>
+          <tr>
+            <th><?php echo $value['id_commande']?></th>
+            <td><?php echo $value['total']?>€</td>
+	    </tr>
+          <?php } ?>
+      </table>
+      </div>
+    </div>
+
+
+
+
   </div>
 </div>
     

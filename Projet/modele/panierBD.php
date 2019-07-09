@@ -187,4 +187,31 @@ function check($id)
 
 }
 
+function stop_stock($id)
+{
+	require ("modele/connectBD.php") ;
+        try{
+                $req = $bdd->prepare('SELECT * FROM produit WHERE id_produit = :id AND stock > 0');
+                $req->execute(array(
+                        'id' => $id
+                        ));
+        }
+        catch(Exception $e)
+        {
+        die('Erreur : '.$e->getMessage());
+        }
+
+
+ 	if ($req->fetch() == false)
+        {
+                return FALSE;
+        }
+        else
+        {
+                return TRUE;
+        }
+	
+}
+
+
 ?>

@@ -6,6 +6,7 @@ function informationsBDD(){
 		$clients=liste_clients();
 		$produits=liste_produits();
 		$commande=produits_a_envoyer();
+		$histo=historique();
 		require("vue/admin/accueil_admin.tpl");
 	//}
 }
@@ -66,6 +67,7 @@ function ajout_stock()
 	$clients=liste_clients();
   $produits=liste_produits();
 	$commande=produits_a_envoyer();
+	$histo=historique();
 	require("vue/admin/accueil_admin.tpl");
 
 }
@@ -80,7 +82,8 @@ function enlever_stock()
 	}
 	$clients=liste_clients();
   $produits=liste_produits();
-  $commande=produits_a_envoyer();
+	$commande=produits_a_envoyer();
+	$histo=historique();
   require("vue/admin/accueil_admin.tpl");
 
 }
@@ -92,6 +95,7 @@ function envoyer_produit()
 		$id=$_GET['id'];
 		$id_commande = $_GET['id_cmd'];
 		envoyer_un_produit($id,$id_commande);
+		enlever_stockBD($id);
 	}
 	
 	if(!test($id_commande))
@@ -103,8 +107,12 @@ function envoyer_produit()
 	$clients=liste_clients();
 	$produits=liste_produits();
 	$commande=produits_a_envoyer();
+	$histo=historique();
  	require("vue/admin/accueil_admin.tpl");
 
 }
+
+
+
 
 ?>

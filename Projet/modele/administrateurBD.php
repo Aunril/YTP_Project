@@ -103,7 +103,7 @@ function produits_a_envoyer() {
 	require ("modele/connectBD.php") ; 
 
 	try{
-		$req = $bdd->prepare('SELECT * FROM produits_commande INNER JOIN commande ON commande.id_commande = produits_commande.id_commande INNER JOIN client ON client.id_client = commande.id_client WHERE reçu=0');
+		$req = $bdd->prepare('SELECT * FROM produits_commande INNER JOIN commande ON commande.id_commande = produits_commande.id_commande INNER JOIN client ON client.id_client = commande.id_client WHERE envoie=0');
 		$req->execute();
 	}
 	catch(Exception $e)
@@ -116,6 +116,26 @@ function produits_a_envoyer() {
 	return $donnees;
 
 }
+
+function historique() {
+
+	require ("modele/connectBD.php") ; 
+
+	try{
+		$req = $bdd->prepare('SELECT * FROM commande WHERE reçu = 1');
+		$req->execute();
+	}
+	catch(Exception $e)
+	{
+        die('Erreur : '.$e->getMessage());
+	}
+
+	$donnees=$req->fetchAll(PDO::FETCH_ASSOC);
+	$req->closeCursor();
+	return $donnees;
+
+}
+
 
 
 function ajout_stockBD($id)
@@ -171,7 +191,7 @@ function envoyer_un_produit($id_produit,$id_commande)
 {
 	require ("modele/connectBD.php") ;
         try{
-                $req = $bdd->prepare('DELETE FROM produits_commande WHERE id_produit = :id_prod AND id_commande = :id_cmd ');
+                $req = $bdd->prepare('UPDATE produits_commande SET envoie = 1 WHERE id_commande = :id_cmd AND id_produit = :id_prod ');
                 $req->execute(array(
 			'id_prod' => $id_produit,
 			'id_cmd' => $id_commande
@@ -189,7 +209,7 @@ function test($id_cmd) {
 
         require ("modele/connectBD.php") ;
         try{
-                $req = $bdd->prepare('SELECT * FROM `produits_commande` WHERE id_commande = :id_cmd');
+                $req = $bdd->prepare('SELECT * FROM `produits_commande` WHERE id_commande = :id_cmd AND envoie=0');
                 $req->execute(array(
                         'id_cmd' => $id_cmd
                         ));

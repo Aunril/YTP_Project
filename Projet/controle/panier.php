@@ -71,17 +71,25 @@ function ajouter_panier()
 	if(isset($_SESSION['profil']) AND isset($_GET['id'])){
 			$id= $_SESSION['profil']['id_client'];
 			$id_produit= $_GET['id'];
-			if(search($id,$id_produit))
+			if (TRUE)
 			{
-				plusBD($id,$id_produit);
+				if(search($id,$id_produit))
+				{
+					plusBD($id,$id_produit);
+	
+				}
+				else
+				{
+					ajouter_produit($id,$id_produit);
+				}
+				header("Location: index.php?controle=produits&action=afficherProduit&id=$id_produit");
 
 			}
 			else
 			{
-				ajouter_produit($id,$id_produit);
-			}
-			header("Location: index.php?controle=produits&action=afficherProduit&id=$id_produit");
+				header("Location: index.php?controle=produits&action=afficherProduit&id=$id_produit");
 
+			}
 	}
 	else
 	{
