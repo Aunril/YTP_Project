@@ -5,6 +5,7 @@ function informationsBDD(){
 	//if(isset($_SESSION['profil'])){
 		$clients=liste_clients();
 		$produits=liste_produits();
+		$commande=produits_a_envoyer();
 		require("vue/admin/accueil_admin.tpl");
 	//}
 }
@@ -52,6 +53,58 @@ function modifier_produit(){
 
 		header("Location:index.php?controle=administrateur&action=afficherProduit&id=$id");
 	}	
+}
+
+function ajout_stock()
+{
+	require ("modele/administrateurBD.php");
+
+	if(isset($_GET['id'])){
+					$id=$_GET['id'];
+					ajout_stockBD($id);
+	}
+	$clients=liste_clients();
+  $produits=liste_produits();
+	$commande=produits_a_envoyer();
+	require("vue/admin/accueil_admin.tpl");
+
+}
+
+function enlever_stock()
+{
+	require ("modele/administrateurBD.php");
+
+	if(isset($_GET['id'])){
+		$id=$_GET['id'];
+		enlever_stockBD($id);
+	}
+	$clients=liste_clients();
+  $produits=liste_produits();
+  $commande=produits_a_envoyer();
+  require("vue/admin/accueil_admin.tpl");
+
+}
+
+function envoyer_produit()
+{
+	require ("modele/administrateurBD.php");
+	if(isset($_GET['id'])){
+		$id=$_GET['id'];
+		$id_commande = $_GET['id_cmd'];
+		envoyer_un_produit($id,$id_commande);
+	}
+	
+	if(!test($id_commande))
+	{
+		
+		envoyerBD($id_commande);
+	}
+	
+	$clients=liste_clients();
+	$produits=liste_produits();
+	$commande=produits_a_envoyer();
+ 	require("vue/admin/accueil_admin.tpl");
+
 }
 
 ?>

@@ -27,7 +27,7 @@
   <ul class="nav nav-pills">
     <li class="active"><a data-toggle="pill" href="#home">Home</a></li>
     <li><a data-toggle="pill" href="#menu1">Liste des clients</a></li>
-    <li><a data-toggle="pill" href="#menu2">Liste des commandes</a></li>
+    <li><a data-toggle="pill" href="#menu2">Commandes à envoyer</a></li>
     <li><a data-toggle="pill" href="#menu3">Liste des produits</a></li>
   </ul>
   
@@ -64,6 +64,34 @@
 
     </div>
     <div id="menu2" class="tab-pane fade">
+	<h3></h3>
+      <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+            <td>ID PRODUIT</td>
+						<td>QUANTITE</td>	
+            <td>NOM CLIENT</td>
+            <td>PRENOM CLIENT</td>
+            <td>ADRESSE CLIENT</td>
+						<td>ENVOYER</td>
+        </thead>
+        <?php
+          foreach($commande as $value){          
+          ?>
+          <tr>
+            <th><?php echo $value['id_produit']?></th>
+            <td><?php echo $value['quantite']?></td>
+            <td><?php echo $value['nom']?></td>
+            <td><?php echo $value['prenom']?></td>
+            <td><?php echo $value['adresse'] ?>  <?php echo $value['codepostal'] ?>  <?php echo $value['ville']?></td>
+						<td>
+						<a class="btn btn-default btnArticle" id="bouton_envoyer" href="index.php?controle=administrateur&action=envoyer_produit&id=<?php echo $value['id_produit'] ?>&id_cmd=<?php echo $value['id_commande']?>" role="button">Send</a>
+						</td>
+          </tr>
+          <?php } ?>
+      </table>
+      </div>
+
 
     </div>
     <div id="menu3" class="tab-pane fade">
@@ -81,6 +109,7 @@
             <td>NOM</td>
             <td>PRIX</td>
             <td>INFORMATIONS</td>
+						<td>AJOUT STOCK</td>
         </thead>
         <?php
           foreach($produits as $value){          
@@ -91,6 +120,12 @@
             <td><?php echo $value['nom']?></td>
             <td><?php echo $value['prix']?></td>
             <td><p><a class="btn btn-default btn-info" href="index.php?controle=administrateur&action=afficherProduit&id=<?php echo $value['id_produit'] ?>" role="button">Détails > </a></p></td>
+						<td> <p><a class="btn btn-default btn-info" href="index.php?controle=administrateur&action=ajout_stock&id=<?php echo $value['id_produit'] ?>" role="button">+</a>
+<a class="btn btn-default btn-info" href="index.php?controle=administrateur&action=enlever_stock&id=<?php echo $value['id_produit'] ?>" role="button">-</a>
+<?php echo $value['stock'] ?>
+</p>
+
+						</td>
           </tr>
           <?php } ?>
       </table>

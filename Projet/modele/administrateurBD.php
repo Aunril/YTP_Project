@@ -25,7 +25,7 @@ function liste_produits() {
 	require ("modele/connectBD.php") ; 
 
 	try{
-		$req = $bdd->prepare('SELECT id_produit, nomType, nom, categorie, prix, dimensions, fabricant, description FROM produit, type WHERE produit.id_type=type.id_type');
+		$req = $bdd->prepare('SELECT id_produit, nomType, nom, categorie, prix, dimensions, fabricant, description, stock FROM produit, type WHERE produit.id_type=type.id_type');
 		$req->execute();
 	}
 	catch(Exception $e)
@@ -95,6 +95,118 @@ function modification_produit($id,$nom,$type,$categorie,$prix,$dimensions,$fabri
 
 	$req->closeCursor();	
 
+}
+
+
+function produits_a_envoyer() {
+
+	require ("modele/connectBD.php") ; 
+
+	try{
+		$req = $bdd->prepare('SELECT * FROM produits_commande INNER JOIN commande ON commande.id_commande = produits_commande.id_commande INNER JOIN client ON client.id_client = commande.id_client WHERE reçu=0');
+		$req->execute();
+	}
+	catch(Exception $e)
+	{
+        die('Erreur : '.$e->getMessage());
+	}
+
+	$donnees=$req->fetchAll(PDO::FETCH_ASSOC);
+	$req->closeCursor();
+	return $donnees;
+
+}
+
+
+function ajout_stockBD($id)
+{
+	 require ("modele/connectBD.php") ;
+        try{
+                $req = $bdd->prepare('UPDATE `produit` SET`stock`= stock + 1 WHERE id_produit = :id ');
+                $req->execute(array(
+                        'id' => $id
+                        ));
+        }
+        catch(Exception $e)
+        {
+        die('Erreur : '.$e->getMessage());
+        }
+
+}
+
+function enlever_stockBD($id)
+{
+require ("modele/connectBD.php") ;
+        try{
+                $req = $bdd->prepare('UPDATE `produit` SET`stock`= stock - 1 WHERE id_produit = :id ');
+                $req->execute(array(
+                        'id' => $id
+                        ));
+        }
+        catch(Exception $e)
+        {
+        die('Erreur : '.$e->getMessage());
+        }
+
+}
+
+function envoyerBD($id)
+{
+	require ("modele/connectBD.php") ;
+        try{
+                $req = $bdd->prepare('UPDATE `commande` SET `reçu`= 1 WHERE id_commande = :id ');
+                $req->execute(array(
+                        'id' => $id
+                        ));
+        }
+        catch(Exception $e)
+        {
+        die('Erreur : '.$e->getMessage());
+        }
+
+}
+
+
+function envoyer_un_produit($id_produit,$id_commande)
+{
+	require ("modele/connectBD.php") ;
+        try{
+                $req = $bdd->prepare('DELETE FROM produits_commande WHERE id_produit = :id_prod AND id_commande = :id_cmd ');
+                $req->execute(array(
+			'id_prod' => $id_produit,
+			'id_cmd' => $id_commande
+
+                        ));
+        }
+        catch(Exception $e)
+        {
+        die('Erreur : '.$e->getMessage());
+        }
+
+}
+
+function test($id_cmd) {
+
+        require ("modele/connectBD.php") ;
+        try{
+                $req = $bdd->prepare('SELECT * FROM `produits_commande` WHERE id_commande = :id_cmd');
+                $req->execute(array(
+                        'id_cmd' => $id_cmd
+                        ));
+        }
+        catch(Exception $e)
+        {
+        die('Erreur : '.$e->getMessage());
+        }
+
+        if ($req->fetch() == false)
+        {
+                return FALSE;
+        }
+        else
+        {
+                return TRUE;
+        }
 }
 
 ?>
