@@ -99,6 +99,49 @@ function modification_produit($id,$nom,$type,$categorie,$prix,$dimensions,$fabri
 }
 
 
+function ajout_produit($nom,$type,$categorie,$prix,$dimensions,$fabricant,$description,$imagePrincipale,$image1,$image2,$image3,$image4,$image5){
+
+	require ("modele/connectBD.php");
+
+	try{
+
+		$req = $bdd->prepare('INSERT INTO produit (`id_type`, `nom`, `categorie`, `prix`, `dimensions`, `fabricant`, `description`) VALUES (:type, :nom, :categorie, :prix, :dimensions, :fabricant,:description);');
+		$req->execute(array(
+				'nom' => $nom,
+				'type' => $type,
+				'categorie' => $categorie,
+				'prix' => $prix,
+				'dimensions' => $dimensions,
+				'fabricant' => $fabricant,
+				'description' => $description
+			));
+
+		$cmd="SELECT MAX(id_produit) as nouveau_id FROM produit";
+	    $res = $bdd->query($cmd);
+	    $id = $res->fetch();
+
+		$req = $bdd->prepare('INSERT INTO images (`id_produit`, `imagePrincipale`, `image1`, `image2`, `image3`, `image4`, `image5`) VALUES (:id, :imagePrincipale, :image1, :image2, :image3, :image4, :image5)');
+		$req->execute(array(
+				'imagePrincipale' => $imagePrincipale,
+				'image1' => $image1,
+				'image2' => $image2,
+				'image3' => $image3,
+				'image4' => $image4,
+				'image5' => $image5,
+				'id' => $id['nouveau_id']
+			));
+	}
+	catch(Exception $e)
+	{
+        die('Erreur : '.$e->getMessage());
+	}
+
+	$req->closeCursor();	
+	return $id['nouveau_id'];
+
+}
+
+
 function produits_a_envoyer() {
 
 	require ("modele/connectBD.php") ; 

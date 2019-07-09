@@ -102,7 +102,7 @@
     <div id="menu3" class="tab-pane fade">
       <br>
       <br>
-      <a class="btn btn-default btn-danger" href="" role="button">+ Ajouter un produit </a>
+      <a class="btn btn-default btn-danger" href="index.php?controle=administrateur&action=PageAjoutProduit" role="button">+ Ajouter un produit </a>
       <br>
       <br>
       <br>
