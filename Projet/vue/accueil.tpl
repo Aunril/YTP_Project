@@ -62,7 +62,7 @@
           <div class="carousel-caption">
             <h1>Saber Fate Apocrypha</h1>
             <p>Retrouvez toute la série Fate dans notre catégorie Manga</p>
-            <p><a class="btn btn-lg btn-primary" href="index.php?controle=menu&action=manga" role="button">Voir le produit</a></p>
+            <p><a class="btn btn-lg btn-primary" href="index.php?controle=menu&action=manga" role="button">Figurines Manga</a></p>
           </div>
         </div>
       </div>

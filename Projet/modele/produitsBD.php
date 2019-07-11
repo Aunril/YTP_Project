@@ -68,6 +68,25 @@ function info_imagePrincipale($id){
 
 }
 
+function prochain_id(){
+
+	require ("modele/connectBD.php") ; 
+
+	try{
+		$cmd="SELECT MAX(id_produit) as id FROM produit";
+	    $res = $bdd->query($cmd);
+	    $id = $res->fetch();
+	}
+	catch(Exception $e)
+	{
+        die('Erreur : '.$e->getMessage());
+	}
+
+	$res->closeCursor();
+	return $id['id'];
+
+}
+
 
 function liste_Produits($type){
 

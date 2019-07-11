@@ -161,7 +161,7 @@
     font-weight: bold;
     text-transform: uppercase;
     color: white;
-    background-color: #1DD8E5;
+    background-color: #3498db;
     text-align: center;
     padding: 10px;
     font-size: 15px;
@@ -185,4 +185,21 @@
 
 #btnRetour{
 	float: left;
+}
+
+.ajoutImage h4{
+	width: 30%;
+	margin: 0 auto;
+}
+
+.categorieVide{
+	text-align: center;
+    font-weight: bold;
+   	background-color: #FBF1EE;
+	background-position: 9px 0px;
+	background-repeat: no-repeat;
+	border-left: solid 4px #A22B0D;
+	border-right: solid 4px #A22B0D;
+	line-height: 18px;
+	padding: 15px 60px;
 }

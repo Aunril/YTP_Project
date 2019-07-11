@@ -43,7 +43,7 @@
                           <span class="categorie"><p>Nom du produit</p></span>
                           <input type="text" class="form-control" id="nom" name="nom">
                           <span class="categorie"><p>Série</p></span>
-                          <select class="form-control" id="type" name="type">
+                          <select class="form-control" id="type" name="type" style="margin-bottom: 15px;">
                             <?php foreach ($types as $value){ ?>
                               <option value="<?php echo $value['id_type']; ?>"><?php echo $value['nomType']; ?></option>
                             <?php } ?>
@@ -62,7 +62,7 @@
                   </div>
             </div>
             <div class="col-md-4">
-                <button class="btn btn-default btnAjoutPanier" type="submit">Modifier</button>
+                <button class="btn btn-default btnAjoutPanier" type="submit">Ajouter</button>
             </div>
             <div class="col-md-12 titreDetailsAdmin">
                 <div class="col-md-3">
@@ -82,18 +82,31 @@
 
         <div class="col-md-11 col-md-offset-1" id="gestionImages">
 
-          <h4>Image Principale</h4>
+            <div class="titreDetailsAdmin">
+                <div class="ajoutImage">
+                    <h4>Image Principale</h4>
+                </div>
+            </div>
 
           <div class="row">
              <div class="row">
                 <img class="imageAdmin img-responsive" src="vue/images/noimage.png" alt="">
+
+                <div class="info-box">
+                   <p>Veillez à créer en amont le dossier vue/images/produits/<?php echo $nouveau_id; ?><P>
+                   <p>Positionnez-y les images correspondant au produit à ajouter</p>
+                </div> 
              </div>
              <div class="row">
                 <input type="text" class="form-control" id="imagePrincipale" name="imagePrincipale" placeholder="Chemin de l'image Principale">                     
              </div> 
           </div>
 
-          <h4>Images annexes</h4>
+            <div class="titreDetailsAdmin">
+                <div class="ajoutImage">
+                    <h4>Image Annexes</h4>
+                </div>
+            </div>
 
           <div class="row">
 

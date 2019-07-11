@@ -43,12 +43,15 @@
                           <span class="categorie"><p>Nom du produit</p></span>
                           <input type="text" class="form-control" id="nom" name="nom" value="<?php echo $informations['nom']?>">
                           <span class="categorie"><p>Série</p></span>
-                          <select class="form-control" id="type" name="type">
-                            <?php foreach ($types as $value){ ?>
-                              <option><?php echo $value['nomType']; ?></option>
-                            <?php } ?>
+                          <select class="form-control" id="type" name="type" style="margin-bottom: 15px;">
+                            <?php foreach ($types as $value){ 
+                              if ($value['nomType']==$informations['nomType']) { ?>
+                                  <option selected="selected"><?php echo $value['nomType']; ?></option>
+                            <?php }else{ ?>
+                                  <option><?php echo $value['nomType']; ?></option>
+                            <?php }
+                                } ?>
                           </select>
-                          <input type="text" class="form-control" id="disabled" name="disabled" value="<?php echo $informations['nomType']?>" disabled>
                           <span class="categorie"><p>Catégorie</p></span>
                           <input type="text" class="form-control" id="categorie" name="categorie" value="<?php echo $informations['categorie']?>">
                       </div>

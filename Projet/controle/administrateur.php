@@ -25,30 +25,35 @@ function afficherProduit(){
 
 function PageAjoutProduit(){
 	require ("modele/produitsBD.php");
+	$nouveau_id=prochain_id();
+	$nouveau_id++;
 	$types=liste_types();
 	require("vue/admin/nouveau_produit_admin.tpl");
 }
 
 function ajoutProduit(){
 	require ("modele/administrateurBD.php");
-	$nom= isset($_POST['nom'])?($_POST['nom']):'';
-	$type=isset($_POST['type'])?($_POST['type']):'';
-	$categorie=isset($_POST['categorie'])?($_POST['categorie']):'';
-	$prix=  isset($_POST['prix'])?($_POST['prix']):'';
-	$dimensions= isset($_POST['dimensions'])?($_POST['dimensions']):'';
-	$fabricant= isset($_POST['fabricant'])?($_POST['fabricant']):'';
-	$description= isset($_POST['description'])?($_POST['description']):'';
 
-	$imagePrincipale= !empty($_POST['imagePrincipale'])?($_POST['imagePrincipale']):NULL;
-	$image1= !empty($_POST['image1'])?($_POST['image1']):NULL;
-	$image2= !empty($_POST['image2'])?($_POST['image2']):NULL;
-	$image3= !empty($_POST['image3'])?($_POST['image3']):NULL;
-	$image4= !empty($_POST['image4'])?($_POST['image4']):NULL;
-	$image5= !empty($_POST['image5'])?($_POST['image5']):NULL;
+	//if(isset($_GET['nom'])){
+		$nom= isset($_POST['nom'])?($_POST['nom']):'';
+		$type=isset($_POST['type'])?($_POST['type']):'';
+		$categorie=isset($_POST['categorie'])?($_POST['categorie']):'';
+		$prix=  isset($_POST['prix'])?($_POST['prix']):'';
+		$dimensions= isset($_POST['dimensions'])?($_POST['dimensions']):'';
+		$fabricant= isset($_POST['fabricant'])?($_POST['fabricant']):'';
+		$description= isset($_POST['description'])?($_POST['description']):'';
 
-	$id=ajout_produit($nom,$type,$categorie,$prix,$dimensions,$fabricant,$description,$imagePrincipale,$image1,$image2,$image3,$image4,$image5);
+		$imagePrincipale= !empty($_POST['imagePrincipale'])?($_POST['imagePrincipale']):NULL;
+		$image1= !empty($_POST['image1'])?($_POST['image1']):NULL;
+		$image2= !empty($_POST['image2'])?($_POST['image2']):NULL;
+		$image3= !empty($_POST['image3'])?($_POST['image3']):NULL;
+		$image4= !empty($_POST['image4'])?($_POST['image4']):NULL;
+		$image5= !empty($_POST['image5'])?($_POST['image5']):NULL;
 
-	header("Location:index.php?controle=administrateur&action=afficherProduit&id=$id");
+		$id=ajout_produit($nom,$type,$categorie,$prix,$dimensions,$fabricant,$description,$imagePrincipale,$image1,$image2,$image3,$image4,$image5);
+
+		header("Location:index.php?controle=administrateur&action=afficherProduit&id=$id");
+	//}
 }
 
 function supprimer_image(){

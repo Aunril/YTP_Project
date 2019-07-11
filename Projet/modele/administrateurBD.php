@@ -39,7 +39,6 @@ function liste_produits() {
 
 }
 
-
 function suppression_image($id,$image){
 
 	require ("modele/connectBD.php");
