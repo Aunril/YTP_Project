@@ -9,6 +9,12 @@
           </button>
           <a class="navbar-brand" href="index.php?controle=administrateur&action=informationsBDD">Striker Eureka - Page Administrateur</a>
         </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="index.php?controle=menu&action=accueil">Retour au site (et deconnexion)</a></li>
+            <li><a href=""></a></li>
+          </ul>
+        </div>
       </div>
     </nav>
 
