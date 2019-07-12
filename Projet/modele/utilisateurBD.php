@@ -213,4 +213,85 @@ function deconnexion_client($id){
 
 }
 
+
+function liste_clients() {
+
+	require ("modele/connectBD.php") ; 
+
+	try{
+		$req = $bdd->prepare('SELECT * FROM client WHERE del=0');
+		$req->execute();
+	}
+	catch(Exception $e)
+	{
+        die('Erreur : '.$e->getMessage());
+	}
+
+	$donnees=$req->fetchAll(PDO::FETCH_ASSOC);
+	$req->closeCursor();
+	return $donnees;
+
+}
+
+function supprimer_client($id){
+	require ("modele/connectBD.php") ; 
+
+	try{
+		$req = $bdd->prepare('UPDATE client SET del=1 WHERE id_client = :id');
+		$req->execute(array(
+				'id' => $id
+			));
+	}
+	catch(Exception $e)
+	{
+        die('Erreur : '.$e->getMessage());
+	}
+
+}
+
+function infosClient($id){
+	require ("modele/connectBD.php") ; 
+
+	try{
+		$req = $bdd->prepare('SELECT * FROM client WHERE id_client = :id');
+		$req->execute(array(
+				'id' => $id
+			));
+	}
+	catch(Exception $e)
+	{
+        die('Erreur : '.$e->getMessage());
+	}		
+
+	$donnees=$req->fetchAll(PDO::FETCH_ASSOC);
+	$req->closeCursor();
+	return $donnees[0];
+}
+
+function admin_modifClient($id,$prenom,$nom,$email,$mdp,$adresse,$cp,$ville){
+
+	require ("modele/connectBD.php");
+
+	try{
+		$req = $bdd->prepare('UPDATE `client` SET `email`=:email,`password`=:mdp,`nom`=:nom,`prenom`=:prenom,`adresse`=:adresse,`codepostal`=:cp,`ville`=:ville WHERE id_client=:id');
+		$req->execute(array(
+				'id' => $id,
+				'nom' => $nom,
+				'prenom' => $prenom,
+				'mdp' => $mdp,
+				'email' => $email,
+				'adresse' => $adresse,
+				'cp' => $cp,
+				'ville' => $ville
+			));
+	}
+	catch(Exception $e)
+	{
+        die('Erreur : '.$e->getMessage());
+	}	
+
+	return true;
+
+}
+
 ?>

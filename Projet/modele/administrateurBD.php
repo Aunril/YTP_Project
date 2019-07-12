@@ -5,7 +5,7 @@ function liste_clients() {
 	require ("modele/connectBD.php") ; 
 
 	try{
-		$req = $bdd->prepare('SELECT * FROM client');
+		$req = $bdd->prepare('SELECT * FROM client WHERE del=0');
 		$req->execute();
 	}
 	catch(Exception $e)

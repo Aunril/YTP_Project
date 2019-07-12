@@ -25,9 +25,61 @@ function produitsBDD(){
 }
 
 function clientsBDD(){
-	require ("modele/administrateurBD.php");
+	require ("modele/utilisateurBD.php");
 	//if(isset($_SESSION['profil'])){
+		$usr_id_upd       = "";
+		$usr_nom_upd      = "";
+		$usr_prenom_upd   = "";
+		$usr_email_upd    = "";
+		$usr_pass_upd     = "";
+		$usr_cp_upd      = "";
+		$usr_ville_upd    = "";
+		$usr_adr_upd      = "";
+
+		$act = (isset($_POST["act"])) ? $_POST["act"] : ""; 
+		$id = (isset($_POST["id"])) ? $_POST["id"] : "";	
+
+		if ($act == "N"){
+		    
+		    $usr_id     = (isset($_POST["usr_id"]))? $_POST["usr_id"] : '';
+		    $usr_nom     = (isset($_POST["usr_nom"]))? $_POST["usr_nom"] : '';
+		    $usr_prenom  = (isset($_POST["usr_prenom"]))? $_POST["usr_prenom"] : '';
+		    $usr_email  = (isset($_POST["usr_email"]))? $_POST["usr_email"] : '';
+		    $usr_pass  = (isset($_POST["usr_pass"]))? $_POST["usr_pass"] : '';
+		    $usr_cp  = (isset($_POST["usr_cp"]))? $_POST["usr_cp"] : '';
+		    $usr_ville  = (isset($_POST["usr_ville"]))? $_POST["usr_ville"] : '';
+		    $usr_adr     = (isset($_POST["usr_adr"]))? $_POST["usr_adr"] : '';
+		    $err="";
+		    
+		    if ($id == ""){
+		    	inscription_client($usr_prenom,$usr_nom,$usr_email,$usr_pass,$usr_adr,$usr_cp,$usr_ville,$err);
+		    }else{
+		    	admin_modifClient($id,$usr_prenom,$usr_nom,$usr_email,$usr_pass,$usr_adr,$usr_cp,$usr_ville);
+		    }
+		    
+		}
+
+		if ($act == "M"){
+
+		    $line=infosClient($id);
+
+		    $usr_id_upd       = $line['id_client'];
+		    $usr_nom_upd      = $line['nom'];
+		    $usr_prenom_upd   = $line['prenom'];
+		    $usr_email_upd    = $line['email'];
+		    $usr_pass_upd     = $line['password'];
+		    $usr_cp_upd       = $line['codepostal'];
+		    $usr_ville_upd    = $line['ville'];
+		    $usr_adr_upd      = $line['adresse'];   
+		    
+		}
+
+		if ($act == "S"){
+			supprimer_client($id);
+		}
+
 		$clients=liste_clients();
+
 		require("vue/admin/admin_clients.tpl");
 	//}
 }
