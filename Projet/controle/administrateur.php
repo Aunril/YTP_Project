@@ -14,7 +14,12 @@ function informationsBDD(){
 function produitsBDD(){
 	require ("modele/administrateurBD.php");
 	//if(isset($_SESSION['profil'])){
-		$produits=liste_produits();
+		$recherche= isset($_POST['recherche'])?($_POST['recherche']):'';
+		if($recherche!=null){
+			$produits=recherche_produits($recherche);
+		}else{
+			$produits=liste_produits();
+		}
 		require("vue/admin/admin_produits.tpl");
 	//}
 }

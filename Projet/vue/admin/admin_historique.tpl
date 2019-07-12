@@ -8,7 +8,6 @@
 
     <link href="vue/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     
-    <link href="vue/css/admin.css" rel="stylesheet">
     <link href="vue/css/dashboard.css" rel="stylesheet">
 
     <title>Dashboard Admin</title>

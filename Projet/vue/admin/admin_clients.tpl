@@ -8,7 +8,6 @@
 
     <link href="vue/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     
-    <link href="vue/css/admin.css" rel="stylesheet">
     <link href="vue/css/dashboard.css" rel="stylesheet">
 
     <title>Dashboard Admin</title>
@@ -32,6 +31,7 @@
                   <td>NOM</td>
                   <td>PRENOM</td>
                   <td>E-MAIL</td>
+                  <td>MOT DE PASSE</td>
                   <td>ADRESSE</td>
               </thead>
               <?php
@@ -42,6 +42,7 @@
                   <td><?php echo $value['nom']?></td>
                   <td><?php echo $value['prenom']?></td>
                   <td><?php echo $value['email']?></td>
+                  <td><?php echo $value['password']?></td>
                   <td><?php echo $value['adresse'] ?>  <?php echo $value['codepostal'] ?>  <?php echo $value['ville']?></td>
                 </tr>
                 <?php } ?>

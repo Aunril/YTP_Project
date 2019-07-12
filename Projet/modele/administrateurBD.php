@@ -5,7 +5,7 @@ function liste_clients() {
 	require ("modele/connectBD.php") ; 
 
 	try{
-		$req = $bdd->prepare('SELECT id_client, prenom, nom, email, adresse, codepostal, ville FROM client');
+		$req = $bdd->prepare('SELECT * FROM client');
 		$req->execute();
 	}
 	catch(Exception $e)
@@ -38,6 +38,23 @@ function liste_produits() {
 	return $donnees;
 
 }
+
+function recherche_produits($recherche){
+	require ("modele/connectBD.php") ; 
+
+	try{
+		$cmd="SELECT id_produit, nomType, nom, categorie, prix, dimensions, fabricant, description, stock FROM produit, type WHERE produit.id_type=type.id_type AND produit.nom LIKE '%{$recherche}%'";
+	    $res = $bdd->query($cmd);
+	    $donnees = $res->fetchAll(PDO::FETCH_ASSOC);
+	}
+	catch(Exception $e)
+	{
+        die('Erreur : '.$e->getMessage());
+	}
+
+	return $donnees;
+}
+
 
 function suppression_image($id,$image){
 

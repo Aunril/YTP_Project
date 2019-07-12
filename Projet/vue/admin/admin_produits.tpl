@@ -8,7 +8,6 @@
 
     <link href="vue/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     
-    <link href="vue/css/admin.css" rel="stylesheet">
     <link href="vue/css/dashboard.css" rel="stylesheet">
 
     <title>Dashboard Admin</title>
@@ -25,6 +24,13 @@
             <div id="produits">
               <br>
               <a class="btn btn-default btn-danger" href="index.php?controle=administrateur&action=PageAjoutProduit" role="button">+ Ajouter un produit </a>
+              
+              <form class="rechercheForm" action="index.php?controle=administrateur&action=produitsBDD" method="post">
+                  <div>
+                      <input type="search" id="recherche" name="recherche">
+                      <button class="btn btn-default">Rechercher un nom de produit</button>
+                  </div>
+              </form>
               <br>
               <br>
               <br>
@@ -32,8 +38,8 @@
               <table class="table table-bordered table-striped">
                 <thead>
                     <td>ID PRODUIT</td>
-                    <td>TYPE</td>
                     <td>NOM</td>
+                    <td>TYPE</td>
                     <td>PRIX</td>
                     <td>INFORMATIONS</td>
                     <td>AJOUT STOCK</td>
@@ -43,9 +49,9 @@
                   ?>
                   <tr>
                     <th><?php echo $value['id_produit']?></th>
-                    <td><?php echo $value['nomType']?></td>
                     <td><?php echo $value['nom']?></td>
-                    <td><?php echo $value['prix']?></td>
+                    <td><?php echo $value['nomType']?></td>
+                    <td><?php echo $value['prix']?> €</td>
                     <td><p><a class="btn btn-default btn-info" href="index.php?controle=administrateur&action=afficherProduit&id=<?php echo $value['id_produit'] ?>" role="button">Détails > </a></p></td>
                     <td> <p><a class="btn btn-default btn-info" href="index.php?controle=administrateur&action=ajout_stock&id=<?php echo $value['id_produit'] ?>" role="button">+</a>
         <a class="btn btn-default btn-info" href="index.php?controle=administrateur&action=enlever_stock&id=<?php echo $value['id_produit'] ?>" role="button">-</a>
