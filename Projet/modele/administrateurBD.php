@@ -265,7 +265,7 @@ function envoyer_un_produit($id_produit,$id_commande)
 
 }
 
-function test($id_cmd) {
+function test_commande_complete($id_cmd) {
 
         require ("modele/connectBD.php") ;
         try{

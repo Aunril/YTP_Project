@@ -139,6 +139,16 @@ hr{
     transition: 0.3s;
 }
 
+.btnArticle2{
+    border-radius: 0px;
+    border: 3px solid #999999;
+    background-color: #999999;
+    color: grey;    
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: "Work Sans","Open Sans","Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+    transition: 0.3s;
+}
 
 .bandeau{
 	height: 150px;

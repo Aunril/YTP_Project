@@ -116,7 +116,23 @@
                   </div>
             </div>
             <div class="col-md-4">
-                <a class="btn btn-default btnAjoutPanier" href="index.php?controle=panier&action=ajouter_panier&id=<?php echo $informations['id_produit'] ?>" role="button">Ajouter au Panier</a>
+	    <?php
+
+	    	if ($stock == 0)
+		{
+		?>
+			<a class="btn btn-default btnAjoutPanier2" role="button">Ajouter au Panier</a>
+
+		<?php
+		}
+		else
+		{
+		?>
+			<a class="btn btn-default btnAjoutPanier" href="index.php?controle=panier&action=ajouter_panier&id=<?php echo $informations['id_produit'] ?>" role="button">Ajouter au Panier</a>
+
+<?php
+		}
+		?>
             </div>
             <div class="col-md-12 titreDetails">
                 <div class="col-md-3">

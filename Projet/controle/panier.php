@@ -25,22 +25,26 @@ function payer(){
 
 function plus(){
 	require ("modele/panierBD.php");
+	require ("modele/administrateurBD.php");
 	if(isset($_SESSION['profil']) AND isset($_GET['id'])){
 		$id=$_SESSION['profil']['id_client'];
 		$id_produit=$_GET['id'];
 		plusBD($id,$id_produit);
 		test($id,$id_produit);
+		enlever_stockBD($id_produit);
 		afficherPanier2();
 	}
 }
 
 function moins(){
 	require ("modele/panierBD.php");
+	require ("modele/administrateurBD.php");
 	if(isset($_SESSION['profil']) AND isset($_GET['id'])){
 		$id=$_SESSION['profil']['id_client'];
 		$id_produit=$_GET['id'];
 		moinsBD($id,$id_produit);
 		test($id,$id_produit);
+		ajout_stockBD($id_produit);
 		afficherPanier2();
 	}
 }
@@ -68,6 +72,7 @@ function test($id,$id_produit)
 function ajouter_panier()
 {
 	require ("modele/panierBD.php");
+	require ("modele/administrateurBD.php");
 	if(isset($_SESSION['profil']) AND isset($_GET['id'])){
 			$id= $_SESSION['profil']['id_client'];
 			$id_produit= $_GET['id'];
@@ -82,6 +87,7 @@ function ajouter_panier()
 				{
 					ajouter_produit($id,$id_produit);
 				}
+				enlever_stockBD($id_produit);
 				header("Location: index.php?controle=produits&action=afficherProduit&id=$id_produit");
 
 			}

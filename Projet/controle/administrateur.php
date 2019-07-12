@@ -212,10 +212,9 @@ function envoyer_produit()
 		$id=$_GET['id'];
 		$id_commande = $_GET['id_cmd'];
 		envoyer_un_produit($id,$id_commande);
-		enlever_stockBD($id);
 	}
 	
-	if(!test($id_commande))
+	if(!test_commande_complete($id_commande))
 	{
 		
 		envoyerBD($id_commande);

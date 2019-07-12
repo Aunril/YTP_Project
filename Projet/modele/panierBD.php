@@ -8,7 +8,7 @@ function produit_recap($id) {
 
 	require ("modele/connectBD.php") ; 
 	try{
-		$req = $bdd->prepare('SELECT produit.id_produit, images.imagePrincipale, produit.nom, produit.prix, panier.quantité FROM images, produit, panier WHERE panier.id_produit = produit.id_produit AND panier.id_produit = images.id_produit AND panier.id_client = :id');
+		$req = $bdd->prepare('SELECT produit.id_produit, images.imagePrincipale, produit.nom, produit.prix, panier.quantité, produit.stock FROM images, produit, panier WHERE panier.id_produit = produit.id_produit AND panier.id_produit = images.id_produit AND panier.id_client = :id');
 		$req->execute(array(
 				'id' => $id
 			));
@@ -204,14 +204,15 @@ function stop_stock($id)
 
  	if ($req->fetch() == false)
         {
-                return FALSE;
+                return 0;
         }
         else
         {
-                return TRUE;
+                return 1;
         }
 	
 }
+
 
 
 ?>

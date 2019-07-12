@@ -6,11 +6,14 @@
 
 function afficherProduit(){
 	require ("modele/produitsBD.php");
+	require ("modele/panierBD.php");
 
 	if(isset($_GET['id'])){
 		$id=$_GET['id'];
 		$informations=infos_Produit($id);
 		$images=images_Produit($id);
+		$stock = stop_stock($id);
+
 		require("vue/produit.tpl");
 	}
 }
