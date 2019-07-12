@@ -11,6 +11,38 @@ function informationsBDD(){
 	//}
 }
 
+function produitsBDD(){
+	require ("modele/administrateurBD.php");
+	//if(isset($_SESSION['profil'])){
+		$produits=liste_produits();
+		require("vue/admin/admin_produits.tpl");
+	//}
+}
+
+function clientsBDD(){
+	require ("modele/administrateurBD.php");
+	//if(isset($_SESSION['profil'])){
+		$clients=liste_clients();
+		require("vue/admin/admin_clients.tpl");
+	//}
+}
+
+function commandesBDD(){
+	require ("modele/administrateurBD.php");
+	//if(isset($_SESSION['profil'])){
+		$commande=produits_a_envoyer();
+		require("vue/admin/admin_commandes.tpl");
+	//}
+}
+
+function historiqueBDD(){
+	require ("modele/administrateurBD.php");
+	//if(isset($_SESSION['profil'])){
+		$histo=historique();
+		require("vue/admin/admin_historique.tpl");
+	//}
+}
+
 function afficherProduit(){
 	require ("modele/produitsBD.php");
 	if(isset($_GET['id'])){
@@ -96,14 +128,11 @@ function ajout_stock()
 	require ("modele/administrateurBD.php");
 
 	if(isset($_GET['id'])){
-					$id=$_GET['id'];
-					ajout_stockBD($id);
+		$id=$_GET['id'];
+		ajout_stockBD($id);
 	}
-	$clients=liste_clients();
-  $produits=liste_produits();
-	$commande=produits_a_envoyer();
-	$histo=historique();
-	require("vue/admin/accueil_admin.tpl");
+ 	$produits=liste_produits();
+	require("vue/admin/admin_produits.tpl");
 
 }
 
@@ -115,12 +144,8 @@ function enlever_stock()
 		$id=$_GET['id'];
 		enlever_stockBD($id);
 	}
-	$clients=liste_clients();
-  $produits=liste_produits();
-	$commande=produits_a_envoyer();
-	$histo=historique();
-  require("vue/admin/accueil_admin.tpl");
-
+  	$produits=liste_produits();
+ 	require("vue/admin/admin_produits.tpl");
 }
 
 function envoyer_produit()
@@ -139,11 +164,8 @@ function envoyer_produit()
 		envoyerBD($id_commande);
 	}
 	
-	$clients=liste_clients();
-	$produits=liste_produits();
 	$commande=produits_a_envoyer();
-	$histo=historique();
- 	require("vue/admin/accueil_admin.tpl");
+ 	require("vue/admin/admin_commandes.tpl");
 
 }
 

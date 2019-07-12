@@ -23,7 +23,7 @@
     <form id="form_Modification" action="index.php?controle=administrateur&action=ajoutProduit" method="post">
 
         <div class="row" id="nomProduit">
-          <a class="btn btn-default btn-info" id="btnRetour" href="index.php?controle=menu&action=administration" role="button">< Retour</a>
+          <a class="btn btn-default btn-info" id="btnRetour" href="index.php?controle=administrateur&action=produitsBDD" role="button">< Retour</a>
           <h2>Ajout Produit</h2>
         </div>
 

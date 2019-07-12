@@ -1,178 +1,184 @@
+
 <!DOCTYPE html>
-
-<html lang="fr">
-
-<head>
+<html lang="en">
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
 
     <link href="vue/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
     
     <link href="vue/css/admin.css" rel="stylesheet">
+    <link href="vue/css/dashboard.css" rel="stylesheet">
 
-    <title>Administrateur - Striker Eureka</title>
-</head>
+    <title>Dashboard Admin</title>
 
-<body>
+  </head>
 
-  <div class="container-fluid">
-    <h1>Page Administrateur : nom prénom</h1>
-  </div>
+  <body>
 
-  <div class="container-fluid">
+      <?php include('vue/templates/html-header-admin.tpl'); ?>
 
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">Dashboard</h1>
 
-  <ul class="nav nav-pills">
-    <li class="active"><a data-toggle="pill" href="#home">Home</a></li>
-    <li><a data-toggle="pill" href="#menu1">Liste des clients</a></li>
-    <li><a data-toggle="pill" href="#menu2">Commandes à envoyer</a></li>
-    <li><a data-toggle="pill" href="#menu3">Liste des produits</a></li>
-		<li><a data-toggle="pill" href="#menu4">Historique commande</a></li>
-  </ul>
-  
-  <div class="tab-content">
-    <div id="home" class="tab-pane fade in active">
-      <h3>Accueil</h3>
-      <p>Là où il faut mettre les statistiques</p>
-    </div>
-    <div id="menu1" class="tab-pane fade">
-      <h3></h3>
-      
-      <div class="table-responsive">
-      <table class="table table-bordered">
-        <thead>
-            <td>ID CLIENT</td>
-            <td>NOM</td>
-            <td>PRENOM</td>
-            <td>E-MAIL</td>
-            <td>ADRESSE</td>
-        </thead>
-        <?php
-          foreach($clients as $value){          
-          ?>
-          <tr>
-            <th><?php echo $value['id_client']?></th>
-            <td><?php echo $value['nom']?></td>
-            <td><?php echo $value['prenom']?></td>
-            <td><?php echo $value['email']?></td>
-            <td><?php echo $value['adresse'] ?>  <?php echo $value['codepostal'] ?>  <?php echo $value['ville']?></td>
-          </tr>
-          <?php } ?>
-      </table>
+          <div class="row placeholders">
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>Label</h4>
+              <span class="text-muted">Something else</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>Label</h4>
+              <span class="text-muted">Something else</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>Label</h4>
+              <span class="text-muted">Something else</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>Label</h4>
+              <span class="text-muted">Something else</span>
+            </div>
+          </div>
+
+          <h2 class="sub-header">Section title</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Header</th>
+                  <th>Header</th>
+                  <th>Header</th>
+                  <th>Header</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1,001</td>
+                  <td>Lorem</td>
+                  <td>ipsum</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                </tr>
+                <tr>
+                  <td>1,002</td>
+                  <td>amet</td>
+                  <td>consectetur</td>
+                  <td>adipiscing</td>
+                  <td>elit</td>
+                </tr>
+                <tr>
+                  <td>1,003</td>
+                  <td>Integer</td>
+                  <td>nec</td>
+                  <td>odio</td>
+                  <td>Praesent</td>
+                </tr>
+                <tr>
+                  <td>1,003</td>
+                  <td>libero</td>
+                  <td>Sed</td>
+                  <td>cursus</td>
+                  <td>ante</td>
+                </tr>
+                <tr>
+                  <td>1,004</td>
+                  <td>dapibus</td>
+                  <td>diam</td>
+                  <td>Sed</td>
+                  <td>nisi</td>
+                </tr>
+                <tr>
+                  <td>1,005</td>
+                  <td>Nulla</td>
+                  <td>quis</td>
+                  <td>sem</td>
+                  <td>at</td>
+                </tr>
+                <tr>
+                  <td>1,006</td>
+                  <td>nibh</td>
+                  <td>elementum</td>
+                  <td>imperdiet</td>
+                  <td>Duis</td>
+                </tr>
+                <tr>
+                  <td>1,007</td>
+                  <td>sagittis</td>
+                  <td>ipsum</td>
+                  <td>Praesent</td>
+                  <td>mauris</td>
+                </tr>
+                <tr>
+                  <td>1,008</td>
+                  <td>Fusce</td>
+                  <td>nec</td>
+                  <td>tellus</td>
+                  <td>sed</td>
+                </tr>
+                <tr>
+                  <td>1,009</td>
+                  <td>augue</td>
+                  <td>semper</td>
+                  <td>porta</td>
+                  <td>Mauris</td>
+                </tr>
+                <tr>
+                  <td>1,010</td>
+                  <td>massa</td>
+                  <td>Vestibulum</td>
+                  <td>lacinia</td>
+                  <td>arcu</td>
+                </tr>
+                <tr>
+                  <td>1,011</td>
+                  <td>eget</td>
+                  <td>nulla</td>
+                  <td>Class</td>
+                  <td>aptent</td>
+                </tr>
+                <tr>
+                  <td>1,012</td>
+                  <td>taciti</td>
+                  <td>sociosqu</td>
+                  <td>ad</td>
+                  <td>litora</td>
+                </tr>
+                <tr>
+                  <td>1,013</td>
+                  <td>torquent</td>
+                  <td>per</td>
+                  <td>conubia</td>
+                  <td>nostra</td>
+                </tr>
+                <tr>
+                  <td>1,014</td>
+                  <td>per</td>
+                  <td>inceptos</td>
+                  <td>himenaeos</td>
+                  <td>Curabitur</td>
+                </tr>
+                <tr>
+                  <td>1,015</td>
+                  <td>sodales</td>
+                  <td>ligula</td>
+                  <td>in</td>
+                  <td>libero</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
-
-    </div>
-    <div id="menu2" class="tab-pane fade">
-	<h3></h3>
-      <div class="table-responsive">
-      <table class="table table-bordered">
-        <thead>
-        <td>ID COMMANDE</td>
-
-	<td>ID PRODUIT</td>
-		<td>QUANTITE</td>	
-            <td>NOM CLIENT</td>
-            <td>PRENOM CLIENT</td>
-            <td>ADRESSE CLIENT</td>
-						<td>ENVOYER</td>
-        </thead>
-        <?php
-          foreach($commande as $value){          
-          ?>
-          <tr>
-	<th><?php echo $value['id_commande']?></th>
-
-            <td><?php echo $value['id_produit']?></td>
-            		<td><?php echo $value['quantite']?></td>
-            <td><?php echo $value['nom']?></td>
-            <td><?php echo $value['prenom']?></td>
-            <td><?php echo $value['adresse'] ?>  <?php echo $value['codepostal'] ?>  <?php echo $value['ville']?></td>
-						<td>
-						<a class="btn btn-default btnArticle" id="bouton_envoyer" href="index.php?controle=administrateur&action=envoyer_produit&id=<?php echo $value['id_produit'] ?>&id_cmd=<?php echo $value['id_commande']?>" role="button">Send</a>
-						</td>
-          </tr>
-          <?php } ?>
-      </table>
-      </div>
-
-
-    </div>
-    <div id="menu3" class="tab-pane fade">
-      <br>
-      <br>
-      <a class="btn btn-default btn-danger" href="index.php?controle=administrateur&action=PageAjoutProduit" role="button">+ Ajouter un produit </a>
-      <br>
-      <br>
-      <br>
-      <div class="table-responsive">
-      <table class="table table-bordered table-striped">
-        <thead>
-            <td>ID PRODUIT</td>
-            <td>TYPE</td>
-            <td>NOM</td>
-            <td>PRIX</td>
-            <td>INFORMATIONS</td>
-						<td>AJOUT STOCK</td>
-        </thead>
-        <?php
-          foreach($produits as $value){          
-          ?>
-          <tr>
-            <th><?php echo $value['id_produit']?></th>
-            <td><?php echo $value['nomType']?></td>
-            <td><?php echo $value['nom']?></td>
-            <td><?php echo $value['prix']?></td>
-            <td><p><a class="btn btn-default btn-info" href="index.php?controle=administrateur&action=afficherProduit&id=<?php echo $value['id_produit'] ?>" role="button">Détails > </a></p></td>
-						<td> <p><a class="btn btn-default btn-info" href="index.php?controle=administrateur&action=ajout_stock&id=<?php echo $value['id_produit'] ?>" role="button">+</a>
-<a class="btn btn-default btn-info" href="index.php?controle=administrateur&action=enlever_stock&id=<?php echo $value['id_produit'] ?>" role="button">-</a>
-<?php echo $value['stock'] ?>
-</p>
-
-						</td>
-          </tr>
-          <?php } ?>
-      </table>
-      </div>
-    </div>
-    
-
-	 <div id="menu4" class="tab-pane fade">
-	 		<br>
-			<br>
-			<br>
-			<br>
-      <div class="table-responsive">
-      <table class="table table-bordered table-striped">
-        <thead>
-            <td>ID COMMANDE</td>
-            <td>PRIX</td>
-        </thead>
-        <?php
-          foreach($histo as $value){
-          ?>
-          <tr>
-            <th><?php echo $value['id_commande']?></th>
-            <td><?php echo $value['total']?>€</td>
-	    </tr>
-          <?php } ?>
-      </table>
-      </div>
     </div>
 
-
-
-
-  </div>
-</div>
-    
-
-  
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-
-<script src="vue/bootstrap/js/bootstrap.min.js"></script>
-
-</body>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="vue/bootstrap/js/bootstrap.min.js"></script>
+  </body>
 </html>
