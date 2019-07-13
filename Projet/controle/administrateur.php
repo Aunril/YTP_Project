@@ -14,6 +14,13 @@ function informationsBDD(){
 function produitsBDD(){
 	require ("modele/administrateurBD.php");
 	//if(isset($_SESSION['profil'])){
+		$act = (isset($_POST["act"])) ? $_POST["act"] : ""; 
+		$id = (isset($_POST["id"])) ? $_POST["id"] : "";
+
+		if ($act == "S"){
+			supprimer_produit($id);
+		}		
+
 		$recherche= isset($_POST['recherche'])?($_POST['recherche']):'';
 		if($recherche!=null){
 			$produits=recherche_produits($recherche);

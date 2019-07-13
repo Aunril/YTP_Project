@@ -25,7 +25,7 @@ function liste_produits() {
 	require ("modele/connectBD.php") ; 
 
 	try{
-		$req = $bdd->prepare('SELECT id_produit, nomType, nom, categorie, prix, dimensions, fabricant, description, stock FROM produit, type WHERE produit.id_type=type.id_type');
+		$req = $bdd->prepare('SELECT id_produit, nomType, nom, categorie, prix, dimensions, fabricant, description, stock FROM produit, type WHERE produit.id_type=type.id_type and del=0');
 		$req->execute();
 	}
 	catch(Exception $e)
@@ -43,7 +43,7 @@ function recherche_produits($recherche){
 	require ("modele/connectBD.php") ; 
 
 	try{
-		$cmd="SELECT id_produit, nomType, nom, categorie, prix, dimensions, fabricant, description, stock FROM produit, type WHERE produit.id_type=type.id_type AND produit.nom LIKE '%{$recherche}%'";
+		$cmd="SELECT id_produit, nomType, nom, categorie, prix, dimensions, fabricant, description, stock FROM produit, type WHERE produit.id_type=type.id_type AND produit.nom LIKE '%{$recherche}%' and del=0";
 	    $res = $bdd->query($cmd);
 	    $donnees = $res->fetchAll(PDO::FETCH_ASSOC);
 	}
@@ -154,6 +154,22 @@ function ajout_produit($nom,$type,$categorie,$prix,$dimensions,$fabricant,$descr
 
 	$req->closeCursor();	
 	return $id['nouveau_id'];
+
+}
+
+function supprimer_produit($id){
+	require ("modele/connectBD.php") ; 
+
+	try{
+		$req = $bdd->prepare('UPDATE produit SET del=1 WHERE id_produit = :id');
+		$req->execute(array(
+				'id' => $id
+			));
+	}
+	catch(Exception $e)
+	{
+        die('Erreur : '.$e->getMessage());
+	}
 
 }
 

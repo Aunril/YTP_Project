@@ -93,7 +93,7 @@ function liste_Produits($type){
 	require ("modele/connectBD.php") ; 
 
 	try{
-		$req = $bdd->prepare('SELECT p.id_produit, nom, categorie, prix, imagePrincipale from produit p, images i WHERE p.id_produit=i.id_produit AND p.id_type IN (select id_type from type where nomType LIKE :type)');
+		$req = $bdd->prepare('SELECT p.id_produit, nom, categorie, prix, imagePrincipale from produit p, images i WHERE p.id_produit=i.id_produit AND del=0 AND p.id_type IN (select id_type from type where nomType LIKE :type)');
 		$req->execute(array(
 				'type' => $type
 			));
