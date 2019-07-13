@@ -66,9 +66,7 @@
          							</form>
 
 
-											<td> <p> <a class="btn btn-default btn-info" href="index.php?controle=administrateur&action=enlever_stock&id=<?php echo $value['id_produit'] ?>" role="button">-</a>
-
-                        
+											<td> <p> <a class="btn btn-default btn-info" href="index.php?controle=administrateur&action=enlever_stock&id=<?php echo $value['id_produit'] ?>" role="button">-</a>                        
                       <a class="btn btn-default" role="button"><?php echo $value['stock'];?></a>
 											<a class="btn btn-default btn-info" href="index.php?controle=administrateur&action=ajout_stock&id=<?php echo $value['id_produit'] ?>" role="button">+</a>
         							</p>
