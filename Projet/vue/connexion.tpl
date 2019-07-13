@@ -46,7 +46,7 @@
       </form>
 
       <div class="msgErreur" id="mdpOubli">
-        <a>Mot de passe oublié ?</a>
+        <a href="index.php?controle=menu&action=contacte">Mot de passe oublié ?</a>
         <p><?php 
 
         $msg= isset($msg)?($msg):'';
