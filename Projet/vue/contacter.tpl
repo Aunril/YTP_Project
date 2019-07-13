@@ -21,6 +21,8 @@
 <body>
   <?php include('vue/templates/html-header.tpl'); ?>
 	<div class="container">
+    <br>
+    <br>
 	<div class="row">
       <div class="col-md-6 col-md-offset-3">
         <div class="well well-sm">
@@ -55,7 +57,7 @@
             <!-- Form actions -->
             <div class="form-group">
               <div class="col-md-12 text-right">
-                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                <button type="submit" class="btn btn-primary btnArticle">Envoyer</button>
               </div>
             </div>
           </fieldset>

@@ -70,12 +70,15 @@ function produit(){
 }
 
 function administration(){
-	header("Location:index.php?controle=administrateur&action=informationsBDD");
+	if(!isset($_SESSION['admin'])){
+		require("vue/admin/connexion_admin.tpl");
+	}else{
+		header("Location:index.php?controle=administrateur&action=informationsBDD");
+	}
 }
 
 function contacte(){
 	header("Location:index.php?controle=contacter&action=nous_contacter");
-
 }
 
 
