@@ -47,7 +47,7 @@
       </div>
     </a>
 
-      <div class="col-md-3 col-md-offset-3 col-xs-3">
+      <!--<div class="col-md-3 col-md-offset-3 col-xs-3">
         <form class="form-group" role="search">
           <div class="input-group add-on" id="formRecherche">
             <input class="form-control" id="champRecherche" placeholder="Recherche" name="srch-term" id="srch-term" type="text">
@@ -56,7 +56,7 @@
             </div>
           </div>
         </form>
-      </div>
+      </div>-->
 
     </div>
   </div>

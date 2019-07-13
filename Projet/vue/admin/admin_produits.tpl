@@ -57,20 +57,20 @@
 
 
 										<td>
-											<form class="form-horizontal" action="index.php?controle=administrateur&action=changer_stock&id=<?php echo $value['id_produit'] ?>" method="post">
+											<form class="ajoutStock" action="index.php?controle=administrateur&action=changer_stock&id=<?php echo $value['id_produit'] ?>" method="post">
           							<fieldset>
-                						<input id="stock" name="stock" type="text" class="form-control">
-								 						<button type="submit" class="btn btn-primary btn-lg">Ok</button>
+                						<input id="stock" name="stock" type="text">
+								 						<button type="submit" class="btn">Ok</button>
 													</div>
 												</fieldset>
          							</form>
 
 
 											<td> <p> <a class="btn btn-default btn-info" href="index.php?controle=administrateur&action=enlever_stock&id=<?php echo $value['id_produit'] ?>" role="button">-</a>
-			
+
+                        
+                      <a class="btn btn-default" role="button"><?php echo $value['stock'];?></a>
 											<a class="btn btn-default btn-info" href="index.php?controle=administrateur&action=ajout_stock&id=<?php echo $value['id_produit'] ?>" role="button">+</a>
-	
-        							<?php echo $value['stock'] ?>
         							</p>
 
                     </td>
