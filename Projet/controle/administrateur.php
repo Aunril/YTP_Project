@@ -235,6 +235,18 @@ function envoyer_produit()
 }
 
 
+function changer_stock()
+{
+	require ("modele/administrateurBD.php");
+	$id=$_GET['id'];
+	$quantite=$_POST['stock'];
+	change_stockBD($id,$quantite);
+		
+	$produits=liste_produits();
+	require("vue/admin/admin_produits.tpl");
+
+}
+
 
 
 ?>

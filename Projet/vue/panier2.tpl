@@ -21,8 +21,9 @@
 <body>
   <?php include('vue/templates/html-header.tpl'); ?>
 	<h1>PANIER</h1>
-	<p> Votre panier est tristement vide </p>
-	<p>:(</p>
+	<div class="container-fluid" id="panier_vide" >
+	<p> Votre panier est tristement vide :(</p>
+	</div>
 
 	
 		

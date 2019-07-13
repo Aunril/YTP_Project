@@ -24,15 +24,19 @@
 	<div class=container-fluid" id="panier">
 		<div class="row">
 			<div class="col-md-9">
-				PANIER
+				<h1>PANIER</h1>
 			</div>
 			<div class="col-md-3">
-				RÉCAPITULATIF
+				<h2>RÉCAPITULATIF</h2>
 			</div>
 		</div>
 		<div class="row">
+		<br>
+		</div>
+		<div class="row">
 			<div class="col-md-9">
-				<div class=container-fluid" id="tableau_produit">
+			<div class="table-responsive">
+				<div class="table table-bordered table-striped" id="tableau_produit">
 					<div class="row">
 						<div class="col-md-5">
 							INFOS PRODUIT
@@ -93,6 +97,7 @@
 
         		
     			?>
+					</div>
 				</div>
 			</div>
 			<div class="col-md-3">

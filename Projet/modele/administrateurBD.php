@@ -182,7 +182,7 @@ function historique() {
 	require ("modele/connectBD.php") ; 
 
 	try{
-		$req = $bdd->prepare('SELECT * FROM commande WHERE reçu = 1');
+		$req = $bdd->prepare('SELECT * FROM commande INNER JOIN client ON client.id_client = commande.id_client WHERE reçu = 1');
 		$req->execute();
 	}
 	catch(Exception $e)
@@ -286,6 +286,22 @@ function test_commande_complete($id_cmd) {
         else
         {
                 return TRUE;
+        }
+}
+
+function change_stockBD($id,$quantite)
+{
+	 require ("modele/connectBD.php") ;
+        try{
+                $req = $bdd->prepare('UPDATE `produit` SET `stock`= :quantite WHERE id_produit = :id ');
+                $req->execute(array(
+			'id' => $id,
+			'quantite' => $quantite
+                        ));
+        }
+        catch(Exception $e)
+        {
+        die('Erreur : '.$e->getMessage());
         }
 }
 

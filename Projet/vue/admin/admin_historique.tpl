@@ -26,6 +26,8 @@
               <table class="table table-bordered table-striped">
                 <thead>
                     <td>ID COMMANDE</td>
+		    <td>CLIENT</td>
+		    <td>DATE</td>
                     <td>PRIX</td>
                 </thead>
                 <?php
@@ -33,6 +35,8 @@
                   ?>
                   <tr>
                     <th><?php echo $value['id_commande']?></th>
+		    <td><?php echo $value['prenom']; echo " "; echo $value['nom']; ?></td>
+		    <td><?php echo $value['date'] ?></td>
                     <td><?php echo $value['total']?>€</td>
               </tr>
                   <?php } ?>

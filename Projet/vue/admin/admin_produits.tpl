@@ -42,7 +42,8 @@
                     <td>TYPE</td>
                     <td>PRIX</td>
                     <td>INFORMATIONS</td>
-                    <td>AJOUT STOCK</td>
+                    <td>MODIFIER STOCK</td>
+										<td>STOCK</td>
                 </thead>
                 <?php
                   foreach($produits as $value){          
@@ -53,10 +54,24 @@
                     <td><?php echo $value['nomType']?></td>
                     <td><?php echo $value['prix']?> €</td>
                     <td><p><a class="btn btn-default btn-info" href="index.php?controle=administrateur&action=afficherProduit&id=<?php echo $value['id_produit'] ?>" role="button">Détails > </a></p></td>
-                    <td> <p><a class="btn btn-default btn-info" href="index.php?controle=administrateur&action=ajout_stock&id=<?php echo $value['id_produit'] ?>" role="button">+</a>
-        <a class="btn btn-default btn-info" href="index.php?controle=administrateur&action=enlever_stock&id=<?php echo $value['id_produit'] ?>" role="button">-</a>
-        <?php echo $value['stock'] ?>
-        </p>
+
+
+										<td>
+											<form class="form-horizontal" action="index.php?controle=administrateur&action=changer_stock&id=<?php echo $value['id_produit'] ?>" method="post">
+          							<fieldset>
+                						<input id="stock" name="stock" type="text" class="form-control">
+								 						<button type="submit" class="btn btn-primary btn-lg">Ok</button>
+													</div>
+												</fieldset>
+         							</form>
+
+
+											<td> <p> <a class="btn btn-default btn-info" href="index.php?controle=administrateur&action=enlever_stock&id=<?php echo $value['id_produit'] ?>" role="button">-</a>
+			
+											<a class="btn btn-default btn-info" href="index.php?controle=administrateur&action=ajout_stock&id=<?php echo $value['id_produit'] ?>" role="button">+</a>
+	
+        							<?php echo $value['stock'] ?>
+        							</p>
 
                     </td>
                   </tr>
