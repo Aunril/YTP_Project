@@ -21,9 +21,6 @@ function send_form(){
 	require("vue/contacter.tpl");
 }
 
-function envoyer_mail()
-{
-}
 
 
 ?>

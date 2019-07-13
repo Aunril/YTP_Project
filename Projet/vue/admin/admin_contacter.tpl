@@ -31,7 +31,6 @@
                     <td>NOM</td>
                   	<td>EMAIL</td>
                     <td>MESSAGE</td>
-                    <td>REPONDRE</td>
                 </thead>
                 <?php
                   foreach($contacts as $value){          
@@ -43,10 +42,6 @@
                     <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal<?php echo  $value['id_contact'] ?>">
  											 Afficher message
 										</button></td>
-							       <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal_reponse<?php echo  $value['id_contact'] ?>">
- 											 Repondre
-										</button></td>
-			
 							
 
 										<div class="modal fade" id="Modal<?php echo  $value['id_contact'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -69,48 +64,6 @@
 										</div>
 
 
-										<div class="modal fade" id="Modal_reponse<?php echo  $value['id_contact'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  										<div class="modal-dialog" role="document">
-    										<div class="modal-content">
-      										<div class="modal-header">
-        										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          										<span aria-hidden="true">&times;</span>
-        										</button>
-      									</div>
-      									<div class="modal-body">
-
-
-													<div class="well well-sm">
-          									<form class="form-horizontal" action="index.php?controle=contacter&action=envoyer_mail" method="post">
-									          <fieldset>
-            									<legend class="text-center">Répondre </legend>
-    
-        							        <!-- Message body -->
-    		        							<div class="form-group">
-              									<label class="col-md-3 control-label" for="message">Réponse:</label>
-              									<div class="col-md-9">
-                									<textarea class="form-control" id="message" name="message" placeholder="Entrez votre reponse ici..." rows="5"></textarea>
-              									</div>
-            									</div>
-    
-            									<!-- Form actions -->
-            									<div class="form-group">
-              									<div class="col-md-12 text-right">
-                									<button type="submit" class="btn btn-primary btn-lg">Envoyer</button>
-              									</div>
-            									</div>
-          									</fieldset>
-          								</form>
-        								</div>
-
-
-      									</div>
-      									<div class="modal-footer">
-        									<button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-      									</div>
-    									</div>
-  									</div>
-										</div>
 
 
 
