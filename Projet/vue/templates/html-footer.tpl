@@ -16,13 +16,11 @@
       </div>
       <div class="row">
         <div class="col-md-3 col-md-offset-1">
-          <p>BLA</p>
-          <p>BLA</p>
-          <a href="index.php?controle=menu&action=administration">Page Administrateur</a>
+          <p><a href="index.php?controle=menu&action=contacte">Nous Contacter</a></p>
+          <p><a href="index.php?controle=menu&action=administration">Page Administrateur</a></p>
         </div>
         <div class="col-md-3">
-          <p>BLA</p>
-          <p>BLA</p>
+          <p><p><a href="index.php?controle=menu&action=compte">Mes informations</a></p></p>
         </div>
         <div class="col-md-2 social-networks">
 		  <div class="col-md-4 col-xs-1"><a href="http://facebook.fr"><img class="img-responsive" src="vue/images/png/facebook-white.png" alt="facebook"></a></div>

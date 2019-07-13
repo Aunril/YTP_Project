@@ -74,13 +74,14 @@ function modification(){
 	$adresse= isset($_POST['adresse'])?($_POST['adresse']):'';
 	$cp= isset($_POST['cp'])?($_POST['cp']):'';
 	$ville= isset($_POST['ville'])?($_POST['ville']):'';
+	$mdp=isset($_POST['mdpmodif'])?($_POST['mdpmodif']):'';
 
 	require ("modele/utilisateurBD.php");
 
-	modification_client($id,$email,$adresse,$cp,$ville,$profil);
+	modification_client($id,$email,$adresse,$cp,$ville,$mdp,$profil);
+	
 	$_SESSION['profil'] = $profil;
 	print_r($profil);
-	//require("vue/compte.tpl");
 	header("Location:index.php?controle=menu&action=compte");
 		
 }

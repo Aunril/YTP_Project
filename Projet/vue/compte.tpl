@@ -77,6 +77,10 @@
               <input type="email" class="form-control" id="emailins" placeholder="Entrez l'e-mail" name="emailins" value="<?php echo $_SESSION['profil']['email'] ?>">
             </div>
             <div class="form-group">
+              <label for="mdpmodif">Mot de passe</label>
+              <input type="text" class="form-control" id="mdpmodif" placeholder="Entrez un nouveau mot de passe si besoin" name="mdpmodif" value="">
+            </div>
+            <div class="form-group">
               <label for="adresse">Adresse</label>
               <input type="text" class="form-control" id="adresse" placeholder="Entrez votre adresse" name="adresse" value="<?php echo $_SESSION['profil']['adresse'] ?>">
             </div>
