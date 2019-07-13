@@ -7,7 +7,7 @@ function verif_ident($email,$mdp,&$profil) {
 	require ("modele/connectBD.php") ; 
 
 	try{
-		$req = $bdd->prepare('SELECT * FROM client WHERE email = :email AND password = :mdp');
+		$req = $bdd->prepare('SELECT * FROM client WHERE email = :email AND password = md5(:mdp)');
 		$req->execute(array(
 				'email' => $email,
 				'mdp' => $mdp

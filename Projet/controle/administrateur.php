@@ -59,6 +59,8 @@ function clientsBDD(){
 		    $usr_ville  = (isset($_POST["usr_ville"]))? $_POST["usr_ville"] : '';
 		    $usr_adr     = (isset($_POST["usr_adr"]))? $_POST["usr_adr"] : '';
 		    $err="";
+
+		    $usr_pass=md5($usr_pass);
 		    
 		    if ($id == ""){
 		    	inscription_client($usr_prenom,$usr_nom,$usr_email,$usr_pass,$usr_adr,$usr_cp,$usr_ville,$err);

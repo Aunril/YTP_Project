@@ -40,6 +40,9 @@ function inscription(){
 	$cp= isset($_POST['cp'])?($_POST['cp']):'';
 	$ville= isset($_POST['ville'])?($_POST['ville']):'';
 	$msgIns='';
+
+
+	$mdp_md5=md5($mdp);
 	
 	if  (count($_POST)==0) {
 				require ("vue/connexion.tpl") ;
@@ -51,11 +54,11 @@ function inscription(){
 					require ("vue/connexion.tpl") ;
 				}
 				else { 					
-					if(!inscription_client($prenom,$nom,$email,$mdp,$adresse,$cp,$ville,$err)){
+					if(!inscription_client($prenom,$nom,$email,$mdp_md5,$adresse,$cp,$ville,$err)){
 						$msgIns = $err;
 						require ("vue/connexion.tpl") ;
 					}else{
-						verif_ident($email,$mdp, $profil);
+						verif_ident($email,$mdp,$profil);
 						$_SESSION['profil'] = $profil;
 						connexion($_SESSION['profil']['id_client']);
 						header("Location:index.php?controle=menu&action=compte");}	
