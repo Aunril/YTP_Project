@@ -119,21 +119,20 @@
 	    <?php
 
 	    	if ($stock == 0)
-		{
-		?>
-			<a class="btn btn-default btnAjoutPanier2" role="button">Ajouter au Panier</a>
+		    {
+		    ?>
+			     <a class="btn btn-default btnAjoutPanier2" role="button">Out of Stock !</a>
+		    <?php
+		    }
+		    else
+		    {
+		    ?>
+			     <a class="btn btn-default btnAjoutPanier" href="index.php?controle=panier&action=ajouter_panier&id=<?php echo $informations['id_produit'] ?>" role="button">Ajouter au Panier</a>
 
-		<?php
-		}
-		else
-		{
-		?>
-			<a class="btn btn-default btnAjoutPanier" href="index.php?controle=panier&action=ajouter_panier&id=<?php echo $informations['id_produit'] ?>" role="button">Ajouter au Panier</a>
-
-<?php
-		}
-		?>
-            </div>
+      <?php
+		    }
+		    ?>
+        </div>
             <div class="col-md-12 titreDetails">
                 <div class="col-md-3">
                     <h4>Description</h4>
