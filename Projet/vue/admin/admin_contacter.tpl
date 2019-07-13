@@ -31,6 +31,7 @@
                     <td>NOM</td>
                   	<td>EMAIL</td>
                     <td>MESSAGE</td>
+										<td>REPONDRE</td>
                 </thead>
                 <?php
                   foreach($contacts as $value){          
@@ -42,6 +43,12 @@
                     <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal<?php echo  $value['id_contact'] ?>">
  											 Afficher message
 										</button></td>
+
+										<td>
+											<a class="btn btn-primary" id="envoyer" href="index.php?controle=contacter&action=envoyer_message&id=<?php echo $value['id_contact'] ?>" role="button">Répondu</a>
+
+											
+										</td>
 							
 
 										<div class="modal fade" id="Modal<?php echo  $value['id_contact'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

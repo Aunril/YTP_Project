@@ -21,6 +21,14 @@ function send_form(){
 	require("vue/contacter.tpl");
 }
 
+function envoyer_message()
+{
+	require ("modele/contacterBD.php");
 
+	$id_contact=$_GET['id'];
+	envoyerBD($id_contact);
+	$contacts = afficher_messages();
+	require ("vue/admin/admin_contacter.tpl");
+}
 
 ?>

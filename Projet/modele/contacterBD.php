@@ -29,7 +29,7 @@ function afficher_messages()
 {
 	require ("modele/connectBD.php") ;
         try{
-                $req = $bdd->prepare('SELECT * FROM `contact`');
+                $req = $bdd->prepare('SELECT * FROM `contact` WHERE repondu = 0');
                 $req->execute();
         }
         catch(Exception $e)
@@ -42,6 +42,25 @@ function afficher_messages()
         return $donnees;
 
 }
+
+function envoyerBD($id_contact) {
+
+	require ("modele/connectBD.php") ; 
+	try{
+		$req = $bdd->prepare('UPDATE `contact` SET `repondu`=1 WHERE id_contact=:id');
+		$req->execute(array(
+			'id' => $id_contact
+			));
+	}
+	catch(Exception $e)
+	{
+        die('Erreur : '.$e->getMessage());
+	}
+
+
+}
+
+
 
 
 
