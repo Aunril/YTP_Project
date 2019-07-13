@@ -34,5 +34,7 @@
           <ul class="nav nav-sidebar">
             <li class="sectionTitre">Gestion des clients</li>
             <li><a href="index.php?controle=administrateur&action=clientsBDD">Liste des clients</a></li>
+						<li><a href="index.php?controle=administrateur&action=contacterBDD">Liste messages reçus</a></li>
+
           </ul>
         </div>

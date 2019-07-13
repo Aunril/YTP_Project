@@ -73,5 +73,10 @@ function administration(){
 	header("Location:index.php?controle=administrateur&action=informationsBDD");
 }
 
+function contacte(){
+	header("Location:index.php?controle=contacter&action=nous_contacter");
+
+}
+
 
 ?>

@@ -24,6 +24,15 @@ function produitsBDD(){
 	//}
 }
 
+function contacterBDD(){
+	require("modele/contacterBD.php");
+
+	$contacts = afficher_messages();
+
+	require("vue/admin/admin_contacter.tpl");
+
+}
+
 function clientsBDD(){
 	require ("modele/utilisateurBD.php");
 	//if(isset($_SESSION['profil'])){
