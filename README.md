@@ -1,3 +1,10 @@
+Les comptes admins du site :
+
+	- login : Admin1 et mdp : adm1
+	- login : Admin2 et mdp : adm2
+
+
+
 /!\ AJOUT TABLES /!\
 
 La table panier est vidée une fois que l'on clique sur le bouton payer de la deuxième page paypal. (fonctionnalité à réaliser)

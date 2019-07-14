@@ -1,19 +1,47 @@
 <?php
 
+function connexionAdmin(){
+	$login= isset($_POST['login'])?($_POST['login']):'';
+	$password= isset($_POST['password'])?($_POST['password']):'';
+	$msg='';
+
+	if  (count($_POST)==0) {
+			require ("vue/admin/connexion_admin.tpl") ;
+			}
+			else {
+				require ("modele/administrateurBD.php") ;
+				if  (!verif_ident_admin($login,$password, $profil)) {
+					$msg = 'Informations de connexion erronées';
+					require ("vue/admin/connexion_admin.tpl") ; 
+				}
+				else { 	$_SESSION['admin'] = $profil;
+						connexion_admin($_SESSION['admin']['id_admin']);
+						header("Location:index.php?controle=administrateur&action=informationsBDD");
+				}
+	}
+}
+
+function deconnexionAdmin(){
+	require("modele/administrateurBD.php");	
+	deconnexion_admin($_SESSION['admin']['id_admin']);
+	session_destroy();
+	header('Location:index.php');	
+}
+
 function informationsBDD(){
-	require ("modele/administrateurBD.php");
-	//if(isset($_SESSION['profil'])){
+	if(isset($_SESSION['admin'])){
+		require ("modele/administrateurBD.php");
 		$clients=liste_clients();
 		$produits=liste_produits();
 		$commande=produits_a_envoyer();
 		$histo=historique();
 		require("vue/admin/accueil_admin.tpl");
-	//}
+	}
 }
 
 function produitsBDD(){
-	require ("modele/administrateurBD.php");
-	//if(isset($_SESSION['profil'])){
+	if(isset($_SESSION['admin'])){
+		require ("modele/administrateurBD.php");
 		$act = (isset($_POST["act"])) ? $_POST["act"] : ""; 
 		$id = (isset($_POST["id"])) ? $_POST["id"] : "";
 
@@ -28,21 +56,20 @@ function produitsBDD(){
 			$produits=liste_produits();
 		}
 		require("vue/admin/admin_produits.tpl");
-	//}
+	}
 }
 
 function contacterBDD(){
-	require("modele/contacterBD.php");
-
-	$contacts = afficher_messages();
-
-	require("vue/admin/admin_contacter.tpl");
-
+	if(isset($_SESSION['admin'])){
+		require("modele/contacterBD.php");
+		$contacts = afficher_messages();
+		require("vue/admin/admin_contacter.tpl");
+	}
 }
 
 function clientsBDD(){
-	require ("modele/utilisateurBD.php");
-	//if(isset($_SESSION['profil'])){
+	if(isset($_SESSION['admin'])){
+		require ("modele/utilisateurBD.php");
 		$usr_id_upd       = "";
 		$usr_nom_upd      = "";
 		$usr_prenom_upd   = "";
@@ -99,49 +126,52 @@ function clientsBDD(){
 		$clients=liste_clients();
 
 		require("vue/admin/admin_clients.tpl");
-	//}
+	}
 }
 
 function commandesBDD(){
-	require ("modele/administrateurBD.php");
-	//if(isset($_SESSION['profil'])){
+	if(isset($_SESSION['admin'])){
+		require ("modele/administrateurBD.php");
 		$commande=produits_a_envoyer();
 		require("vue/admin/admin_commandes.tpl");
-	//}
+	}
 }
 
 function historiqueBDD(){
-	require ("modele/administrateurBD.php");
-	//if(isset($_SESSION['profil'])){
+	if(isset($_SESSION['admin'])){
+		require ("modele/administrateurBD.php");
 		$histo=historique();
 		require("vue/admin/admin_historique.tpl");
-	//}
+	}
 }
 
 function afficherProduit(){
-	require ("modele/produitsBD.php");
-	if(isset($_GET['id'])){
-		$id=$_GET['id'];
-		$informations=infos_Produit($id);
-		$images=images_Produit($id);
-		$types=liste_types();
-		$imagePrincipale=info_imagePrincipale($id);
-		require("vue/admin/produit_admin.tpl");
+	if(isset($_SESSION['admin'])){
+		require ("modele/produitsBD.php");
+		if(isset($_GET['id'])){
+			$id=$_GET['id'];
+			$informations=infos_Produit($id);
+			$images=images_Produit($id);
+			$types=liste_types();
+			$imagePrincipale=info_imagePrincipale($id);
+			require("vue/admin/produit_admin.tpl");
+		}
 	}
 }
 
 function PageAjoutProduit(){
-	require ("modele/produitsBD.php");
-	$nouveau_id=prochain_id();
-	$nouveau_id++;
-	$types=liste_types();
-	require("vue/admin/nouveau_produit_admin.tpl");
+	if(isset($_SESSION['admin'])){
+		require ("modele/produitsBD.php");
+		$nouveau_id=prochain_id();
+		$nouveau_id++;
+		$types=liste_types();
+		require("vue/admin/nouveau_produit_admin.tpl");
+	}
 }
 
 function ajoutProduit(){
-	require ("modele/administrateurBD.php");
-
-	//if(isset($_GET['nom'])){
+	if(isset($_SESSION['admin'])){
+		require ("modele/administrateurBD.php");
 		$nom= isset($_POST['nom'])?($_POST['nom']):'';
 		$type=isset($_POST['type'])?($_POST['type']):'';
 		$categorie=isset($_POST['categorie'])?($_POST['categorie']):'';
@@ -160,100 +190,105 @@ function ajoutProduit(){
 		$id=ajout_produit($nom,$type,$categorie,$prix,$dimensions,$fabricant,$description,$imagePrincipale,$image1,$image2,$image3,$image4,$image5);
 
 		header("Location:index.php?controle=administrateur&action=afficherProduit&id=$id");
-	//}
+	}
 }
 
 function supprimer_image(){
-	require ("modele/administrateurBD.php");
-	if(isset($_GET['id'])){
-		$id=$_GET['id'];
-		$image=$_GET['image'];
-		suppression_image($id,$image);
-		header("Location:index.php?controle=administrateur&action=afficherProduit&id=$id");
-	}
+	if(isset($_SESSION['admin'])){
+		require ("modele/administrateurBD.php");
+		if(isset($_GET['id'])){
+			$id=$_GET['id'];
+			$image=$_GET['image'];
+			suppression_image($id,$image);
+			header("Location:index.php?controle=administrateur&action=afficherProduit&id=$id");
+		}
+    }
 }
 
 function modifier_produit(){
-	require ("modele/administrateurBD.php");
-	if(isset($_GET['id'])){
-		$id=$_GET['id'];
-		$nom= isset($_POST['nom'])?($_POST['nom']):'';
-		$type=isset($_POST['type'])?($_POST['type']):'';
-		$categorie=isset($_POST['categorie'])?($_POST['categorie']):'';
-		$prix=  isset($_POST['prix'])?($_POST['prix']):'';
-		$dimensions= isset($_POST['dimensions'])?($_POST['dimensions']):'';
-		$fabricant= isset($_POST['fabricant'])?($_POST['fabricant']):'';
-		$description= isset($_POST['description'])?($_POST['description']):'';
+	if(isset($_SESSION['admin'])){
+		require ("modele/administrateurBD.php");
+		if(isset($_GET['id'])){
+			$id=$_GET['id'];
+			$nom= isset($_POST['nom'])?($_POST['nom']):'';
+			$type=isset($_POST['type'])?($_POST['type']):'';
+			$categorie=isset($_POST['categorie'])?($_POST['categorie']):'';
+			$prix=  isset($_POST['prix'])?($_POST['prix']):'';
+			$dimensions= isset($_POST['dimensions'])?($_POST['dimensions']):'';
+			$fabricant= isset($_POST['fabricant'])?($_POST['fabricant']):'';
+			$description= isset($_POST['description'])?($_POST['description']):'';
 
-		$imagePrincipale= !empty($_POST['imagePrincipale'])?($_POST['imagePrincipale']):NULL;
-		$image1= !empty($_POST['image1'])?($_POST['image1']):NULL;
-		$image2= !empty($_POST['image2'])?($_POST['image2']):NULL;
-		$image3= !empty($_POST['image3'])?($_POST['image3']):NULL;
-		$image4= !empty($_POST['image4'])?($_POST['image4']):NULL;
-		$image5= !empty($_POST['image5'])?($_POST['image5']):NULL;
+			$imagePrincipale= !empty($_POST['imagePrincipale'])?($_POST['imagePrincipale']):NULL;
+			$image1= !empty($_POST['image1'])?($_POST['image1']):NULL;
+			$image2= !empty($_POST['image2'])?($_POST['image2']):NULL;
+			$image3= !empty($_POST['image3'])?($_POST['image3']):NULL;
+			$image4= !empty($_POST['image4'])?($_POST['image4']):NULL;
+			$image5= !empty($_POST['image5'])?($_POST['image5']):NULL;
 
-		modification_produit($id,$nom,$type,$categorie,$prix,$dimensions,$fabricant,$description,$imagePrincipale,$image1,$image2,$image3,$image4,$image5);
+			modification_produit($id,$nom,$type,$categorie,$prix,$dimensions,$fabricant,$description,$imagePrincipale,$image1,$image2,$image3,$image4,$image5);
 
-		header("Location:index.php?controle=administrateur&action=afficherProduit&id=$id");
-	}	
+			header("Location:index.php?controle=administrateur&action=afficherProduit&id=$id");
+		}	
+	}
 }
 
-function ajout_stock()
-{
-	require ("modele/administrateurBD.php");
+function ajout_stock(){
+	if(isset($_SESSION['admin'])){
+		require ("modele/administrateurBD.php");
 
-	if(isset($_GET['id'])){
-		$id=$_GET['id'];
-		ajout_stockBD($id);
+		if(isset($_GET['id'])){
+			$id=$_GET['id'];
+			ajout_stockBD($id);
+		}
+	 	$produits=liste_produits();
+		require("vue/admin/admin_produits.tpl");
 	}
- 	$produits=liste_produits();
-	require("vue/admin/admin_produits.tpl");
-
 }
 
-function enlever_stock()
-{
-	require ("modele/administrateurBD.php");
+function enlever_stock(){
+	if(isset($_SESSION['admin'])){
+		require ("modele/administrateurBD.php");
 
-	if(isset($_GET['id'])){
-		$id=$_GET['id'];
-		enlever_stockBD($id);
-	}
-  	$produits=liste_produits();
- 	require("vue/admin/admin_produits.tpl");
+		if(isset($_GET['id'])){
+			$id=$_GET['id'];
+			enlever_stockBD($id);
+		}
+	  	$produits=liste_produits();
+	 	require("vue/admin/admin_produits.tpl");
+	 }
 }
 
-function envoyer_produit()
-{
-	require ("modele/administrateurBD.php");
-	if(isset($_GET['id'])){
-		$id=$_GET['id'];
-		$id_commande = $_GET['id_cmd'];
-		envoyer_un_produit($id,$id_commande);
-	}
-	
-	if(!test_commande_complete($id_commande))
-	{
+function envoyer_produit(){
+	if(isset($_SESSION['admin'])){
+		require ("modele/administrateurBD.php");
+		if(isset($_GET['id'])){
+			$id=$_GET['id'];
+			$id_commande = $_GET['id_cmd'];
+			envoyer_un_produit($id,$id_commande);
+		}
 		
-		envoyerBD($id_commande);
+		if(!test_commande_complete($id_commande))
+		{
+			
+			envoyerBD($id_commande);
+		}
+		
+		$commande=produits_a_envoyer();
+	 	require("vue/admin/admin_commandes.tpl");
 	}
-	
-	$commande=produits_a_envoyer();
- 	require("vue/admin/admin_commandes.tpl");
-
 }
 
 
-function changer_stock()
-{
-	require ("modele/administrateurBD.php");
-	$id=$_GET['id'];
-	$quantite=$_POST['stock'];
-	change_stockBD($id,$quantite);
-		
-	$produits=liste_produits();
-	require("vue/admin/admin_produits.tpl");
-
+function changer_stock(){
+	if(isset($_SESSION['admin'])){
+		require ("modele/administrateurBD.php");
+		$id=$_GET['id'];
+		$quantite=$_POST['stock'];
+		change_stockBD($id,$quantite);
+			
+		$produits=liste_produits();
+		require("vue/admin/admin_produits.tpl");
+	}
 }
 
 

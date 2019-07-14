@@ -31,7 +31,7 @@
       <h2>Accès Administrateur</h2>
       <p>Cette page est réservée aux administrateurs du site Striker Eureka.</p>
 
-      <form action="index.php?controle=administrateur&action=identification" method="post">
+      <form action="index.php?controle=administrateur&action=connexionAdmin" method="post">
         <div class="form-group">
           <label for="login">Login</label>
           <input type="login" class="form-control" id="login" name="login">
@@ -45,7 +45,7 @@
         </div>
       </form>
 
-      <div class="msgErreur" id="mdpOubli">
+      <div class="msgErreur">
         <p><?php 
 
         $msg= isset($msg)?($msg):'';

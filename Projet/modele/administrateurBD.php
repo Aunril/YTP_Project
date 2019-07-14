@@ -1,5 +1,65 @@
 <?php
 
+
+// verif_ident : fonction booléenne de vérification de l'administrateur en base de données 
+function verif_ident_admin($login,$mdp,&$profil) {
+
+	require ("modele/connectBD.php") ; 
+
+	try{
+		$req = $bdd->prepare('SELECT * FROM administrateur WHERE login_admin = :login AND pass_admin = md5(:mdp)');
+		$req->execute(array(
+				'login' => $login,
+				'mdp' => $mdp
+			));
+	}
+	catch(Exception $e)
+	{
+        die('Erreur : '.$e->getMessage());
+	}
+
+	$donnees=$req->fetchAll();
+	if(count($donnees) > 0){
+		$profil = $donnees[0];  //prendre le premier enregistrement seulement
+		$req->closeCursor();
+		return true;
+	} 
+
+	$profil = null;
+	return false;
+
+}
+
+
+function connexion_admin($id){
+
+	require ("modele/connectBD.php") ; 
+
+	try{
+		$req = $bdd->prepare('UPDATE administrateur SET connecte = 1 WHERE id_admin = :id');
+		$req->execute(array('id' => $id));
+	}
+	catch(Exception $e)
+	{
+        die('Erreur : '.$e->getMessage());
+	}	
+}
+
+function deconnexion_admin($id){
+
+	require ("modele/connectBD.php") ; 
+
+	try{
+		$req = $bdd->prepare('UPDATE administrateur SET connecte = 0 WHERE id_admin = :id');
+		$req->execute(array('id' => $id));
+	}
+	catch(Exception $e)
+	{
+        die('Erreur : '.$e->getMessage());
+	}	
+}
+
+
 function liste_clients() {
 
 	require ("modele/connectBD.php") ; 

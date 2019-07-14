@@ -11,7 +11,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="index.php?controle=menu&action=accueil">Retour au site (et deconnexion)</a></li>
+            <li><a href="index.php?controle=administrateur&action=deconnexionAdmin">Retour au site (et deconnexion)</a></li>
             <li><a href=""></a></li>
           </ul>
         </div>
