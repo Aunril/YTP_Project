@@ -121,7 +121,7 @@
         }
       });
 
-      //bar
+      //barNbProduits : nombre de produits par catégorie
       var ctxB = document.getElementById("barNbProduits").getContext('2d');
       var myBarChart = new Chart(ctxB, {
         type: 'bar',
@@ -160,50 +160,50 @@
         }
       });
 
-  //line
-  var ctxL = document.getElementById("lineChart").getContext('2d');
-  var myLineChart = new Chart(ctxL, {
-    type: 'line',
-    data: {
-      labels: <?php echo json_encode($commandesMois); ?>,
-      datasets: [{
-          label: "Articles vendus par mois",
-          data: <?php echo json_encode($articlesNombre); ?>,
-          backgroundColor: [
-            'rgba(255, 206, 86, 0.2)',
-          ],
-          borderColor: [
-            'rgba(255, 206, 86, 1)',
-          ],
-          borderWidth: 2
+      //lineChart : nombres de commandes / articles vendus par mois
+      var ctxL = document.getElementById("lineChart").getContext('2d');
+      var myLineChart = new Chart(ctxL, {
+        type: 'line',
+        data: {
+          labels: <?php echo json_encode($commandesMois); ?>,
+          datasets: [{
+              label: "Articles vendus par mois",
+              data: <?php echo json_encode($articlesNombre); ?>,
+              backgroundColor: [
+                'rgba(255, 206, 86, 0.2)',
+              ],
+              borderColor: [
+                'rgba(255, 206, 86, 1)',
+              ],
+              borderWidth: 2
+            },
+            {
+              label: "Commandes effectuées par mois",
+              data: <?php echo json_encode($commandesNombre); ?>,
+              backgroundColor: [
+                'rgba(153, 102, 255, 0.2)',
+              ],
+              borderColor: [
+                'rgba(153, 102, 255, 1)',
+              ],
+              borderWidth: 2
+            }
+          ]
         },
-        {
-          label: "Commandes effectuées par mois",
-          data: <?php echo json_encode($commandesNombre); ?>,
-          backgroundColor: [
-            'rgba(153, 102, 255, 0.2)',
-          ],
-          borderColor: [
-            'rgba(153, 102, 255, 1)',
-          ],
-          borderWidth: 2
-        }
-      ]
-    },
-    options: {
-      responsive: true,
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
+        options: {
+          responsive: true,
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
           }
-        }]
-      }
-    }
-  });
+        }
+      });
 
 
-      //donutNbVendus : nombre de vendus par catégories
+      //donutNbVendus : nombre de produits vendus par catégories
       var ctxD = document.getElementById("donutNbVendus").getContext('2d');
       var myLineChart = new Chart(ctxD, {
         type: 'doughnut',
@@ -223,7 +223,7 @@
         }
       });
 
-      //bar
+      //barNbVendus : nombre de produits vendus par catégories
       var ctxB = document.getElementById("barNbVendus").getContext('2d');
       var myBarChart = new Chart(ctxB, {
         type: 'bar',

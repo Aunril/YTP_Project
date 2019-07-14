@@ -21,9 +21,6 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Liste des produits</h1>
 
-              <br>
-              <br>
-              <br>
               <div class="table-responsive">
               <table class="table table-bordered table-striped">
                 <thead>
@@ -69,10 +66,6 @@
     									</div>
   									</div>
 										</div>
-
-
-
-
 
                  	</tr>
                   <?php } ?>
