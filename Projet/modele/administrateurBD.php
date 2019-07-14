@@ -442,4 +442,19 @@ function statsMessages(&$nbMessages,&$nbMessagesAttente){
     }	
 }
 
+function statsCommandes(&$nbCommandes){
+	require ("modele/connectBD.php") ;
+
+    try{
+	    $cmd = "SELECT count(*) as nbCom FROM `commande` WHERE reçu=0;";
+		$res = $bdd->query($cmd);
+		$resultat = $res->fetchAll(PDO::FETCH_ASSOC);
+		$nbCommandes=$resultat[0]['nbCom'];
+
+		$res->closeCursor();
+    }catch(Exception $e){
+    die('Erreur : '.$e->getMessage());
+    }	
+}
+
 ?>

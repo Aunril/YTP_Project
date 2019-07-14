@@ -35,6 +35,7 @@ function informationsBDD(){
 		statsNbProduitsTypes($nbProduits,$types);
 		statsClientsConnectes($nbClients,$nbClientsConnectes);
 		statsMessages($nbMessages,$nbMessagesAttente);
+		statsCommandes($nbCommandes);
 
 		//calcul pourcentage de clients connectes
 		$pourcentageClient=($nbClientsConnectes/$nbClients)*100;
