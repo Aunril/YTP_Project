@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  Dim 14 juil. 2019 à 10:55
+-- Généré le :  Dim 14 juil. 2019 à 17:44
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `administrateur` (
 --
 
 INSERT INTO `administrateur` (`id_admin`, `login_admin`, `pass_admin`, `connecte`) VALUES
-(1, 'Admin1', 'd0572253c0e7cdb85b13988712cb152e', 0),
+(1, 'Admin1', 'd0572253c0e7cdb85b13988712cb152e', 1),
 (2, 'Admin2', 'ae5a9733104904f8ece1abf0e3a9227b', 0);
 
 -- --------------------------------------------------------
@@ -100,10 +100,10 @@ CREATE TABLE IF NOT EXISTS `commande` (
 --
 
 INSERT INTO `commande` (`id_commande`, `id_client`, `total`, `reçu`, `date`) VALUES
-(1, 1, 1493, 1, '2019-07-13 16:11:09'),
-(2, 1, 554, 1, '2019-07-13 16:11:09'),
+(1, 1, 1493, 1, '2019-06-12 16:11:09'),
+(2, 1, 554, 1, '2019-07-03 16:11:09'),
 (3, 19, 1433, 0, '2019-07-13 18:21:52'),
-(4, 19, 1433, 0, '2019-07-13 18:32:44');
+(4, 19, 1433, 0, '2019-08-06 18:32:44');
 
 -- --------------------------------------------------------
 
@@ -192,7 +192,7 @@ CREATE TABLE IF NOT EXISTS `panier` (
   `id_produit` int(11) NOT NULL,
   `quantité` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id_panier`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `panier`
@@ -202,7 +202,7 @@ INSERT INTO `panier` (`id_panier`, `id_client`, `id_produit`, `quantité`) VALUE
 (1, 11, 2, 15),
 (9, 1, 11, 1),
 (8, 1, 5, 1),
-(10, 1, 19, 1),
+(18, 1, 19, 1),
 (11, 14, 11, 1),
 (12, 18, 11, 1),
 (17, 19, 3, 1);
@@ -273,7 +273,7 @@ CREATE TABLE IF NOT EXISTS `produits_commande` (
   PRIMARY KEY (`id_produit_commande`),
   KEY `id_commande_listeprod` (`id_commande`),
   KEY `id_produit_listeprod` (`id_produit`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `produits_commande`
@@ -286,7 +286,8 @@ INSERT INTO `produits_commande` (`id_produit_commande`, `id_commande`, `id_produ
 (4, 2, 12, 1, 1),
 (5, 3, 10, 1, 0),
 (6, 3, 11, 1, 0),
-(7, 3, 14, 1, 0);
+(7, 3, 14, 1, 0),
+(8, 4, 6, 1, 0);
 
 -- --------------------------------------------------------
 

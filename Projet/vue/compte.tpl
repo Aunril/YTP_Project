@@ -110,6 +110,10 @@
       <h3>Mes Commandes</h3>
       <br>
       
+    <?php
+      if($produits==null){ ?>
+        <h4 class="categorieVide">Aucune commande en cours</h4>
+      <?php }else{ ?>
       <table class="table table-striped table-hover">
           <thead>
             <tr>
@@ -120,25 +124,28 @@
             </tr>
           </thead>
           <tbody>
-          <?php
-            foreach($produits as $value){          
-            ?>
-            <tr>
-              <th><?php echo $value['id_commande']?></th>
-              <td><?php echo $value['nom']?></td>
-              <td><?php echo $value['quantite']?></td>
-              <td><?php echo $value['prix']?></td>
-            </tr>
-            <?php } ?>
+              <?php foreach($produits as $value){          
+              ?>
+              <tr>
+                <th><?php echo $value['id_commande']?></th>
+                <td><?php echo $value['nom']?></td>
+                <td><?php echo $value['quantite']?></td>
+                <td><?php echo $value['prix']?> €</td>
+              </tr>
+              <?php } ?>
           </tbody>
       </table>
+      <?php } ?>
     </div>
 
     <div id="historique" class="informations col-md-11">
 
       <h3>Mon historique de commandes</h3>
       <br>
-      
+
+      <?php if($historique==null){ ?>
+        <h4 class="categorieVide">Aucun historique de commande</h4>
+      <?php }else{ ?>
       <table class="table table-striped table-hover">
           <thead>
             <tr>
@@ -156,11 +163,12 @@
               <th><?php echo $value['id_commande']?></th>
               <td><?php echo $value['nom']?></td>
               <td><?php echo $value['quantite']?></td>
-              <td><?php echo $value['prix']?></td>
+              <td><?php echo $value['prix']?> €</td>
             </tr>
             <?php } ?>
           </tbody>
       </table>
+      <?php } ?>
     </div>
     
 
