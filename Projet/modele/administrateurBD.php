@@ -381,4 +381,65 @@ function change_stockBD($id,$quantite)
         }
 }
 
+function statsNbProduitsTypes(&$nbProduits, &$types){
+
+	require ("modele/connectBD.php") ;
+
+    try{
+	    $cmd = "select count(*) as nbProduits from produit; ";
+		$res = $bdd->query($cmd);
+		$resultat = $res->fetchAll(PDO::FETCH_ASSOC);
+		$nbProduits=$resultat[0]['nbProduits'];
+
+	    $cmd = "select count(*) as nbProduitsType, t.nomType from produit p, type t WHERE p.id_type=t.id_type group by t.nomType; ";
+		$res = $bdd->query($cmd);
+		$types = $res->fetchAll(PDO::FETCH_ASSOC);
+
+		$res->closeCursor();
+    }catch(Exception $e){
+    die('Erreur : '.$e->getMessage());
+    }
+
+}
+
+function statsClientsConnectes(&$nbClients,&$nbClientsConnectes){
+	require ("modele/connectBD.php") ;
+
+    try{
+	    $cmd = "SELECT count(*) as nbClients FROM `client`";
+		$res = $bdd->query($cmd);
+		$resultat = $res->fetchAll(PDO::FETCH_ASSOC);
+		$nbClients=$resultat[0]['nbClients'];
+
+	    $cmd = "SELECT count(*) as nbConnectes FROM `client` WHERE connecte=1";
+		$res = $bdd->query($cmd);
+		$resultat = $res->fetchAll(PDO::FETCH_ASSOC);
+		$nbClientsConnectes=$resultat[0]['nbConnectes'];
+
+		$res->closeCursor();
+    }catch(Exception $e){
+    die('Erreur : '.$e->getMessage());
+    }	
+}
+
+function statsMessages(&$nbMessages,&$nbMessagesAttente){
+	require ("modele/connectBD.php") ;
+
+    try{
+	    $cmd = "SELECT count(*) as nbMessages FROM `contact`";
+		$res = $bdd->query($cmd);
+		$resultat = $res->fetchAll(PDO::FETCH_ASSOC);
+		$nbMessages=$resultat[0]['nbMessages'];
+
+	    $cmd = "SELECT count(*) as nbnonRepondu FROM `contact` WHERE repondu=0";
+		$res = $bdd->query($cmd);
+		$resultat = $res->fetchAll(PDO::FETCH_ASSOC);
+		$nbMessagesAttente=$resultat[0]['nbnonRepondu'];
+
+		$res->closeCursor();
+    }catch(Exception $e){
+    die('Erreur : '.$e->getMessage());
+    }	
+}
+
 ?>

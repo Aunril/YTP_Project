@@ -162,3 +162,22 @@ thead td{
 	text-overflow: ellipsis;
 	word-wrap: break-word;
 }
+
+.sidebar a{
+  color: #337ab7;
+}
+
+.charts{
+  padding-top: 10px;
+  padding-bottom: 30px;
+  height: 430px;
+  background-color: white;
+  box-shadow: 3px 3px 10px 0px #9b9b9b;
+}
+
+.charts h3{
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+

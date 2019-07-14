@@ -28,13 +28,29 @@ function deconnexionAdmin(){
 	header('Location:index.php');	
 }
 
+
 function informationsBDD(){
 	if(isset($_SESSION['admin'])){
 		require ("modele/administrateurBD.php");
-		$clients=liste_clients();
-		$produits=liste_produits();
-		$commande=produits_a_envoyer();
-		$histo=historique();
+		statsNbProduitsTypes($nbProduits,$types);
+		statsClientsConnectes($nbClients,$nbClientsConnectes);
+		statsMessages($nbMessages,$nbMessagesAttente);
+
+		//calcul pourcentage de clients connectes
+		$pourcentageClient=($nbClientsConnectes/$nbClients)*100;
+
+		//calcul pourcentage de messages en attente de réponse
+		$pourcentageMessage=($nbMessagesAttente/$nbMessages)*100;
+
+		//calculs pour charts donutNbProduits et barNbProduits
+		$cpt=0;
+		foreach ($types as $value) {
+			$tabnbTypes[$cpt]= ($value['nbProduitsType']/$nbProduits)*360;
+			$tabnbTypesBar[$cpt]= $value['nbProduitsType'];
+			$tabnomTypes[$cpt] = $value['nomType'];
+			$cpt++;
+		}
+
 		require("vue/admin/accueil_admin.tpl");
 	}
 }
