@@ -36,12 +36,32 @@ function informationsBDD(){
 		statsClientsConnectes($nbClients,$nbClientsConnectes);
 		statsMessages($nbMessages,$nbMessagesAttente);
 		statsCommandes($nbCommandes);
+		statsVentesMois($commandes,$articles);
+		$totalCommandes=0;
+		$totalArticles=0;
 
 		//calcul pourcentage de clients connectes
 		$pourcentageClient=($nbClientsConnectes/$nbClients)*100;
 
 		//calcul pourcentage de messages en attente de réponse
 		$pourcentageMessage=($nbMessagesAttente/$nbMessages)*100;
+
+		//calculs pour chart des ventes
+		$cpt=0;
+		foreach ($commandes as $value) {
+			$commandesNombre[$cpt]=$value['nbCommandes'];
+			$commandesMois[$cpt]=$value['mois'];
+			$totalCommandes+=$value['nbCommandes'];
+			$cpt++;
+		}	
+
+		$cpt=0;
+		foreach ($articles as $value) {
+			$articlesNombre[$cpt]=$value['nbArticles'];
+			$articlesMois[$cpt]=$value['mois'];
+			$totalArticles+=$value['nbArticles'];
+			$cpt++;
+		}		
 
 		//calculs pour charts donutNbProduits et barNbProduits
 		$cpt=0;

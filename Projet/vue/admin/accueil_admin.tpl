@@ -42,6 +42,13 @@
         <div id="commandesRestantes" class="col-md-2 col-md-offset-1">
           <h1><?php echo $nbCommandes; ?></h1>
           <h4>commandes restent à traiter</h4>
+          <br>
+          <hr>
+          <br>
+          <h1><?php echo $totalArticles; ?></h1>
+          <h4> articles vendus toutes catégories confondues</h4> 
+          <h1><?php echo $totalCommandes; ?></h1>
+          <h4>commandes traitées à ce jour</h4>        
         </div>
 
         <div id="commandesRestantes" class="col-md-8 col-md-offset-1">
@@ -75,20 +82,14 @@
     <script type="text/javascript" src="vue/mdb/js/mdb.min.js"></script>
     <script type="text/javascript">
       //donutNbProduits : nombre de produits par catégories
-    var labels = <?php echo json_encode($tabnomTypes); ?>;
-    var data = <?php echo json_encode($tabnbTypes); ?>;
-
- /*   for(var i=0; i<jArray.length; i++){
-        alert(jArray[i]);
-    }*/
 
       var ctxD = document.getElementById("donutNbProduits").getContext('2d');
       var myLineChart = new Chart(ctxD, {
         type: 'doughnut',
         data: {
-          labels,
+          labels: <?php echo json_encode($tabnomTypes); ?>,
           datasets: [{
-            data,
+            data: <?php echo json_encode($tabnbTypes); ?>,
             backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
             hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
           }]
@@ -102,15 +103,14 @@
       });
 
       //bar
-      var data = <?php echo json_encode($tabnbTypesBar); ?>;
       var ctxB = document.getElementById("barNbProduits").getContext('2d');
       var myBarChart = new Chart(ctxB, {
         type: 'bar',
         data: {
-          labels,
+          labels: <?php echo json_encode($tabnomTypes); ?>,
           datasets: [{
             label: 'nombre de produits',
-            data,
+            data: <?php echo json_encode($tabnbTypesBar); ?>,
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(54, 162, 235, 0.2)',
@@ -146,10 +146,10 @@
   var myLineChart = new Chart(ctxL, {
     type: 'line',
     data: {
-      labels: ["January", "February", "March", "April", "May", "June", "July"],
+      labels: <?php echo json_encode($commandesMois); ?>,
       datasets: [{
           label: "Articles vendus par mois",
-          data: [65, 59, 80, 81, 56, 55, 40],
+          data: <?php echo json_encode($articlesNombre); ?>,
           backgroundColor: [
             'rgba(105, 0, 132, .2)',
           ],
@@ -160,7 +160,7 @@
         },
         {
           label: "Commandes effectuées par mois",
-          data: [28, 48, 40, 19, 86, 27, 90],
+          data: <?php echo json_encode($commandesNombre); ?>,
           backgroundColor: [
             'rgba(0, 137, 132, .2)',
           ],
@@ -172,7 +172,14 @@
       ]
     },
     options: {
-      responsive: true
+      responsive: true,
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
     }
   });
 

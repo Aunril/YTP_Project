@@ -457,4 +457,22 @@ function statsCommandes(&$nbCommandes){
     }	
 }
 
+function statsVentesMois(&$commandes,&$articles){
+	require ("modele/connectBD.php") ;
+
+    try{
+	    $cmd = "select count(*) as nbCommandes, monthname(date) as mois from commande group by mois order by date;";
+		$res = $bdd->query($cmd);
+		$commandes = $res->fetchAll(PDO::FETCH_ASSOC);
+
+	    $cmd = "select count(*) as nbArticles, monthname(c.date) as mois from produits_commande p, commande c where c.id_commande=p.id_commande group by mois order by c.date;";
+		$res = $bdd->query($cmd);
+		$articles = $res->fetchAll(PDO::FETCH_ASSOC);
+
+		$res->closeCursor();
+    }catch(Exception $e){
+    die('Erreur : '.$e->getMessage());
+    }		
+}
+
 ?>
