@@ -402,6 +402,27 @@ function statsNbProduitsTypes(&$nbProduits, &$types){
 
 }
 
+function statsNbVendusTypes(&$nbVendus, &$typesVendus){
+
+	require ("modele/connectBD.php") ;
+
+    try{
+	    $cmd = "select count(*) as nbVendus from produits_commande;";
+		$res = $bdd->query($cmd);
+		$resultat = $res->fetchAll(PDO::FETCH_ASSOC);
+		$nbVendus=$resultat[0]['nbVendus'];
+
+	    $cmd = "select count(*) as nbVendus, t.nomType as nomType from produits_commande pc, produit p, type t where pc.id_produit=p.id_produit and p.id_type = t.id_type group by nomType;";
+		$res = $bdd->query($cmd);
+		$typesVendus = $res->fetchAll(PDO::FETCH_ASSOC);
+
+		$res->closeCursor();
+    }catch(Exception $e){
+    die('Erreur : '.$e->getMessage());
+    }
+
+}
+
 function statsClientsConnectes(&$nbClients,&$nbClientsConnectes){
 	require ("modele/connectBD.php") ;
 

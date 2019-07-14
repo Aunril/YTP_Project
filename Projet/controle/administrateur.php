@@ -34,6 +34,7 @@ function informationsBDD(){
 		require ("modele/administrateurBD.php");
 		statsNbProduitsTypes($nbProduits,$types);
 		statsClientsConnectes($nbClients,$nbClientsConnectes);
+		statsNbVendusTypes($nbVendus,$typesVendus);
 		statsMessages($nbMessages,$nbMessagesAttente);
 		statsCommandes($nbCommandes);
 		statsVentesMois($commandes,$articles);
@@ -69,6 +70,15 @@ function informationsBDD(){
 			$tabnbTypes[$cpt]= ($value['nbProduitsType']/$nbProduits)*360;
 			$tabnbTypesBar[$cpt]= $value['nbProduitsType'];
 			$tabnomTypes[$cpt] = $value['nomType'];
+			$cpt++;
+		}
+
+		//calculs pour charts donutNbVendus et barNbVendus
+		$cpt=0;
+		foreach ($typesVendus as $value) {
+			$tabnbVendus[$cpt]= ($value['nbVendus']/$nbVendus)*360;
+			$tabnbVendusBar[$cpt]= $value['nbVendus'];
+			$tabnomTypeVendus[$cpt] = $value['nomType'];
 			$cpt++;
 		}
 

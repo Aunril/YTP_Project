@@ -41,14 +41,16 @@
       <div class="row" style="margin-top: 20px; margin-bottom: 40px;">
         <div id="commandesRestantes" class="col-md-2 col-md-offset-1">
           <h1><?php echo $nbCommandes; ?></h1>
-          <h4>commandes restent à traiter</h4>
+          <h4>commandes à traiter</h4>
           <br>
           <hr>
           <br>
           <h1><?php echo $totalArticles; ?></h1>
           <h4> articles vendus toutes catégories confondues</h4> 
           <h1><?php echo $totalCommandes; ?></h1>
-          <h4>commandes traitées à ce jour</h4>        
+          <h4>commandes traitées à ce jour</h4>      
+          <br>  
+          <br>
         </div>
 
         <div id="commandesRestantes" class="col-md-8 col-md-offset-1">
@@ -56,15 +58,32 @@
         </div>
       </div>
 
+
     <div class="row">
       <div class="col-md-6 charts">
-        <h3> Répartition des produits par catégorie </h3>
+        <h3> Répartition des articles vendus par catégorie </h3>
+        <canvas id="donutNbVendus"></canvas>
+        
+      </div>
+
+      <div class="col-md-6 charts">
+        <h3> Nombre d'articles vendus par catégorie </h3>
+        <canvas id="barNbVendus"></canvas>
+      </div>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="row">
+      <div class="col-md-6 charts">
+        <h3> Répartition des produits disponibles par catégorie </h3>
         <canvas id="donutNbProduits"></canvas>
         
 			</div>
 
       <div class="col-md-6 charts">
-        <h3> Nombre de produits par catégorie </h3>
+        <h3> Nombre de produits disponibles par catégorie </h3>
         <canvas id="barNbProduits"></canvas>
       </div>
     </div>
@@ -81,8 +100,8 @@
     <script src="vue/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="vue/mdb/js/mdb.min.js"></script>
     <script type="text/javascript">
+      
       //donutNbProduits : nombre de produits par catégories
-
       var ctxD = document.getElementById("donutNbProduits").getContext('2d');
       var myLineChart = new Chart(ctxD, {
         type: 'doughnut',
@@ -151,10 +170,10 @@
           label: "Articles vendus par mois",
           data: <?php echo json_encode($articlesNombre); ?>,
           backgroundColor: [
-            'rgba(105, 0, 132, .2)',
+            'rgba(255, 206, 86, 0.2)',
           ],
           borderColor: [
-            'rgba(200, 99, 132, .7)',
+            'rgba(255, 206, 86, 1)',
           ],
           borderWidth: 2
         },
@@ -162,10 +181,10 @@
           label: "Commandes effectuées par mois",
           data: <?php echo json_encode($commandesNombre); ?>,
           backgroundColor: [
-            'rgba(0, 137, 132, .2)',
+            'rgba(153, 102, 255, 0.2)',
           ],
           borderColor: [
-            'rgba(0, 10, 130, .7)',
+            'rgba(153, 102, 255, 1)',
           ],
           borderWidth: 2
         }
@@ -183,6 +202,65 @@
     }
   });
 
+
+      //donutNbVendus : nombre de vendus par catégories
+      var ctxD = document.getElementById("donutNbVendus").getContext('2d');
+      var myLineChart = new Chart(ctxD, {
+        type: 'doughnut',
+        data: {
+          labels: <?php echo json_encode($tabnomTypeVendus); ?>,
+          datasets: [{
+            data: <?php echo json_encode($tabnbVendus); ?>,
+            backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
+            hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
+          }]
+        },
+        options: {
+          responsive: true,
+          legend: {
+            position: 'bottom'
+          }
+        }
+      });
+
+      //bar
+      var ctxB = document.getElementById("barNbVendus").getContext('2d');
+      var myBarChart = new Chart(ctxB, {
+        type: 'bar',
+        data: {
+          labels: <?php echo json_encode($tabnomTypeVendus); ?>,
+          datasets: [{
+            label: "nombre d'articles vendus",
+            data: <?php echo json_encode($tabnbVendusBar); ?>,
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+              'rgba(255,99,132,1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)',
+              'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          }
+        }
+      });
 
     </script>
   </body>
