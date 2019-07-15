@@ -150,6 +150,7 @@
           <thead>
             <tr>
               <th scope="col">N°Commande</th>
+              <th scope="col">Date</th>
               <th scope="col">Produit</th>
               <th scope="col">Quantité</th>
               <th scope="col">Prix</th>
@@ -161,6 +162,7 @@
             ?>
             <tr>
               <th><?php echo $value['id_commande']?></th>
+              <th><?php echo $value['date']?></th>
               <td><?php echo $value['nom']?></td>
               <td><?php echo $value['quantite']?></td>
               <td><?php echo $value['prix']?> €</td>

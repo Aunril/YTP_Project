@@ -193,7 +193,7 @@ function historique($id){
 	require ("modele/connectBD.php") ;
 
 	try{
-		$req = $bdd->prepare('SELECT pc.id_commande, p.nom, pc.quantite, p.prix  from produits_commande pc, produit p, commande c, images i where c.id_commande=pc.id_commande and pc.id_produit=p.id_produit and p.id_produit=i.id_produit and c.reçu=1 and c.id_client=:id;');
+		$req = $bdd->prepare('SELECT pc.id_commande, c.date, p.nom, pc.quantite, p.prix  from produits_commande pc, produit p, commande c, images i where c.id_commande=pc.id_commande and pc.id_produit=p.id_produit and p.id_produit=i.id_produit and c.reçu=1 and c.id_client=:id;');
 		$req->execute(array(
 				'id' => $id
 			));
