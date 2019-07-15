@@ -1,9 +1,6 @@
 <?php 
 
-/*contrôleur panier.php :
-  affichage du panier
-*/
-
+//panier.php : controleur qui permet de gérer les interactions liées au panier
 
 
 /*

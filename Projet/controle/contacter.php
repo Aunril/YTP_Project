@@ -1,8 +1,6 @@
 <?php 
 
-/*contrôleur panier.php :
-  affichage du panier
-*/
+//contacter.php : controleur permettant d'envoyer un message
 
 /*
  * Permet d'ouvrir la page de contact pour contacter les administrateurs

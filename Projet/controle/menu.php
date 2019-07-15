@@ -1,13 +1,12 @@
 <?php 
 
-/*contrôleur menu.php :
-  premier affichage du site boutique
-*/
+//menu.php : controleur qui permet de gérer l'affichage des pages du site
 
 //premier affichage de la page
 function accueil(){
 	require("vue/accueil.tpl");
 }
+
 
 function compte(){
 	if(!isset($_SESSION['profil'])){
@@ -69,6 +68,7 @@ function produit(){
 	require("vue/produit.tpl");
 }
 
+//accéder aux pages d'administration du site
 function administration(){
 	if(!isset($_SESSION['admin'])){
 		require("vue/admin/connexion_admin.tpl");

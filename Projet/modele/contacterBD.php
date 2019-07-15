@@ -1,9 +1,5 @@
 <?php
-/*Fonctions-modèle réalisant les requêtes de gestion des produits en base de données*/
-
-/*PDO::FETCH_ASSOC : permet de ne pas avoir les resultats en double dans les données récupérées*/
-
-
+//contacterBD.php : modele relatif à la gestion des messages au sein de la base
 
 function ajouter_message($name,$email,$message) {
 
@@ -43,6 +39,10 @@ function afficher_messages()
 
 }
 
+
+/*
+ * Fonction qui permet d'indiquer que l'administrateur a repondu au message
+ */
 function envoyerBD($id_contact) {
 
 	require ("modele/connectBD.php") ; 
