@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  Dim 14 juil. 2019 à 17:44
+-- Généré le :  lun. 15 juil. 2019 à 12:13
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `administrateur` (
 --
 
 INSERT INTO `administrateur` (`id_admin`, `login_admin`, `pass_admin`, `connecte`) VALUES
-(1, 'Admin1', 'd0572253c0e7cdb85b13988712cb152e', 1),
+(1, 'Admin1', 'd0572253c0e7cdb85b13988712cb152e', 0),
 (2, 'Admin2', 'ae5a9733104904f8ece1abf0e3a9227b', 0);
 
 -- --------------------------------------------------------
@@ -56,11 +56,11 @@ CREATE TABLE IF NOT EXISTS `client` (
   `id_client` int(11) NOT NULL AUTO_INCREMENT,
   `email` text NOT NULL,
   `password` text NOT NULL,
-  `nom` varchar(25) NOT NULL,
-  `prenom` varchar(20) NOT NULL,
-  `adresse` varchar(65) NOT NULL,
+  `nom` varchar(100) NOT NULL,
+  `prenom` varchar(100) NOT NULL,
+  `adresse` varchar(100) NOT NULL,
   `codepostal` int(11) NOT NULL,
-  `ville` varchar(30) NOT NULL,
+  `ville` varchar(100) NOT NULL,
   `connecte` int(11) NOT NULL DEFAULT '0',
   `del` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_client`)
@@ -71,12 +71,12 @@ CREATE TABLE IF NOT EXISTS `client` (
 --
 
 INSERT INTO `client` (`id_client`, `email`, `password`, `nom`, `prenom`, `adresse`, `codepostal`, `ville`, `connecte`, `del`) VALUES
-(1, 'test@gmail.com', 'cc03e747a6afbbcbf8be7668acfebee5', 'doe', 'john', '12 ohohohohoh', 84500, 'Hanon', 0, 0),
+(1, 'test@gmail.com', 'cc03e747a6afbbcbf8be7668acfebee5', 'doe', 'john', '12 ohohohohoh', 84500, 'Hanon', 1, 0),
 (11, 'pauline.djamaa@gmail.com', '52bc5ce0b496c6d44e804abf5f032e52', 'Djamaa', 'Pauline', '8 rue du chemin des dames', 95400, 'Arnouville', 0, 0),
 (12, 'thierry@gmail.com', '4f351e69c91975f5532533db26492bd7', 'Lei', 'Thierry', '21 avenue maximilien', 94400, 'Vitry', 0, 0),
 (14, 'chinebla@gmail.com', '2643ba9f12a0786eb2e0b045f884ef6c', 'Chan', 'Jacky', '7 rue chan kim', 67554, 'Nantes', 0, 1),
 (18, 'samantha@hotmail.fr', '1c80dd8fa724b6c66ac5f7ee065349f9', 'Winchester', 'Sam', '12 haha', 54333, 'Marseille', 0, 0),
-(19, 'judge.dread@gmail.com', 'f8ed7e2ef2d8d4ab655cbbb53da04795', 'Dread', 'Judge', '7 rue de la jstc', 55000, 'Nice', 1, 0);
+(19, 'judge.dread@gmail.com', 'f8ed7e2ef2d8d4ab655cbbb53da04795', 'Dread', 'Judge', '7 rue de la jstc', 55000, 'Nice', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -114,8 +114,8 @@ INSERT INTO `commande` (`id_commande`, `id_client`, `total`, `reçu`, `date`) VA
 DROP TABLE IF EXISTS `contact`;
 CREATE TABLE IF NOT EXISTS `contact` (
   `id_contact` int(11) NOT NULL AUTO_INCREMENT,
-  `name` text NOT NULL,
-  `email` text NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
   `message` text NOT NULL,
   `repondu` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_contact`)
@@ -192,7 +192,7 @@ CREATE TABLE IF NOT EXISTS `panier` (
   `id_produit` int(11) NOT NULL,
   `quantité` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id_panier`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `panier`
@@ -255,7 +255,7 @@ INSERT INTO `produit` (`id_produit`, `id_type`, `nom`, `categorie`, `prix`, `dim
 (18, 5, 'Stickers Peaky Blinders', 'Stickers Ordinateur', '15', '20', 'StickersSTD', 'Stickers Peaky Blinders à coller sur votre ordinateur !', 0, 0),
 (19, 5, 'Multiples Stickers', 'Stickers de tailles variables', '30', '30', 'StickersSTD', 'Stickers provenant de différentes franchises à des tailles variables ! ', 0, 0),
 (20, 3, 'Saber Lily ~Distant Avalon~', 'Fate/stay night 1/7th Scale', '115', '45', 'Good Smile Company', 'The pure white, royal knight - back again!\r\nThe long-awaited rerelease of the 1/7th scale figure of Saber\'s alternate form, Saber Lily! Posed as if preforming her ultimate move \"\"Distant Avalon\"\" slashing through the air with her sword, Caliburn. Her other noble phantasm, the sword Excalibur has also been included and can be switched out for a difference appearance whenever you wish!\r\n\r\nThe sculpting work was done by Takayuki Kawahara, who has given the figure a dynamic feeling that places Saber in the center of the action. Everything from her beautiful flowing dress to her finely detailed hair all come together to bring a wonderful figure that any fan is bound to fall in love with.', 0, 0),
-(21, 3, 'Racing Miku 2018', '1/7th Scale', '112', '40', 'AQUAMARINE', 'The Songstress of the Circuit racing to the top!\r\nFrom the \"Hatsune Miku GT Project\" comes Racing Miku 2018: Challenging to the TOP! Illustrator Kanzaki Hiro\'s Racing Miku design has been brought to life. Her fluttering twintails feature vivid gradation while the details of her costume such as the fur and gold decorations have been carefully captured. Be sure to add her to your collection!', 1, 0);
+(21, 3, 'Racing Miku 2018', '1/7th Scale', '112', '40', 'AQUAMARINE', 'The Songstress of the Circuit racing to the top!\r\nFrom the \"Hatsune Miku GT Project\" comes Racing Miku 2018: Challenging to the TOP! Illustrator Kanzaki Hiro\'s Racing Miku design has been brought to life. Her fluttering twintails feature vivid gradation while the details of her costume such as the fur and gold decorations have been carefully captured. Be sure to add her to your collection!', 5, 0);
 
 -- --------------------------------------------------------
 
