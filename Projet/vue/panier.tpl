@@ -24,7 +24,7 @@
 	<div class=container-fluid" id="panier">
 		<div class="row">
 			<div class="col-md-9">
-				<h1>PANIER</h1>
+				<h1 style="text-align: center;">VOTRE PANIER</h1>
 			</div>
 			<div class="col-md-3">
 				<h2>RÉCAPITULATIF</h2>
