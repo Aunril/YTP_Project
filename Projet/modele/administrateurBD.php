@@ -253,6 +253,25 @@ function produits_a_envoyer() {
 
 }
 
+function recherche_produits_a_envoyer($recherche){
+	require ("modele/connectBD.php") ; 
+
+	try{
+		$req = $bdd->prepare('SELECT * FROM produits_commande INNER JOIN commande ON commande.id_commande = produits_commande.id_commande INNER JOIN client ON client.id_client = commande.id_client WHERE envoie=0 AND commande.id_commande=:recherche');
+		$req->execute(array(
+				'recherche' => $recherche
+			));
+	}
+	catch(Exception $e)
+	{
+        die('Erreur : '.$e->getMessage());
+	}
+
+	$donnees=$req->fetchAll(PDO::FETCH_ASSOC);
+	$req->closeCursor();
+	return $donnees;	
+}
+
 function historique() {
 
 	require ("modele/connectBD.php") ; 

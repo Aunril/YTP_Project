@@ -179,7 +179,14 @@ function clientsBDD(){
 function commandesBDD(){
 	if(isset($_SESSION['admin'])){
 		require ("modele/administrateurBD.php");
-		$commande=produits_a_envoyer();
+		
+		$recherche= isset($_POST['recherche'])?($_POST['recherche']):'';
+		if($recherche!=null){
+			$commande=recherche_produits_a_envoyer($recherche);
+		}else{
+			$commande=produits_a_envoyer();
+		}
+
 		require("vue/admin/admin_commandes.tpl");
 	}
 }

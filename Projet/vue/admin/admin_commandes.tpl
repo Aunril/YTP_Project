@@ -22,12 +22,25 @@
           <h1 class="page-header">Liste des commandes à envoyer</h1>
 
         <div id="commandes">
+
+          <br>
         
           <?php if($commande==null){ ?>
 
             <h3>Aucune commande à envoyer n'est enregistrée.</h3>
 
         <?php }else{ ?>
+
+            <form class="rechercheForm" action="index.php?controle=administrateur&action=commandesBDD" method="post">
+                <div>
+                    <input type="search" id="recherche" name="recherche">
+                    <button class="btn btn-default">Rechercher un numéro de commande</button>
+                </div>
+            </form>
+
+              <br>
+              <br>
+              <br>
 
             <div class="table-responsive">
             <table class="table table-bordered">
