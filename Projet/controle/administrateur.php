@@ -1,5 +1,10 @@
 <?php
 
+//administrateur.php : controleur relatif à toutes les interactions de l'administrateur du site
+
+/*
+ * Fonction de connexion de l'administrateur
+ */ 
 function connexionAdmin(){
 	$login= isset($_POST['login'])?($_POST['login']):'';
 	$password= isset($_POST['password'])?($_POST['password']):'';
@@ -21,6 +26,9 @@ function connexionAdmin(){
 	}
 }
 
+/*
+ * Fonction de deconnexion de l'administrateur
+ */ 
 function deconnexionAdmin(){
 	require("modele/administrateurBD.php");	
 	deconnexion_admin($_SESSION['admin']['id_admin']);
@@ -28,7 +36,9 @@ function deconnexionAdmin(){
 	header('Location:index.php');	
 }
 
-
+/*
+ * Affichage du dashboard d'administration (statistiques et graphes)
+ */ 
 function informationsBDD(){
 	if(isset($_SESSION['admin'])){
 		require ("modele/administrateurBD.php");
@@ -86,6 +96,9 @@ function informationsBDD(){
 	}
 }
 
+/*
+ * Fonction de récupération des produits en base pour la page liste des produits
+ */ 
 function produitsBDD(){
 	if(isset($_SESSION['admin'])){
 		require ("modele/administrateurBD.php");
@@ -105,9 +118,10 @@ function produitsBDD(){
 		require("vue/admin/admin_produits.tpl");
 	}
 }
+
 /*
  * permet d'afficher les messages envoyer par les client dans l'onglet contact.
- * Affiche les massages qui n'ont pas le statut "répondu".
+ * Affiche les messages qui n'ont pas le statut "répondu".
  */
 function contacterBDD(){
 	if(isset($_SESSION['admin'])){
@@ -117,6 +131,9 @@ function contacterBDD(){
 	}
 }
 
+/*
+ * Fonction de gestion des clients
+ */ 
 function clientsBDD(){
 	if(isset($_SESSION['admin'])){
 		require ("modele/utilisateurBD.php");
@@ -201,7 +218,7 @@ function commandesBDD(){
 
 
 /*
- * Fonction qui recupère les commandes envoyés
+ * Fonction qui recupère les commandes envoyées
  */ 
 function historiqueBDD(){
 	if(isset($_SESSION['admin'])){
@@ -229,6 +246,9 @@ function afficherProduit(){
 	}
 }
 
+/*
+ * Affichage de la page d'ajout d'un produit
+ */ 
 function PageAjoutProduit(){
 	if(isset($_SESSION['admin'])){
 		require ("modele/produitsBD.php");
@@ -239,6 +259,10 @@ function PageAjoutProduit(){
 	}
 }
 
+/*
+ * Fonction qui permet d'ajouter un produit en base
+ * Elle redirige l'affichage sur la page de consultation du produit récemment ajouté
+ */ 
 function ajoutProduit(){
 	if(isset($_SESSION['admin'])){
 		require ("modele/administrateurBD.php");
@@ -263,6 +287,9 @@ function ajoutProduit(){
 	}
 }
 
+/*
+ * Suppression des images au sein de la page de modification d'un produit
+ */ 
 function supprimer_image(){
 	if(isset($_SESSION['admin'])){
 		require ("modele/administrateurBD.php");
@@ -275,6 +302,9 @@ function supprimer_image(){
     }
 }
 
+/*
+ * Modification d'un produit
+ */ 
 function modifier_produit(){
 	if(isset($_SESSION['admin'])){
 		require ("modele/administrateurBD.php");
@@ -302,6 +332,9 @@ function modifier_produit(){
 	}
 }
 
+/*
+ * Fonction d'ajout au sein du stock (bouton +)
+ */ 
 function ajout_stock(){
 	if(isset($_SESSION['admin'])){
 		require ("modele/administrateurBD.php");
@@ -315,6 +348,9 @@ function ajout_stock(){
 	}
 }
 
+/*
+ * Fonction de retrait au sein du stock (bouton -)
+ */ 
 function enlever_stock(){
 	if(isset($_SESSION['admin'])){
 		require ("modele/administrateurBD.php");
@@ -328,6 +364,9 @@ function enlever_stock(){
 	 }
 }
 
+/*
+ * Fonction permettant d'envoyer un produit issu d'une commande
+ */ 
 function envoyer_produit(){
 	if(isset($_SESSION['admin'])){
 		require ("modele/administrateurBD.php");
@@ -348,7 +387,9 @@ function envoyer_produit(){
 	}
 }
 
-
+/*
+ * Fonction de modification du stock grâce à un input
+ */ 
 function changer_stock(){
 	if(isset($_SESSION['admin'])){
 		require ("modele/administrateurBD.php");

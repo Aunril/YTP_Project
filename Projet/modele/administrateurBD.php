@@ -1,7 +1,9 @@
 <?php
+//administrateurBD.php : modele relatif à toutes les interactions avec la base de l'administrateur du site
 
-
-// verif_ident : fonction booléenne de vérification de l'administrateur en base de données 
+/*
+ * fonction booléenne de vérification de l'administrateur en base de données
+ */ 
 function verif_ident_admin($login,$mdp,&$profil) {
 
 	require ("modele/connectBD.php") ; 
@@ -60,6 +62,9 @@ function deconnexion_admin($id){
 }
 
 
+/*
+ * fonction qui recupère l'ensemble des clients non supprimés en base
+ */ 
 function liste_clients() {
 
 	require ("modele/connectBD.php") ; 
@@ -79,7 +84,9 @@ function liste_clients() {
 
 }
 
-
+/*
+ * fonction qui récupère les produits non supprimés en base
+ */ 
 function liste_produits() {
 
 	require ("modele/connectBD.php") ; 
@@ -99,6 +106,9 @@ function liste_produits() {
 
 }
 
+/*
+ * fonction qui recherche les produits en fonction de leur nom
+ */ 
 function recherche_produits($recherche){
 	require ("modele/connectBD.php") ; 
 
@@ -116,6 +126,9 @@ function recherche_produits($recherche){
 }
 
 
+/*
+ * fonction de suppression des images d'un produit
+ */ 
 function suppression_image($id,$image){
 
 	require ("modele/connectBD.php");
@@ -233,7 +246,9 @@ function supprimer_produit($id){
 
 }
 
-
+/*
+ * fonction qui récupère les produits de commandes non traitées
+ */ 
 function produits_a_envoyer() {
 
 	require ("modele/connectBD.php") ; 
@@ -253,6 +268,9 @@ function produits_a_envoyer() {
 
 }
 
+/*
+ * fonction qui recherche les produits d'une commande en particulier (selon l'id)
+ */ 
 function recherche_produits_a_envoyer($recherche){
 	require ("modele/connectBD.php") ; 
 
@@ -272,6 +290,9 @@ function recherche_produits_a_envoyer($recherche){
 	return $donnees;	
 }
 
+/*
+ * fonction qui récupère les commandes traitées
+ */ 
 function historique() {
 
 	require ("modele/connectBD.php") ; 
@@ -325,6 +346,9 @@ require ("modele/connectBD.php") ;
 
 }
 
+/*
+ * fonction qui permet d'indiquer en base qu'une commande a été traitée
+ */ 
 function envoyerBD($id)
 {
 	require ("modele/connectBD.php") ;
@@ -341,7 +365,9 @@ function envoyerBD($id)
 
 }
 
-
+/*
+ * fonction qui permet d'indiquer que le produit d'une commande a été traité et envoyé
+ */ 
 function envoyer_un_produit($id_produit,$id_commande)
 {
 	require ("modele/connectBD.php") ;
@@ -360,6 +386,11 @@ function envoyer_un_produit($id_produit,$id_commande)
 
 }
 
+
+/*
+ * fonction qui permet de savoir si une commande a été traitée (regarde en base si tous les produits concernés 
+ * par la commande ont bien été envoyés)
+ */ 
 function test_commande_complete($id_cmd) {
 
         require ("modele/connectBD.php") ;
@@ -384,6 +415,7 @@ function test_commande_complete($id_cmd) {
         }
 }
 
+
 function change_stockBD($id,$quantite)
 {
 	 require ("modele/connectBD.php") ;
@@ -400,6 +432,10 @@ function change_stockBD($id,$quantite)
         }
 }
 
+
+/*
+ * fonction qui récupère le nombre de produits par types de produit
+ */ 
 function statsNbProduitsTypes(&$nbProduits, &$types){
 
 	require ("modele/connectBD.php") ;
@@ -421,6 +457,9 @@ function statsNbProduitsTypes(&$nbProduits, &$types){
 
 }
 
+/*
+ * fonction qui récupère le nombre de produits vendus par types de produit
+ */ 
 function statsNbVendusTypes(&$nbVendus, &$typesVendus){
 
 	require ("modele/connectBD.php") ;
@@ -442,6 +481,9 @@ function statsNbVendusTypes(&$nbVendus, &$typesVendus){
 
 }
 
+/*
+ * fonction qui récupère le nombre de clients actuellement connectés
+ */ 
 function statsClientsConnectes(&$nbClients,&$nbClientsConnectes){
 	require ("modele/connectBD.php") ;
 
@@ -462,6 +504,10 @@ function statsClientsConnectes(&$nbClients,&$nbClientsConnectes){
     }	
 }
 
+
+/*
+ * fonction qui récupère les messages qui n'ont pas reçu de réponse de la part de l'administrateur
+ */ 
 function statsMessages(&$nbMessages,&$nbMessagesAttente){
 	require ("modele/connectBD.php") ;
 
@@ -482,6 +528,9 @@ function statsMessages(&$nbMessages,&$nbMessagesAttente){
     }	
 }
 
+/*
+ * fonction qui récupère le nombre de commandes non traitées
+ */ 
 function statsCommandes(&$nbCommandes){
 	require ("modele/connectBD.php") ;
 
@@ -497,6 +546,9 @@ function statsCommandes(&$nbCommandes){
     }	
 }
 
+/*
+ * fonction qui récupère le nombre de ventes par mois (nombre de commandes, mais également nombre d'articles vendus)
+ */ 
 function statsVentesMois(&$commandes,&$articles){
 	require ("modele/connectBD.php") ;
 
