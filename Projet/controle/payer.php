@@ -4,6 +4,11 @@
   affichage du panier
 */
 
+
+/*
+ * Function qui ce lance lorsque l'utilisateur paye les produits de son panier.
+ * Elle vide le panier et ajoute la commande dans les commande à envoyer
+ */
 function apres_achat(){
 	require ("modele/payerBD.php");
 	require ("modele/panierBD.php");

@@ -4,11 +4,17 @@
   affichage du panier
 */
 
-
+/*
+ * Permet d'ouvrir la page de contact pour contacter les administrateurs
+ */
 function nous_contacter (){
 	require("vue/contacter.tpl");
 }
 
+
+/*
+ * Fonction qui permet d'enregistrer les champs remplis par la personne qui souhaite contacter
+ */
 function send_form(){
 	require ("modele/contacterBD.php");
 
@@ -21,6 +27,10 @@ function send_form(){
 	require("vue/contacter.tpl");
 }
 
+
+/*
+ * Fonction qui permet de donner un status "repondu" a un message de contact
+ */
 function envoyer_message()
 {
 	require ("modele/contacterBD.php");

@@ -105,7 +105,10 @@ function produitsBDD(){
 		require("vue/admin/admin_produits.tpl");
 	}
 }
-
+/*
+ * permet d'afficher les messages envoyer par les client dans l'onglet contact.
+ * Affiche les massages qui n'ont pas le statut "répondu".
+ */
 function contacterBDD(){
 	if(isset($_SESSION['admin'])){
 		require("modele/contacterBD.php");
@@ -176,6 +179,11 @@ function clientsBDD(){
 	}
 }
 
+
+/*
+ * Fonction qui récupère la liste des produits qu'il faut envoyer au client.
+ * L'administrateur peut indiquer qu'il a envoyé le produit avec cette fonction
+ */ 
 function commandesBDD(){
 	if(isset($_SESSION['admin'])){
 		require ("modele/administrateurBD.php");
@@ -191,6 +199,10 @@ function commandesBDD(){
 	}
 }
 
+
+/*
+ * Fonction qui recupère les commandes envoyés
+ */ 
 function historiqueBDD(){
 	if(isset($_SESSION['admin'])){
 		require ("modele/administrateurBD.php");
@@ -199,6 +211,10 @@ function historiqueBDD(){
 	}
 }
 
+
+/*
+ * Fonction qui permet de récupérer la liste des produits et leurs informations
+ */ 
 function afficherProduit(){
 	if(isset($_SESSION['admin'])){
 		require ("modele/produitsBD.php");

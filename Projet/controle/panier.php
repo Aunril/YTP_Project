@@ -4,6 +4,12 @@
   affichage du panier
 */
 
+
+
+/*
+ * Fonction qui est lancée quand on ouvre le panier.
+ * Elle récupère l'id de l'utilisateur et retourne la liste des produits dans le panier
+ */
 function afficherPanier(){
 	require ("modele/panierBD.php");
 	if(isset($_SESSION['profil'])){
@@ -14,6 +20,10 @@ function afficherPanier(){
 	}
 }
 
+
+/*
+ * Fonction qui permet de récupérer le prix total des produits dans le panier
+ */
 function payer(){
 	require ("modele/panierBD.php");
 	if(isset($_SESSION['profil'])){
@@ -23,6 +33,11 @@ function payer(){
 	}
 }
 
+
+/*
+ * Fonction qui permet d'ajouter une occurence d'un produit dans le panier.
+ * Elle décrémente automatiquement le stock
+ */
 function plus(){
 	require ("modele/panierBD.php");
 	require ("modele/administrateurBD.php");
@@ -36,6 +51,11 @@ function plus(){
 	}
 }
 
+
+/*
+ * Fonction qui permet d'enlever une occurence d'un produit dans le panier.
+ * Elle augmente automatiquement le stock de 1
+ */
 function moins(){
 	require ("modele/panierBD.php");
 	require ("modele/administrateurBD.php");
@@ -49,6 +69,11 @@ function moins(){
 	}
 }
 
+
+/*
+ * Autre fonction qui d'afficher le panier sans require le fichier de base de donné du panier.
+ * Il y avait des conflits lors de l'appel de afficherPanier() du coup j'ai implémenté cette fonction
+ */ 
 function afficherPanier2(){
 	if(isset($_SESSION['profil'])){
 		$id=$_SESSION['profil']['id_client'];
@@ -58,6 +83,11 @@ function afficherPanier2(){
 	}
 }
 
+
+/*
+ * Fonction qui teste si la quantité d'un produit dans le panier est egale à zero.
+ * Si c'est le cas elle supprime ce produit du panier
+ */
 function test($id,$id_produit)
 {
 	$quantité=quantite($id,$id_produit);
@@ -69,6 +99,12 @@ function test($id,$id_produit)
 
 }
 
+
+/*
+ * Fonction qui ce lance lorsqu'on ajoute un produit au panier.
+ * Elle decrément le stock automatiquement
+ * Elle redirige vers la page de connexion si l'utilisateur n'est pas connecté
+ */
 function ajouter_panier()
 {
 	require ("modele/panierBD.php");
