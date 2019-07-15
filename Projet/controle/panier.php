@@ -2,7 +2,6 @@
 
 //panier.php : controleur qui permet de gérer les interactions liées au panier
 
-
 /*
  * Fonction qui est lancée quand on ouvre le panier.
  * Elle récupère l'id de l'utilisateur et retourne la liste des produits dans le panier

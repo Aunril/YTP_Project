@@ -1,8 +1,6 @@
 <?php 
 
-/*contrôleur produits.php :
-  affichage des produits
-*/
+//produits.php : controleur qui permet de gérer l'affichage des produits sur le site
 
 function afficherProduit(){
 	require ("modele/produitsBD.php");

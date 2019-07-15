@@ -1,9 +1,6 @@
 <?php 
 
-/*contrôleur panier.php :
-  affichage du panier
-*/
-
+//payer.php : controleur qui permet de payer une commande
 
 /*
  * Function qui ce lance lorsque l'utilisateur paye les produits de son panier.
