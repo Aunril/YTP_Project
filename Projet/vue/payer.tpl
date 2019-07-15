@@ -21,12 +21,19 @@
 <body>
   <?php include('vue/templates/html-header.tpl'); ?>
 
-  <p> RECAPITULATIF </p>
-  <p> Le colis sera envoyé a l'adresse: </p>
-  <p> <?php echo $_SESSION['profil']['prenom'] . " " . $_SESSION['profil']['nom']?></p>
-  <p> <?php echo $_SESSION['profil']['adresse'] ?></p>
-  <p> <?php echo $_SESSION['profil']['codepostal'] . " " . $_SESSION['profil']['ville']?></p>	
-	<p> Prix à payer:  <?php echo $prix_total['SUM(produit.prix*panier.quantité)'] + 4 ?>€ </p>
+  <div class="container">
+      <div class="col-md-6 col-md-offset-3 panelPaiement">
+        <h4> RECAPITULATIF </h4>
+        <hr>
+        <p> Le colis sera envoyé a l'adresse: </p>
+        <p> <?php echo $_SESSION['profil']['prenom'] . " " . $_SESSION['profil']['nom']?></p>
+        <p> <?php echo $_SESSION['profil']['adresse'] ?></p>
+        <p> <?php echo $_SESSION['profil']['codepostal'] . " " . $_SESSION['profil']['ville']?></p>	
+      	<span id="prix"><p> Prix à payer:  <?php echo $prix_total['SUM(produit.prix*panier.quantité)'] + 4 ?>€ </p></span>
+      </div>
+  </div>
+  <br>
+  <br>
   <!-- Set up a container element for the button -->
   <div id="paypal-button-container"></div>
 

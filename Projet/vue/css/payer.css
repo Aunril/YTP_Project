@@ -4,6 +4,20 @@
 
 }
 
+.panelPaiement{
+	margin-top: 50px;
+	padding: 30px;
+	background-color: white;
+	box-shadow: 3px 3px 10px 0px #9b9b9b;
+}
+
+.panelPaiement h4{
+	font-weight: bold;
+}
+
+#prix{
+	font-weight: bold;
+}
 
 
 
