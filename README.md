@@ -13,4 +13,4 @@ Nom de la base : striker_eureka
 
 Connexion à phpmyadmin avec login : root (pas de mot de passe)
 
-Script de connexion à la base au sein de modele/ConnectBD.php
+Script de la base au sein de modele ou bien à la racine du git 
