@@ -1,11 +1,10 @@
 <?php 
 
-/*contrôleur utilisateur.php :
-  gérer les connexions clientes du site
-*/
+//utilisateur.php : controleur qui permet de gérer les connexions clientes du site
 
-
-//premier affichage de la page
+/*
+ * Fonction d'identification d'un utilisateur
+ */
 function identification(){
 	$email= isset($_POST['emailco'])?($_POST['emailco']):'';
 	$mdp= isset($_POST['pwdco'])?($_POST['pwdco']):'';
@@ -30,6 +29,9 @@ function identification(){
 }
 
 
+/*
+ * Fonction d'inscription d'un utilisateur
+ */
 function inscription(){
 
 	$nom= isset($_POST['nom'])?($_POST['nom']):'';
@@ -67,6 +69,9 @@ function inscription(){
 }
 
 
+/*
+ * Fonction qui permet à un utilisateur de modifier ses informations sur son compte
+ */
 function modification(){
 
 	$id= $_SESSION['profil']['id_client'];
@@ -86,7 +91,9 @@ function modification(){
 		
 }
 
-// verifS : vérification syntaxique des saisies 
+/*
+ * Fonction de vérification syntaxique des informations fournies
+ */
 function verifS($email, $mdp, &$err) {
 	if (strlen($mdp)<6) {			
 		$err = 'Le mot de passe a au moins 6 caractères.';
@@ -104,6 +111,10 @@ function verifS($email, $mdp, &$err) {
 	return true;
 } 
 
+
+/*
+ * Fonction de deconnexion d'un utilisateur
+ */
 function deconnexion(){
 	require("modele/utilisateurBD.php");	
 	deconnexion_client($_SESSION['profil']['id_client']);

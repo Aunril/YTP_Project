@@ -1,8 +1,6 @@
 <?php
 
-/*Fichier de connexion à la base de données*/
-
-
+//connectBD.php : modele relatif à la connexion à la base de données
 
 
 try{

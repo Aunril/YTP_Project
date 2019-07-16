@@ -1,9 +1,9 @@
 <?php
-/*Fonctions-modèle réalisant les requêtes de gestion des produits en base de données*/
+//payerBD.php : modele relatif à la gestion du paiement en base
 
-/*PDO::FETCH_ASSOC : permet de ne pas avoir les resultats en double dans les données récupérées*/
-
-
+/*
+ * Fonction qui permet de vider le panier d'un client
+ */
 function vider_le_panier($id) {
 
 	require ("modele/connectBD.php") ; 
@@ -20,7 +20,9 @@ function vider_le_panier($id) {
 
 }
 
-
+/*
+ * Fonction qui permet d'indiquer qu'une commande est traitée
+ */
 function ajouter_historique($id,$total) {
 
 	require ("modele/connectBD.php") ; 
@@ -38,7 +40,9 @@ function ajouter_historique($id,$total) {
 
 }
 
-
+/*
+ * Fonction qui permet d'ajouter le produit d'une commande dans la table produits_commande
+ */
 function ajouter_produit_2($numero_commande,$produit, $quantite) {
 
 	require ("modele/connectBD.php") ; 
@@ -57,6 +61,9 @@ function ajouter_produit_2($numero_commande,$produit, $quantite) {
 
 }
 
+/*
+ * Fonction qui permet de récupérer la dernière commande d'un client
+ */
 function num_commande($id)
 {
  require ("modele/connectBD.php") ;
@@ -77,6 +84,9 @@ function num_commande($id)
 
 }
 
+/*
+ * Fonction qui permet de récupérer tous les éléments du panier d'un client
+ */
 function afficher_commande($id)
 {
  require ("modele/connectBD.php") ;

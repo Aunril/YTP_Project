@@ -1,9 +1,10 @@
 <?php
-/*Fonctions-modèle réalisant les requêtes de gestion des produits en base de données*/
-
-/*PDO::FETCH_ASSOC : permet de ne pas avoir les resultats en double dans les données récupérées*/
+//panierBD.php : modele relatif à la gestion du panier en base
 
 
+/*
+ * Fonction qui permet de récupérer les produits composant le panier de l'utilisateur 
+ */
 function produit_recap($id) {
 
 	require ("modele/connectBD.php") ; 
@@ -24,6 +25,9 @@ function produit_recap($id) {
 
 }
 
+/*
+ * Fonction de calcul du prix total du panier
+ */
 function prix_total($id) {
 
 	require ("modele/connectBD.php") ; 
@@ -45,6 +49,9 @@ function prix_total($id) {
 }
 
 
+/*
+ * Fonction d'ajout d'une quantité de produit
+ */
 function plusBD($id,$id_produit) {
 
 	require ("modele/connectBD.php") ; 
@@ -63,6 +70,10 @@ function plusBD($id,$id_produit) {
 
 }
 
+
+/*
+ * Fonction de retrait d'une quantité de produit
+ */
 function moinsBD($id,$id_produit) {
 
 	require ("modele/connectBD.php") ; 
@@ -81,6 +92,9 @@ function moinsBD($id,$id_produit) {
 }
 
 
+/*
+ * Fonction qui récupère la quantité souhaitée pour un produit dans la panier
+ */
 function quantite($id,$id_produit) {
 
 	require ("modele/connectBD.php") ; 
@@ -102,6 +116,9 @@ function quantite($id,$id_produit) {
 
 }
 
+/*
+ * Fonction qui permet de supprimer un produit du panier
+ */
 function supp_produit($id,$id_produit) {
 
 	require ("modele/connectBD.php") ; 
@@ -120,6 +137,9 @@ function supp_produit($id,$id_produit) {
 }
 
 
+/*
+ * Fonction qui permet d'ajouter un article dans la panier
+ */
 function ajouter_produit($id,$id_produit) {
 
 	require ("modele/connectBD.php") ; 
@@ -137,6 +157,10 @@ function ajouter_produit($id,$id_produit) {
 
 }
 
+
+/*
+ * Fonction qui permet de récupérer un produit en particulier du panier
+ */
 function search($id,$id_produit) {
 
 	require ("modele/connectBD.php") ; 
@@ -162,6 +186,9 @@ function search($id,$id_produit) {
 	}
 }
 
+/*
+ * Fonction qui permet de vérifier si le panier est vide ou non
+ */
 function check($id)
 {
 	require ("modele/connectBD.php") ; 
@@ -187,6 +214,9 @@ function check($id)
 
 }
 
+/*
+ * Fonction qui permet de vérifier s'il est possible d'ajouter une quantité de produit selon le stock
+ */
 function stop_stock($id)
 {
 	require ("modele/connectBD.php") ;

@@ -1,9 +1,10 @@
 <?php
-/*Fonctions-modèle réalisant les requêtes de gestion des produits en base de données*/
-
-/*PDO::FETCH_ASSOC : permet de ne pas avoir les resultats en double dans les données récupérées*/
+//produitsBD.php : modele relatif à la gestion des produits en base
 
 
+/*
+ * Fonction qui permet de récupérer les informations d'un produit 
+ */
 function infos_Produit($id) {
 
 	require ("modele/connectBD.php") ; 
@@ -25,7 +26,9 @@ function infos_Produit($id) {
 
 }
 
-
+/*
+ * Fonction qui permet de récupérer les images d'un produit
+ */
 function images_Produit($id) {
 
 	require ("modele/connectBD.php") ; 
@@ -47,6 +50,9 @@ function images_Produit($id) {
 
 }
 
+/*
+ * Fonction qui permet de récupérer l'image principale d'un produit (vignette des pages produits)
+ */
 function info_imagePrincipale($id){
 
 	require ("modele/connectBD.php") ; 
@@ -68,6 +74,9 @@ function info_imagePrincipale($id){
 
 }
 
+/*
+ * Fonction qui permet de connaître l'id du dernier produit en base
+ */
 function prochain_id(){
 
 	require ("modele/connectBD.php") ; 
@@ -87,7 +96,9 @@ function prochain_id(){
 
 }
 
-
+/*
+ * Fonction qui permet de récupérer les produits d'une catégorie 
+ */
 function liste_Produits($type){
 
 	require ("modele/connectBD.php") ; 
@@ -108,6 +119,9 @@ function liste_Produits($type){
 	return $donnees;
 }
 
+/*
+ * Fonction qui permet de récupérer les catégories de produit 
+ */
 function liste_types() {
 
 	require ("modele/connectBD.php") ; 

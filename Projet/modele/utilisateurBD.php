@@ -1,7 +1,9 @@
 <?php
-/*Fonctions-modèle réalisant les requêtes de gestion des clients en base de données*/
+//utilisateurBD.php : modele relatif à la gestion des utilisateurs en base
 
-// verif_ident : fonction booléenne de vérification de l'utilisateur en base de données 
+/*
+ * Fonction qui permet de vérifier si l'utilisateur existe en base et le connecte
+ */
 function verif_ident($email,$mdp,&$profil) {
 
 	require ("modele/connectBD.php") ; 
@@ -30,6 +32,9 @@ function verif_ident($email,$mdp,&$profil) {
 
 }
 
+/*
+ * Fonction qui permet d'indiquer en base qu'un utilisateur est connecte
+ */
 function connexion($id){
 
 	require ("modele/connectBD.php") ; 
@@ -46,7 +51,9 @@ function connexion($id){
 	}	
 }
 
-
+/*
+ * Fonction qui permet d'inscrire un client
+ */
 function inscription_client($prenom,$nom,$email,$mdp,$adresse,$cp,$ville,&$err) {
 
 	require ("modele/connectBD.php");
@@ -111,6 +118,9 @@ function inscription_client($prenom,$nom,$email,$mdp,$adresse,$cp,$ville,&$err) 
 
 }
 
+/*
+ * Fonction qui permet au client de modifier ses informations
+ */
 function modification_client($id,$email,$adresse,$cp,$ville,$mdp,&$profil) {
 
 	require ("modele/connectBD.php") ;
@@ -167,6 +177,9 @@ function modification_client($id,$email,$adresse,$cp,$ville,$mdp,&$profil) {
 
 }
 
+/*
+ * Fonction qui permet de récupérer les commandes d'un client 
+ */
 function commandes($id){
 
 	require ("modele/connectBD.php") ;
@@ -188,6 +201,9 @@ function commandes($id){
 
 }
 
+/*
+ * Fonction qui permet de récupérer l'historique d'un client
+ */
 function historique($id){
 
 	require ("modele/connectBD.php") ;
@@ -209,7 +225,9 @@ function historique($id){
 
 }
 
-
+/*
+ * Fonction qui permet d'indiquer qu'un client est déconnecté en base
+ */
 function deconnexion_client($id){
 
 	require ("modele/connectBD.php") ; 
@@ -227,7 +245,9 @@ function deconnexion_client($id){
 
 }
 
-
+/*
+ * Fonction qui permet de récupérer les clients inscrits sur le site
+ */
 function liste_clients() {
 
 	require ("modele/connectBD.php") ; 
@@ -247,6 +267,9 @@ function liste_clients() {
 
 }
 
+/*
+ * Fonction qui permet de supprimer un client
+ */
 function supprimer_client($id){
 	require ("modele/connectBD.php") ; 
 
@@ -263,6 +286,9 @@ function supprimer_client($id){
 
 }
 
+/*
+ * Fonction qui récupère les informations d'un client
+ */
 function infosClient($id){
 	require ("modele/connectBD.php") ; 
 
@@ -282,6 +308,9 @@ function infosClient($id){
 	return $donnees[0];
 }
 
+/*
+ * Fonction qui permet à l'administrateur de modifier un client
+ */
 function admin_modifClient($id,$prenom,$nom,$email,$mdp,$adresse,$cp,$ville){
 
 	require ("modele/connectBD.php");

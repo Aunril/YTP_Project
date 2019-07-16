@@ -2,6 +2,9 @@
 
 //produits.php : controleur qui permet de gérer l'affichage des produits sur le site
 
+/*
+ * Fonction qui permet d'afficher toutes les informations concernant un produit
+ */
 function afficherProduit(){
 	require ("modele/produitsBD.php");
 	require ("modele/panierBD.php");
@@ -16,6 +19,10 @@ function afficherProduit(){
 	}
 }
 
+
+/*
+ * Fonctions d'affichage des différentes catégories de produit
+ */
 function afficherDC(){
 	require ("modele/produitsBD.php");
 
