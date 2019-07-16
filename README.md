@@ -1,3 +1,5 @@
+Code de la boutique en ligne Striker Eureka
+
 Les comptes admins du site :
 
 	- login : Admin1 et mdp : adm1
